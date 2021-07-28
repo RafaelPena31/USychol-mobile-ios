@@ -11,11 +11,3 @@ public enum HeaderTypeOptions {
     case main
     case secondary
 }
-
-public protocol CoreHeaderType: AnyObject {
-    var content: UILabel { get }
-}
-
-extension CoreHeaderType where Self: UILabel {
-    public var content: UILabel { return self }
-}
