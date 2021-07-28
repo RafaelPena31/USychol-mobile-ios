@@ -15,8 +15,6 @@
 		E467014026A8BC6D00A28683 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013D26A8BC6D00A28683 /* Poppins-SemiBold.ttf */; };
 		E467014226A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467014126A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf */; };
 		E467014826A9120400A28683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E467014726A9120400A28683 /* SplashViewController.swift */; };
-		E4A8040C26AEE28300AE8593 /* StyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8040B26AEE28300AE8593 /* StyleProtocol.swift */; };
-		E4A8040E26AEE35600AE8593 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8040D26AEE35600AE8593 /* LabelStyle.swift */; };
 		E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041026AEE91500AE8593 /* SplashView.swift */; };
 		E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041226AEEE7000AE8593 /* SplashViewType.swift */; };
 		E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041626AF043300AE8593 /* CoreLabel.swift */; };
@@ -80,8 +78,6 @@
 		E467013D26A8BC6D00A28683 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		E467014126A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-VariableFont_slnt,wght.ttf"; path = "../../../../fonts/Inter,Poppins/Inter/Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
 		E467014726A9120400A28683 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		E4A8040B26AEE28300AE8593 /* StyleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleProtocol.swift; sourceTree = "<group>"; };
-		E4A8040D26AEE35600AE8593 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
 		E4A8041026AEE91500AE8593 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E4A8041226AEEE7000AE8593 /* SplashViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewType.swift; sourceTree = "<group>"; };
 		E4A8041626AF043300AE8593 /* CoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLabel.swift; sourceTree = "<group>"; };
@@ -243,9 +239,7 @@
 		E467014326A8EAEB00A28683 /* CoreStyle */ = {
 			isa = PBXGroup;
 			children = (
-				E4A8040A26AEE25A00AE8593 /* StyleProtocols */,
 				E4C541DD26A9B4D70047F5E3 /* GradientStyle.swift */,
-				E4A8040D26AEE35600AE8593 /* LabelStyle.swift */,
 			);
 			path = CoreStyle;
 			sourceTree = "<group>";
@@ -257,14 +251,6 @@
 				E4A8040F26AEE90400AE8593 /* View */,
 			);
 			path = Splash;
-			sourceTree = "<group>";
-		};
-		E4A8040A26AEE25A00AE8593 /* StyleProtocols */ = {
-			isa = PBXGroup;
-			children = (
-				E4A8040B26AEE28300AE8593 /* StyleProtocol.swift */,
-			);
-			path = StyleProtocols;
 			sourceTree = "<group>";
 		};
 		E4A8040F26AEE90400AE8593 /* View */ = {
@@ -645,14 +631,12 @@
 				E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */,
 				E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */,
 				E4A8044826B1F7BA00AE8593 /* SignInViewType.swift in Sources */,
-				E4A8040C26AEE28300AE8593 /* StyleProtocol.swift in Sources */,
 				E4A8043126B0489800AE8593 /* CoreHeaderType.swift in Sources */,
 				E4A8043326B1B66500AE8593 /* CoreTextField.swift in Sources */,
 				E4A8044B26B1F7BA00AE8593 /* SignInViewModel.swift in Sources */,
 				E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */,
 				E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */,
 				E4A8044926B1F7BA00AE8593 /* SignInView.swift in Sources */,
-				E4A8040E26AEE35600AE8593 /* LabelStyle.swift in Sources */,
 				E4C541DE26A9B4D70047F5E3 /* GradientStyle.swift in Sources */,
 				E4A8044726B1F7BA00AE8593 /* SignInViewEntity.swift in Sources */,
 				E4DEE68D26A74F0E0026E89D /* AppDelegate.swift in Sources */,
