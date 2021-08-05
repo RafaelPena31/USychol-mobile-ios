@@ -32,10 +32,7 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+
     
     // MARK: - PRIVATE
     
@@ -62,6 +59,5 @@ extension SplashViewController: SplashViewDelegate {
         let SignInVC = SignInViewController(viewModel: SignInVM)
         
         self.navigationController?.pushViewController(SignInVC, animated: true)
-        print("Clicou pinguim")
     }
 }
