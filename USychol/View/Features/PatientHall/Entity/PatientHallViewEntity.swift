@@ -9,4 +9,5 @@
 
 public struct PatientHallViewEntity: Equatable {
     let remidersData: [Reminder]
+    let patientsData: [Patient]
 }

@@ -55,8 +55,10 @@ class SplashViewController: UIViewController {
 
 extension SplashViewController: SplashViewDelegate {
     func onHandleClick() {
-        let SignInVM = SignInViewModel()
-        let SignInVC = SignInViewController(viewModel: SignInVM)
+        let SignInVM = PatientHallViewModel()
+        let SignInVC = PatientHallViewController(viewModel: SignInVM)
+        
+        SignInVM.viewController = SignInVC
         
         self.navigationController?.pushViewController(SignInVC, animated: true)
     }

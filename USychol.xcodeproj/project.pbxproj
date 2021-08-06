@@ -13,6 +13,11 @@
 		E455B62026B4517C000D298A /* ReminderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B61F26B4517C000D298A /* ReminderRepository.swift */; };
 		E455B62326B453D3000D298A /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B62226B453D3000D298A /* Reminder.swift */; };
 		E455B62526B47132000D298A /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B62426B47132000D298A /* ReminderTableViewCell.swift */; };
+		E458807B26BC047F005D6573 /* PatientTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458807A26BC047F005D6573 /* PatientTableView.swift */; };
+		E458807D26BC04FF005D6573 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458807C26BC04FF005D6573 /* PatientTableViewCell.swift */; };
+		E458807F26BC7ABC005D6573 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458807E26BC7ABC005D6573 /* Patient.swift */; };
+		E458808126BC85F3005D6573 /* PatientRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */; };
+		E458808326BC861F005D6573 /* PatientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808226BC861F005D6573 /* PatientRepository.swift */; };
 		E467013A26A8BC5000A28683 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013926A8BC5000A28683 /* Poppins-Medium.ttf */; };
 		E467013E26A8BC6D00A28683 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013B26A8BC6D00A28683 /* Poppins-Bold.ttf */; };
 		E467013F26A8BC6D00A28683 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013C26A8BC6D00A28683 /* Poppins-Regular.ttf */; };
@@ -89,6 +94,11 @@
 		E455B61F26B4517C000D298A /* ReminderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRepository.swift; sourceTree = "<group>"; };
 		E455B62226B453D3000D298A /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		E455B62426B47132000D298A /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
+		E458807A26BC047F005D6573 /* PatientTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableView.swift; sourceTree = "<group>"; };
+		E458807C26BC04FF005D6573 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
+		E458807E26BC7ABC005D6573 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E458808226BC861F005D6573 /* PatientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRepository.swift; sourceTree = "<group>"; };
 		E467013926A8BC5000A28683 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		E467013B26A8BC6D00A28683 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		E467013C26A8BC6D00A28683 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -215,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				E455B61B26B4508C000D298A /* ReminderRepositoryProtocol.swift */,
+				E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -231,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				E455B61F26B4517C000D298A /* ReminderRepository.swift */,
+				E458808226BC861F005D6573 /* PatientRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -239,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				E455B62226B453D3000D298A /* Reminder.swift */,
+				E458807E26BC7ABC005D6573 /* Patient.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -260,6 +273,15 @@
 				E4DEE69526A74F0F0026E89D /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		E458807926BC03EB005D6573 /* PatientTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E458807A26BC047F005D6573 /* PatientTableView.swift */,
+				E458807C26BC04FF005D6573 /* PatientTableViewCell.swift */,
+			);
+			path = PatientTableView;
 			sourceTree = "<group>";
 		};
 		E467013526A8B66C00A28683 /* View */ = {
@@ -363,6 +385,7 @@
 		E4828AC626B38B9E003E8138 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E458807926BC03EB005D6573 /* PatientTableView */,
 				E4828AD026B3BD54003E8138 /* ReminderTableView */,
 				E4828AC726B38D6D003E8138 /* ReminderTextField.swift */,
 			);
@@ -746,6 +769,7 @@
 			files = (
 				E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */,
 				E455B61C26B4508C000D298A /* ReminderRepositoryProtocol.swift in Sources */,
+				E458807D26BC04FF005D6573 /* PatientTableViewCell.swift in Sources */,
 				E4828AC026B361D9003E8138 /* PatientHallViewEntity.swift in Sources */,
 				E4C380D626AA67EB00CF2A9C /* CoreButton.swift in Sources */,
 				E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */,
@@ -764,6 +788,7 @@
 				E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */,
 				E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */,
 				E4A8044926B1F7BA00AE8593 /* SignInView.swift in Sources */,
+				E458808126BC85F3005D6573 /* PatientRepositoryProtocol.swift in Sources */,
 				E4828AC826B38D6D003E8138 /* ReminderTextField.swift in Sources */,
 				E4828AC126B361D9003E8138 /* PatientHallViewState.swift in Sources */,
 				E4C541DE26A9B4D70047F5E3 /* GradientStyle.swift in Sources */,
@@ -772,9 +797,12 @@
 				E4DEE68F26A74F0E0026E89D /* SceneDelegate.swift in Sources */,
 				E4A8044A26B1F7BA00AE8593 /* SignInViewState.swift in Sources */,
 				E4828AC426B361D9003E8138 /* PatientHallProtocols.swift in Sources */,
+				E458807F26BC7ABC005D6573 /* Patient.swift in Sources */,
 				E455B62526B47132000D298A /* ReminderTableViewCell.swift in Sources */,
 				E4A8044626B1F7BA00AE8593 /* SignInProtocols.swift in Sources */,
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
+				E458807B26BC047F005D6573 /* PatientTableView.swift in Sources */,
+				E458808326BC861F005D6573 /* PatientRepository.swift in Sources */,
 				E467014826A9120400A28683 /* SplashViewController.swift in Sources */,
 				E455B62326B453D3000D298A /* Reminder.swift in Sources */,
 			);

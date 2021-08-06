@@ -3,7 +3,6 @@
 //  USychol
 //
 //  Created Rafael Augusto Mesquita on 29/07/21.
-//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 //
 
@@ -15,6 +14,7 @@ final public class PatientHallView: UIView {
     // MARK: - PROPERTIES
     
     var reminderData: [Reminder] = []
+    var patientData: [Patient] = []
     
     // MARK: - UI
     
@@ -25,6 +25,8 @@ final public class PatientHallView: UIView {
         
         return view
     }()
+    
+//    =======================================================
     
     private lazy var reminderTextField: ReminderTextField = {
         let textField = ReminderTextField(insets: UIEdgeInsets(top: 0, left: 36, bottom: 0, right: 16), placeholder: "Create reminder", onHandleClickAdd: onHandleAddReminder)
@@ -56,11 +58,23 @@ final public class PatientHallView: UIView {
         
         header.backgroundColor = UIColor(named: "MainPurpleColor")
         header.layer.cornerRadius = 15
-        header.layer.shadowColor = UIColor(named: "GreyButtonColor")?.cgColor
-        header.layer.shadowOpacity = 1
-        header.layer.shadowRadius = 20
+        header.layer.shadowColor = UIColor(named: "NeonBlackColor")?.cgColor
+        header.layer.shadowOpacity = 0.5
+        header.layer.shadowRadius = 10
         
         return header
+    }()
+    
+//    =======================================================
+    
+    private lazy var patientTableView: PatientTableView = {
+        let tableView = PatientTableView()
+        
+        tableView.register(PatientTableViewCell.self, forCellReuseIdentifier: "patientCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        return tableView
     }()
     
     // MARK: - PUBLIC API
@@ -94,6 +108,8 @@ final public class PatientHallView: UIView {
         
         containerView.addSubview(headerView)
         
+        containerView.addSubview(patientTableView)
+        
         addSubview(containerView)
     }
     
@@ -103,16 +119,16 @@ final public class PatientHallView: UIView {
         }
         
         headerView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(containerView)
-            make.leading.equalTo(containerView)
-            make.trailing.equalTo(containerView)
+            make.top.equalTo(0)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
             make.height.equalTo(280)
         }
         
         reminderTableView.snp.makeConstraints {(make) -> Void in
             make.height.equalTo(185)
-            make.leading.equalTo(headerView)
-            make.trailing.equalTo(headerView)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
         }
         
         reminderTextField.snp.makeConstraints { (make) -> Void in
@@ -126,6 +142,13 @@ final public class PatientHallView: UIView {
             make.width.equalTo(50)
             make.centerX.equalTo(headerView)
             make.top.equalTo(reminderTextField.snp.bottom).offset(10)
+        }
+        
+        patientTableView.snp.makeConstraints {(make) -> Void in
+            make.top.equalTo(headerView.snp.bottom).offset(16)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.bottom.equalTo(0)
         }
     }
     
@@ -146,6 +169,7 @@ extension PatientHallView: PatientHallViewType {
         switch viewState {
         case .hasData(let entity):
             reminderData = entity.remidersData
+            patientData = entity.patientsData
         default: break
         }
     }
@@ -155,18 +179,30 @@ extension PatientHallView: PatientHallViewType {
 
 extension PatientHallView: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        if tableView == reminderTableView {
+            return 65
+        }
+        return 90
     }
 }
 
 extension PatientHallView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.reminderData.count
+        if tableView == reminderTableView {
+            return self.reminderData.count
+        }
+        return self.patientData.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell") as! ReminderTableViewCell
-        cell.reminder = reminderData[indexPath.row]
+        if tableView == reminderTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell") as! ReminderTableViewCell
+            cell.reminder = reminderData[indexPath.row]
+            
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell") as! PatientTableViewCell
+        cell.patients = patientData[indexPath.row]
         
         return cell
     }

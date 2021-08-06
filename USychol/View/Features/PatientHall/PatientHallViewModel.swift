@@ -3,7 +3,6 @@
 //  USychol
 //
 //  Created Rafael Augusto Mesquita on 29/07/21.
-//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 //
 
@@ -37,6 +36,9 @@ public class PatientHallViewModel: PatientHallViewModelType {
         let reminderRepository = ReminderRepository()
         let reminders = reminderRepository.getReminders(userId: "0")
         
-        viewState = .hasData(PatientHallViewEntity(remidersData: reminders))
+        let patientRepository = PatientRepository()
+        let patients = patientRepository.getPatients(userId: "0")
+        
+        viewState = .hasData(PatientHallViewEntity(remidersData: reminders, patientsData: patients))
     }
 }
