@@ -18,6 +18,13 @@
 		E458807F26BC7ABC005D6573 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458807E26BC7ABC005D6573 /* Patient.swift */; };
 		E458808126BC85F3005D6573 /* PatientRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */; };
 		E458808326BC861F005D6573 /* PatientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808226BC861F005D6573 /* PatientRepository.swift */; };
+		E458809026BCDDA8005D6573 /* PatientFormViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */; };
+		E458809126BCDDA8005D6573 /* PatientFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808926BCDDA8005D6573 /* PatientFormViewController.swift */; };
+		E458809226BCDDA8005D6573 /* PatientFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */; };
+		E458809326BCDDA8005D6573 /* PatientFormViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */; };
+		E458809426BCDDA8005D6573 /* PatientFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808D26BCDDA8005D6573 /* PatientFormView.swift */; };
+		E458809526BCDDA8005D6573 /* PatientFormViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */; };
+		E458809626BCDDA8005D6573 /* PatientFormProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */; };
 		E467013A26A8BC5000A28683 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013926A8BC5000A28683 /* Poppins-Medium.ttf */; };
 		E467013E26A8BC6D00A28683 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013B26A8BC6D00A28683 /* Poppins-Bold.ttf */; };
 		E467013F26A8BC6D00A28683 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013C26A8BC6D00A28683 /* Poppins-Regular.ttf */; };
@@ -99,6 +106,13 @@
 		E458807E26BC7ABC005D6573 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E458808226BC861F005D6573 /* PatientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRepository.swift; sourceTree = "<group>"; };
+		E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewEntity.swift; sourceTree = "<group>"; };
+		E458808926BCDDA8005D6573 /* PatientFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewController.swift; sourceTree = "<group>"; };
+		E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewModel.swift; sourceTree = "<group>"; };
+		E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewState.swift; sourceTree = "<group>"; };
+		E458808D26BCDDA8005D6573 /* PatientFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormView.swift; sourceTree = "<group>"; };
+		E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewType.swift; sourceTree = "<group>"; };
+		E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormProtocols.swift; sourceTree = "<group>"; };
 		E467013926A8BC5000A28683 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		E467013B26A8BC6D00A28683 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		E467013C26A8BC6D00A28683 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -284,6 +298,36 @@
 			path = PatientTableView;
 			sourceTree = "<group>";
 		};
+		E458808626BCDDA8005D6573 /* PatientForm */ = {
+			isa = PBXGroup;
+			children = (
+				E458808726BCDDA8005D6573 /* Entity */,
+				E458808926BCDDA8005D6573 /* PatientFormViewController.swift */,
+				E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */,
+				E458808B26BCDDA8005D6573 /* View */,
+				E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */,
+			);
+			path = PatientForm;
+			sourceTree = "<group>";
+		};
+		E458808726BCDDA8005D6573 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E458808B26BCDDA8005D6573 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */,
+				E458808D26BCDDA8005D6573 /* PatientFormView.swift */,
+				E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E467013526A8B66C00A28683 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +352,7 @@
 		E467013726A8B68B00A28683 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E458808626BCDDA8005D6573 /* PatientForm */,
 				E4828AB426B361D9003E8138 /* PatientHall */,
 				E4A8043C26B1F7BA00AE8593 /* SignIn */,
 				E467014626A911D600A28683 /* Splash */,
@@ -787,10 +832,12 @@
 				E4828AD226B3BF9F003E8138 /* ReminderTableView.swift in Sources */,
 				E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */,
 				E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */,
+				E458809026BCDDA8005D6573 /* PatientFormViewEntity.swift in Sources */,
 				E4A8044926B1F7BA00AE8593 /* SignInView.swift in Sources */,
 				E458808126BC85F3005D6573 /* PatientRepositoryProtocol.swift in Sources */,
 				E4828AC826B38D6D003E8138 /* ReminderTextField.swift in Sources */,
 				E4828AC126B361D9003E8138 /* PatientHallViewState.swift in Sources */,
+				E458809226BCDDA8005D6573 /* PatientFormViewModel.swift in Sources */,
 				E4C541DE26A9B4D70047F5E3 /* GradientStyle.swift in Sources */,
 				E4A8044726B1F7BA00AE8593 /* SignInViewEntity.swift in Sources */,
 				E4DEE68D26A74F0E0026E89D /* AppDelegate.swift in Sources */,
@@ -800,10 +847,15 @@
 				E458807F26BC7ABC005D6573 /* Patient.swift in Sources */,
 				E455B62526B47132000D298A /* ReminderTableViewCell.swift in Sources */,
 				E4A8044626B1F7BA00AE8593 /* SignInProtocols.swift in Sources */,
+				E458809126BCDDA8005D6573 /* PatientFormViewController.swift in Sources */,
+				E458809626BCDDA8005D6573 /* PatientFormProtocols.swift in Sources */,
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
 				E458807B26BC047F005D6573 /* PatientTableView.swift in Sources */,
 				E458808326BC861F005D6573 /* PatientRepository.swift in Sources */,
 				E467014826A9120400A28683 /* SplashViewController.swift in Sources */,
+				E458809426BCDDA8005D6573 /* PatientFormView.swift in Sources */,
+				E458809326BCDDA8005D6573 /* PatientFormViewState.swift in Sources */,
+				E458809526BCDDA8005D6573 /* PatientFormViewType.swift in Sources */,
 				E455B62326B453D3000D298A /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
