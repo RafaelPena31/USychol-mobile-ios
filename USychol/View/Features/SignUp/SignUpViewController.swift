@@ -1,28 +1,30 @@
 
 //
-//  SignInViewController.swift
+//  SignUpViewController.swift
 //  USychol
 //
-//  Created Rafael Augusto Mesquita on 28/07/21.
+//  Created Fernando Rodrigues on 30/07/21.
+//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
+//
 //
 
 import UIKit
 
-public class SignInViewController: UIViewController {
+public class SignUpViewController: UIViewController {
 
     // MARK: - PROPERTIES
 
-    public let viewModel: SignInViewModelType?
-    public let contentView: SignInViewType?
+    public let viewModel: SignUpViewModelType?
+    public let contentView: SignUpViewType?
 
     // MARK: - PUBLIC API
 
-    public weak var delegate: SignInViewControllerDelegate?
+    public weak var delegate: SignUpViewControllerDelegate?
 
     // MARK: - INITIALIZERS
 
-    public init(contentView: SignInViewType = SignInView(),
-                viewModel: SignInViewModelType) {
+    public init(contentView: SignUpViewType = SignUpView(),
+                viewModel: SignUpViewModelType) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -44,7 +46,6 @@ public class SignInViewController: UIViewController {
     // MARK: - PRIVATE
     
     private func setup() {
-        _ = CoreHeader(type: .main, navigationItem: self.navigationItem, navigationController: self.navigationController!)
         contentSetup()
     }
     
@@ -56,20 +57,17 @@ public class SignInViewController: UIViewController {
     }
 }
 
-extension SignInViewController: SignInViewControllerType {
-    public func updateView(with viewState: SignInViewState) {
+extension SignUpViewController: SignUpViewControllerType {
+    public func updateView(with viewState: SignUpViewState) {
         contentView?.updateView(with: viewState)
     }
-    
+}
+
+extension SignUpViewController: SignUpViewDelegate {
     public func onHandleClick() {
-        let SignUpVM = SignUpViewModel()
-        let SignUpVC = SignUpViewController(viewModel: SignUpVM)
+        let SignInVM = SignInViewModel()
+        let SignInVC = SignInViewController(viewModel: SignInVM)
         
-        self.navigationController?.pushViewController(SignUpVC, animated: true)
+        self.navigationController?.pushViewController(SignInVC, animated: true)
     }
 }
-
-extension SignInViewController: SignInViewDelegate {
-
-}
-

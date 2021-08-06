@@ -9,24 +9,32 @@
 /* Begin PBXBuildFile section */
 		0451A44499A8B7A1D3F11AAA /* Pods_USychol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EB53C5F0FCA6BD1B72492 /* Pods_USychol.framework */; };
 		116E7EEA807149D854F8F52C /* Pods_USycholTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46F120F8573550CB9F3361F /* Pods_USycholTests.framework */; };
-		E467013A26A8BC5000A28683 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013926A8BC5000A28683 /* Poppins-Medium.ttf */; };
-		E467013E26A8BC6D00A28683 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013B26A8BC6D00A28683 /* Poppins-Bold.ttf */; };
-		E467013F26A8BC6D00A28683 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013C26A8BC6D00A28683 /* Poppins-Regular.ttf */; };
-		E467014026A8BC6D00A28683 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467013D26A8BC6D00A28683 /* Poppins-SemiBold.ttf */; };
-		E467014226A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E467014126A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf */; };
+		8F07CE0D26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0C26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf */; };
+		8F07CE1426B43DF2001E4E15 /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */; };
+		8F07CE1526B43DF2001E4E15 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */; };
+		8F07CE1626B43DF2001E4E15 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */; };
+		8F07CE1726B43DF2001E4E15 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
+		8F07CE1826B43DF2001E4E15 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */; };
+		8F07CE1926B43DF2001E4E15 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */; };
+		8F07CE1E26B43E0D001E4E15 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1A26B43E0C001E4E15 /* Poppins-Regular.ttf */; };
+		8F07CE1F26B43E0D001E4E15 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1B26B43E0C001E4E15 /* Poppins-SemiBold.ttf */; };
+		8F07CE2026B43E0D001E4E15 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */; };
+		8F07CE2126B43E0D001E4E15 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */; };
+		8F07CE2326B43E30001E4E15 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */; };
+		8FA9E29E26B36DFD0092473E /* CoreInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9E29D26B36DFD0092473E /* CoreInputField.swift */; };
+		8FD2B1EF26B433C0000C9E69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1E626B433C0000C9E69 /* SignUpViewController.swift */; };
+		8FD2B1F026B433C0000C9E69 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1E726B433C0000C9E69 /* SignUpViewModel.swift */; };
+		8FD2B1F126B433C0000C9E69 /* SignUpViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1E926B433C0000C9E69 /* SignUpViewEntity.swift */; };
+		8FD2B1F226B433C0000C9E69 /* SignUpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1EB26B433C0000C9E69 /* SignUpViewState.swift */; };
+		8FD2B1F326B433C0000C9E69 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1EC26B433C0000C9E69 /* SignUpView.swift */; };
+		8FD2B1F426B433C0000C9E69 /* SignUpViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1ED26B433C0000C9E69 /* SignUpViewType.swift */; };
+		8FD2B1F526B433C0000C9E69 /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1EE26B433C0000C9E69 /* SignUpProtocols.swift */; };
 		E467014826A9120400A28683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E467014726A9120400A28683 /* SplashViewController.swift */; };
 		E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041026AEE91500AE8593 /* SplashView.swift */; };
 		E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041226AEEE7000AE8593 /* SplashViewType.swift */; };
 		E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041626AF043300AE8593 /* CoreLabel.swift */; };
 		E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041926AF0D0A00AE8593 /* CoreLabelType.swift */; };
 		E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8042026AF2C7700AE8593 /* CoreHeader.swift */; };
-		E4A8042926B03EF600AE8593 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8042226B03EF600AE8593 /* Nunito-Regular.ttf */; };
-		E4A8042A26B03EF600AE8593 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8042326B03EF600AE8593 /* Nunito-Light.ttf */; };
-		E4A8042B26B03EF600AE8593 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8042426B03EF600AE8593 /* Nunito-SemiBold.ttf */; };
-		E4A8042C26B03EF600AE8593 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8042526B03EF600AE8593 /* Nunito-Bold.ttf */; };
-		E4A8042D26B03EF600AE8593 /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8042626B03EF600AE8593 /* Nunito-ExtraLight.ttf */; };
-		E4A8042E26B03EF600AE8593 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8042726B03EF600AE8593 /* Nunito-ExtraBold.ttf */; };
-		E4A8042F26B03EF600AE8593 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8042826B03EF600AE8593 /* Nunito-Black.ttf */; };
 		E4A8043126B0489800AE8593 /* CoreHeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043026B0489800AE8593 /* CoreHeaderType.swift */; };
 		E4A8043326B1B66500AE8593 /* CoreTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043226B1B66500AE8593 /* CoreTextField.swift */; };
 		E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043526B1D7B500AE8593 /* CoreButtonType.swift */; };
@@ -69,27 +77,35 @@
 		52C0B4C0A53D217E10422693 /* Pods_USychol_USycholUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USychol_USycholUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B2734AFC3B8961ADF42606 /* Pods-USychol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol.release.xcconfig"; path = "Target Support Files/Pods-USychol/Pods-USychol.release.xcconfig"; sourceTree = "<group>"; };
 		5C5AB07248AE5BBF0D6B58CE /* Pods-USycholTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USycholTests.debug.xcconfig"; path = "Target Support Files/Pods-USycholTests/Pods-USycholTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F07CE0C26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-VariableFont_slnt,wght.ttf"; path = "../../../../../../../Downloads/Inter/Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
+		8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
+		8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		8F07CE1A26B43E0C001E4E15 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		8F07CE1B26B43E0C001E4E15 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		8FA9E29D26B36DFD0092473E /* CoreInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreInputField.swift; sourceTree = "<group>"; };
+		8FD2B1E626B433C0000C9E69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8FD2B1E726B433C0000C9E69 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		8FD2B1E926B433C0000C9E69 /* SignUpViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewEntity.swift; sourceTree = "<group>"; };
+		8FD2B1EB26B433C0000C9E69 /* SignUpViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewState.swift; sourceTree = "<group>"; };
+		8FD2B1EC26B433C0000C9E69 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		8FD2B1ED26B433C0000C9E69 /* SignUpViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewType.swift; sourceTree = "<group>"; };
+		8FD2B1EE26B433C0000C9E69 /* SignUpProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
 		C9F373F445B2AA50CB5906DC /* Pods-USycholTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USycholTests.release.xcconfig"; path = "Target Support Files/Pods-USycholTests/Pods-USycholTests.release.xcconfig"; sourceTree = "<group>"; };
 		D46F120F8573550CB9F3361F /* Pods_USycholTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USycholTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7FD7262B7071D9640D2B2C /* Pods-USychol-USycholUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol-USycholUITests.debug.xcconfig"; path = "Target Support Files/Pods-USychol-USycholUITests/Pods-USychol-USycholUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E467013926A8BC5000A28683 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		E467013B26A8BC6D00A28683 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
-		E467013C26A8BC6D00A28683 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		E467013D26A8BC6D00A28683 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../fonts/Inter,Poppins/Poppins/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		E467014126A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-VariableFont_slnt,wght.ttf"; path = "../../../../fonts/Inter,Poppins/Inter/Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
 		E467014726A9120400A28683 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E4A8041026AEE91500AE8593 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E4A8041226AEEE7000AE8593 /* SplashViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewType.swift; sourceTree = "<group>"; };
 		E4A8041626AF043300AE8593 /* CoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLabel.swift; sourceTree = "<group>"; };
 		E4A8041926AF0D0A00AE8593 /* CoreLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLabelType.swift; sourceTree = "<group>"; };
 		E4A8042026AF2C7700AE8593 /* CoreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHeader.swift; sourceTree = "<group>"; };
-		E4A8042226B03EF600AE8593 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "../../../../fonts/Nunito/Nunito-Regular.ttf"; sourceTree = "<group>"; };
-		E4A8042326B03EF600AE8593 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Light.ttf"; path = "../../../../fonts/Nunito/Nunito-Light.ttf"; sourceTree = "<group>"; };
-		E4A8042426B03EF600AE8593 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-SemiBold.ttf"; path = "../../../../fonts/Nunito/Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
-		E4A8042526B03EF600AE8593 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Bold.ttf"; path = "../../../../fonts/Nunito/Nunito-Bold.ttf"; sourceTree = "<group>"; };
-		E4A8042626B03EF600AE8593 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-ExtraLight.ttf"; path = "../../../../fonts/Nunito/Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
-		E4A8042726B03EF600AE8593 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-ExtraBold.ttf"; path = "../../../../fonts/Nunito/Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
-		E4A8042826B03EF600AE8593 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Black.ttf"; path = "../../../../fonts/Nunito/Nunito-Black.ttf"; sourceTree = "<group>"; };
 		E4A8043026B0489800AE8593 /* CoreHeaderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHeaderType.swift; sourceTree = "<group>"; };
 		E4A8043226B1B66500AE8593 /* CoreTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTextField.swift; sourceTree = "<group>"; };
 		E4A8043526B1D7B500AE8593 /* CoreButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreButtonType.swift; sourceTree = "<group>"; };
@@ -168,6 +184,43 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8FA9E29C26B36DCF0092473E /* CoreInputField */ = {
+			isa = PBXGroup;
+			children = (
+				8FA9E29D26B36DFD0092473E /* CoreInputField.swift */,
+			);
+			path = CoreInputField;
+			sourceTree = "<group>";
+		};
+		8FD2B1E526B433C0000C9E69 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8FD2B1E626B433C0000C9E69 /* SignUpViewController.swift */,
+				8FD2B1E726B433C0000C9E69 /* SignUpViewModel.swift */,
+				8FD2B1E826B433C0000C9E69 /* Entity */,
+				8FD2B1EA26B433C0000C9E69 /* View */,
+				8FD2B1EE26B433C0000C9E69 /* SignUpProtocols.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		8FD2B1E826B433C0000C9E69 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8FD2B1E926B433C0000C9E69 /* SignUpViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		8FD2B1EA26B433C0000C9E69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8FD2B1EB26B433C0000C9E69 /* SignUpViewState.swift */,
+				8FD2B1ED26B433C0000C9E69 /* SignUpViewType.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E455F91D26A7BF37004A85B2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +253,7 @@
 		E467013626A8B67F00A28683 /* CoreUI */ = {
 			isa = PBXGroup;
 			children = (
+				8FA9E29C26B36DCF0092473E /* CoreInputField */,
 				E4A8043726B1D7D000AE8593 /* CoreTextField */,
 				E4A8043426B1D76400AE8593 /* CoreButton */,
 				E4A8041B26AF198C00AE8593 /* CoreHeader */,
@@ -211,6 +265,7 @@
 		E467013726A8B68B00A28683 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8FD2B1E526B433C0000C9E69 /* SignUp */,
 				E4A8043C26B1F7BA00AE8593 /* SignIn */,
 				E467014626A911D600A28683 /* Splash */,
 			);
@@ -220,18 +275,18 @@
 		E467013826A8BA7400A28683 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E4A8042826B03EF600AE8593 /* Nunito-Black.ttf */,
-				E4A8042526B03EF600AE8593 /* Nunito-Bold.ttf */,
-				E4A8042726B03EF600AE8593 /* Nunito-ExtraBold.ttf */,
-				E4A8042626B03EF600AE8593 /* Nunito-ExtraLight.ttf */,
-				E4A8042326B03EF600AE8593 /* Nunito-Light.ttf */,
-				E4A8042226B03EF600AE8593 /* Nunito-Regular.ttf */,
-				E4A8042426B03EF600AE8593 /* Nunito-SemiBold.ttf */,
-				E467014126A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf */,
-				E467013B26A8BC6D00A28683 /* Poppins-Bold.ttf */,
-				E467013C26A8BC6D00A28683 /* Poppins-Regular.ttf */,
-				E467013D26A8BC6D00A28683 /* Poppins-SemiBold.ttf */,
-				E467013926A8BC5000A28683 /* Poppins-Medium.ttf */,
+				8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */,
+				8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */,
+				8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */,
+				8F07CE1A26B43E0C001E4E15 /* Poppins-Regular.ttf */,
+				8F07CE1B26B43E0C001E4E15 /* Poppins-SemiBold.ttf */,
+				8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */,
+				8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */,
+				8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */,
+				8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */,
+				8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */,
+				8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */,
+				8F07CE0C26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -300,6 +355,7 @@
 		E4A8043C26B1F7BA00AE8593 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				8FD2B1EC26B433C0000C9E69 /* SignUpView.swift */,
 				E4A8043D26B1F7BA00AE8593 /* SignInProtocols.swift */,
 				E4A8043E26B1F7BA00AE8593 /* Entity */,
 				E4A8044026B1F7BA00AE8593 /* View */,
@@ -485,18 +541,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4A8042F26B03EF600AE8593 /* Nunito-Black.ttf in Resources */,
-				E467014026A8BC6D00A28683 /* Poppins-SemiBold.ttf in Resources */,
-				E4A8042A26B03EF600AE8593 /* Nunito-Light.ttf in Resources */,
-				E4A8042D26B03EF600AE8593 /* Nunito-ExtraLight.ttf in Resources */,
-				E4A8042926B03EF600AE8593 /* Nunito-Regular.ttf in Resources */,
-				E4A8042E26B03EF600AE8593 /* Nunito-ExtraBold.ttf in Resources */,
-				E4A8042B26B03EF600AE8593 /* Nunito-SemiBold.ttf in Resources */,
-				E467013A26A8BC5000A28683 /* Poppins-Medium.ttf in Resources */,
-				E4A8042C26B03EF600AE8593 /* Nunito-Bold.ttf in Resources */,
-				E467013E26A8BC6D00A28683 /* Poppins-Bold.ttf in Resources */,
-				E467014226A8BC7D00A28683 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
-				E467013F26A8BC6D00A28683 /* Poppins-Regular.ttf in Resources */,
+				8F07CE1826B43DF2001E4E15 /* Nunito-Regular.ttf in Resources */,
+				8F07CE1926B43DF2001E4E15 /* Nunito-Light.ttf in Resources */,
+				8F07CE1526B43DF2001E4E15 /* Nunito-Bold.ttf in Resources */,
+				8F07CE1E26B43E0D001E4E15 /* Poppins-Regular.ttf in Resources */,
+				8F07CE0D26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				8F07CE1F26B43E0D001E4E15 /* Poppins-SemiBold.ttf in Resources */,
+				8F07CE2026B43E0D001E4E15 /* Poppins-Bold.ttf in Resources */,
+				8F07CE1426B43DF2001E4E15 /* Nunito-ExtraLight.ttf in Resources */,
+				8F07CE1726B43DF2001E4E15 /* Nunito-SemiBold.ttf in Resources */,
+				8F07CE2326B43E30001E4E15 /* Nunito-Black.ttf in Resources */,
+				8F07CE1626B43DF2001E4E15 /* Nunito-ExtraBold.ttf in Resources */,
+				8F07CE2126B43E0D001E4E15 /* Poppins-Medium.ttf in Resources */,
 				E4DEE69626A74F0F0026E89D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,18 +681,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD2B1EF26B433C0000C9E69 /* SignUpViewController.swift in Sources */,
 				E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */,
+				8FA9E29E26B36DFD0092473E /* CoreInputField.swift in Sources */,
 				E4C380D626AA67EB00CF2A9C /* CoreButton.swift in Sources */,
 				E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */,
 				E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */,
 				E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */,
+				8FD2B1F526B433C0000C9E69 /* SignUpProtocols.swift in Sources */,
 				E4A8044826B1F7BA00AE8593 /* SignInViewType.swift in Sources */,
+				8FD2B1F326B433C0000C9E69 /* SignUpView.swift in Sources */,
 				E4A8043126B0489800AE8593 /* CoreHeaderType.swift in Sources */,
+				8FD2B1F226B433C0000C9E69 /* SignUpViewState.swift in Sources */,
 				E4A8043326B1B66500AE8593 /* CoreTextField.swift in Sources */,
 				E4A8044B26B1F7BA00AE8593 /* SignInViewModel.swift in Sources */,
 				E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */,
 				E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */,
+				8FD2B1F026B433C0000C9E69 /* SignUpViewModel.swift in Sources */,
 				E4A8044926B1F7BA00AE8593 /* SignInView.swift in Sources */,
+				8FD2B1F126B433C0000C9E69 /* SignUpViewEntity.swift in Sources */,
 				E4C541DE26A9B4D70047F5E3 /* GradientStyle.swift in Sources */,
 				E4A8044726B1F7BA00AE8593 /* SignInViewEntity.swift in Sources */,
 				E4DEE68D26A74F0E0026E89D /* AppDelegate.swift in Sources */,
@@ -645,6 +708,7 @@
 				E4A8044626B1F7BA00AE8593 /* SignInProtocols.swift in Sources */,
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
 				E467014826A9120400A28683 /* SplashViewController.swift in Sources */,
+				8FD2B1F426B433C0000C9E69 /* SignUpViewType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
