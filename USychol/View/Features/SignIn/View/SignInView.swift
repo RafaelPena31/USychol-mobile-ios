@@ -14,8 +14,9 @@ final public class SignInView: UIView {
     
     private lazy var containerView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        
         view.backgroundColor = .white
+        
         return view
     }()
     

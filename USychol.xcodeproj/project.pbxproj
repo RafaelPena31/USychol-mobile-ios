@@ -9,34 +9,83 @@
 /* Begin PBXBuildFile section */
 		0451A44499A8B7A1D3F11AAA /* Pods_USychol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EB53C5F0FCA6BD1B72492 /* Pods_USychol.framework */; };
 		116E7EEA807149D854F8F52C /* Pods_USycholTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46F120F8573550CB9F3361F /* Pods_USycholTests.framework */; };
-		8F07CE0D26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0C26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf */; };
-		8F07CE1426B43DF2001E4E15 /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */; };
-		8F07CE1526B43DF2001E4E15 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */; };
-		8F07CE1626B43DF2001E4E15 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */; };
-		8F07CE1726B43DF2001E4E15 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
-		8F07CE1826B43DF2001E4E15 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */; };
-		8F07CE1926B43DF2001E4E15 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */; };
-		8F07CE1E26B43E0D001E4E15 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1A26B43E0C001E4E15 /* Poppins-Regular.ttf */; };
-		8F07CE1F26B43E0D001E4E15 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1B26B43E0C001E4E15 /* Poppins-SemiBold.ttf */; };
-		8F07CE2026B43E0D001E4E15 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */; };
-		8F07CE2126B43E0D001E4E15 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */; };
-		8F07CE2326B43E30001E4E15 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */; };
-		8FA9E29E26B36DFD0092473E /* CoreInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9E29D26B36DFD0092473E /* CoreInputField.swift */; };
-		8FD2B1EF26B433C0000C9E69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1E626B433C0000C9E69 /* SignUpViewController.swift */; };
-		8FD2B1F026B433C0000C9E69 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1E726B433C0000C9E69 /* SignUpViewModel.swift */; };
-		8FD2B1F126B433C0000C9E69 /* SignUpViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1E926B433C0000C9E69 /* SignUpViewEntity.swift */; };
-		8FD2B1F226B433C0000C9E69 /* SignUpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1EB26B433C0000C9E69 /* SignUpViewState.swift */; };
-		8FD2B1F326B433C0000C9E69 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1EC26B433C0000C9E69 /* SignUpView.swift */; };
-		8FD2B1F426B433C0000C9E69 /* SignUpViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1ED26B433C0000C9E69 /* SignUpViewType.swift */; };
-		8FD2B1F526B433C0000C9E69 /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2B1EE26B433C0000C9E69 /* SignUpProtocols.swift */; };
+		E444E58C26BDF62B00D94FBB /* CoreInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E58B26BDF62B00D94FBB /* CoreInputField.swift */; };
+		E444E59626BDF64800D94FBB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E58E26BDF64800D94FBB /* SignUpViewController.swift */; };
+		E444E59726BDF64800D94FBB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E58F26BDF64800D94FBB /* SignUpViewModel.swift */; };
+		E444E59826BDF64800D94FBB /* SignUpViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E59126BDF64800D94FBB /* SignUpViewEntity.swift */; };
+		E444E59926BDF64800D94FBB /* SignUpViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E59326BDF64800D94FBB /* SignUpViewState.swift */; };
+		E444E59A26BDF64800D94FBB /* SignUpViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E59426BDF64800D94FBB /* SignUpViewType.swift */; };
+		E444E59B26BDF64800D94FBB /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E59526BDF64800D94FBB /* SignUpProtocols.swift */; };
+		E444E59D26BDF6D900D94FBB /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E59C26BDF6D900D94FBB /* SignUpView.swift */; };
+		E444E59F26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E444E59E26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf */; };
+		E444E5A026BDF81200D94FBB /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E444E59E26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf */; };
+		E444E5A126BDF81400D94FBB /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E444E59E26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf */; };
+		E444E5A226BDF81600D94FBB /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */; };
+		E444E5A326BDF81700D94FBB /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */; };
+		E444E5A426BDF81800D94FBB /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */; };
+		E444E5A526BDF81C00D94FBB /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */; };
+		E444E5A626BDF81D00D94FBB /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */; };
+		E444E5A726BDF81E00D94FBB /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */; };
+		E444E5A826BDF82100D94FBB /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */; };
+		E444E5A926BDF82100D94FBB /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */; };
+		E444E5AA26BDF82200D94FBB /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */; };
+		E444E5AB26BDF82500D94FBB /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1A26B43E0C001E4E15 /* Poppins-Regular.ttf */; };
+		E444E5AC26BDF82600D94FBB /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1A26B43E0C001E4E15 /* Poppins-Regular.ttf */; };
+		E444E5AD26BDF82700D94FBB /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1A26B43E0C001E4E15 /* Poppins-Regular.ttf */; };
+		E444E5AE26BDF82A00D94FBB /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1B26B43E0C001E4E15 /* Poppins-SemiBold.ttf */; };
+		E444E5AF26BDF82B00D94FBB /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1B26B43E0C001E4E15 /* Poppins-SemiBold.ttf */; };
+		E444E5B026BDF82C00D94FBB /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1B26B43E0C001E4E15 /* Poppins-SemiBold.ttf */; };
+		E444E5B126BDF82F00D94FBB /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */; };
+		E444E5B226BDF82F00D94FBB /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */; };
+		E444E5B326BDF83000D94FBB /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */; };
+		E444E5B426BDF83300D94FBB /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */; };
+		E444E5B526BDF83400D94FBB /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */; };
+		E444E5B626BDF83500D94FBB /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */; };
+		E444E5B726BDF83800D94FBB /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */; };
+		E444E5B826BDF83900D94FBB /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */; };
+		E444E5B926BDF83900D94FBB /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */; };
+		E444E5BA26BDF83C00D94FBB /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */; };
+		E444E5BB26BDF83D00D94FBB /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */; };
+		E444E5BC26BDF83D00D94FBB /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */; };
+		E444E5BD26BDF84000D94FBB /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */; };
+		E444E5BE26BDF84100D94FBB /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */; };
+		E444E5BF26BDF84200D94FBB /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */; };
+		E444E5C026BDF84500D94FBB /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
+		E444E5C126BDF84500D94FBB /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
+		E444E5C226BDF84700D94FBB /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
+		E455B61C26B4508C000D298A /* ReminderRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B61B26B4508C000D298A /* ReminderRepositoryProtocol.swift */; };
+		E455B62026B4517C000D298A /* ReminderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B61F26B4517C000D298A /* ReminderRepository.swift */; };
+		E455B62326B453D3000D298A /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B62226B453D3000D298A /* Reminder.swift */; };
+		E455B62526B47132000D298A /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E455B62426B47132000D298A /* ReminderTableViewCell.swift */; };
+		E458807B26BC047F005D6573 /* PatientTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458807A26BC047F005D6573 /* PatientTableView.swift */; };
+		E458807D26BC04FF005D6573 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458807C26BC04FF005D6573 /* PatientTableViewCell.swift */; };
+		E458807F26BC7ABC005D6573 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458807E26BC7ABC005D6573 /* Patient.swift */; };
+		E458808126BC85F3005D6573 /* PatientRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */; };
+		E458808326BC861F005D6573 /* PatientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808226BC861F005D6573 /* PatientRepository.swift */; };
+		E458809026BCDDA8005D6573 /* PatientFormViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */; };
+		E458809126BCDDA8005D6573 /* PatientFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808926BCDDA8005D6573 /* PatientFormViewController.swift */; };
+		E458809226BCDDA8005D6573 /* PatientFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */; };
+		E458809326BCDDA8005D6573 /* PatientFormViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */; };
+		E458809426BCDDA8005D6573 /* PatientFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808D26BCDDA8005D6573 /* PatientFormView.swift */; };
+		E458809526BCDDA8005D6573 /* PatientFormViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */; };
+		E458809626BCDDA8005D6573 /* PatientFormProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */; };
 		E467014826A9120400A28683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E467014726A9120400A28683 /* SplashViewController.swift */; };
+		E4828ABE26B361D9003E8138 /* PatientHallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828AB526B361D9003E8138 /* PatientHallViewModel.swift */; };
+		E4828ABF26B361D9003E8138 /* PatientHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828AB626B361D9003E8138 /* PatientHallViewController.swift */; };
+		E4828AC026B361D9003E8138 /* PatientHallViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828AB826B361D9003E8138 /* PatientHallViewEntity.swift */; };
+		E4828AC126B361D9003E8138 /* PatientHallViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828ABA26B361D9003E8138 /* PatientHallViewState.swift */; };
+		E4828AC226B361D9003E8138 /* PatientHallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828ABB26B361D9003E8138 /* PatientHallView.swift */; };
+		E4828AC326B361D9003E8138 /* PatientHallViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828ABC26B361D9003E8138 /* PatientHallViewType.swift */; };
+		E4828AC426B361D9003E8138 /* PatientHallProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828ABD26B361D9003E8138 /* PatientHallProtocols.swift */; };
+		E4828AC826B38D6D003E8138 /* ReminderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828AC726B38D6D003E8138 /* ReminderTextField.swift */; };
+		E4828ACF26B3A7AC003E8138 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */; };
+		E4828AD226B3BF9F003E8138 /* ReminderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828AD126B3BF9F003E8138 /* ReminderTableView.swift */; };
 		E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041026AEE91500AE8593 /* SplashView.swift */; };
 		E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041226AEEE7000AE8593 /* SplashViewType.swift */; };
 		E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041626AF043300AE8593 /* CoreLabel.swift */; };
 		E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041926AF0D0A00AE8593 /* CoreLabelType.swift */; };
 		E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8042026AF2C7700AE8593 /* CoreHeader.swift */; };
 		E4A8043126B0489800AE8593 /* CoreHeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043026B0489800AE8593 /* CoreHeaderType.swift */; };
-		E4A8043326B1B66500AE8593 /* CoreTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043226B1B66500AE8593 /* CoreTextField.swift */; };
 		E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043526B1D7B500AE8593 /* CoreButtonType.swift */; };
 		E4A8044626B1F7BA00AE8593 /* SignInProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043D26B1F7BA00AE8593 /* SignInProtocols.swift */; };
 		E4A8044726B1F7BA00AE8593 /* SignInViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043F26B1F7BA00AE8593 /* SignInViewEntity.swift */; };
@@ -77,7 +126,6 @@
 		52C0B4C0A53D217E10422693 /* Pods_USychol_USycholUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USychol_USycholUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B2734AFC3B8961ADF42606 /* Pods-USychol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol.release.xcconfig"; path = "Target Support Files/Pods-USychol/Pods-USychol.release.xcconfig"; sourceTree = "<group>"; };
 		5C5AB07248AE5BBF0D6B58CE /* Pods-USycholTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USycholTests.debug.xcconfig"; path = "Target Support Files/Pods-USycholTests/Pods-USycholTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8F07CE0C26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-VariableFont_slnt,wght.ttf"; path = "../../../../../../../Downloads/Inter/Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
 		8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
 		8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -89,25 +137,51 @@
 		8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
-		8FA9E29D26B36DFD0092473E /* CoreInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreInputField.swift; sourceTree = "<group>"; };
-		8FD2B1E626B433C0000C9E69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		8FD2B1E726B433C0000C9E69 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		8FD2B1E926B433C0000C9E69 /* SignUpViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewEntity.swift; sourceTree = "<group>"; };
-		8FD2B1EB26B433C0000C9E69 /* SignUpViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewState.swift; sourceTree = "<group>"; };
-		8FD2B1EC26B433C0000C9E69 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		8FD2B1ED26B433C0000C9E69 /* SignUpViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewType.swift; sourceTree = "<group>"; };
-		8FD2B1EE26B433C0000C9E69 /* SignUpProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
 		C9F373F445B2AA50CB5906DC /* Pods-USycholTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USycholTests.release.xcconfig"; path = "Target Support Files/Pods-USycholTests/Pods-USycholTests.release.xcconfig"; sourceTree = "<group>"; };
 		D46F120F8573550CB9F3361F /* Pods_USycholTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USycholTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7FD7262B7071D9640D2B2C /* Pods-USychol-USycholUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol-USycholUITests.debug.xcconfig"; path = "Target Support Files/Pods-USychol-USycholUITests/Pods-USychol-USycholUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E444E58B26BDF62B00D94FBB /* CoreInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreInputField.swift; sourceTree = "<group>"; };
+		E444E58E26BDF64800D94FBB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E444E58F26BDF64800D94FBB /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		E444E59126BDF64800D94FBB /* SignUpViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewEntity.swift; sourceTree = "<group>"; };
+		E444E59326BDF64800D94FBB /* SignUpViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewState.swift; sourceTree = "<group>"; };
+		E444E59426BDF64800D94FBB /* SignUpViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewType.swift; sourceTree = "<group>"; };
+		E444E59526BDF64800D94FBB /* SignUpProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
+		E444E59C26BDF6D900D94FBB /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E444E59E26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
+		E455B61B26B4508C000D298A /* ReminderRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E455B61F26B4517C000D298A /* ReminderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRepository.swift; sourceTree = "<group>"; };
+		E455B62226B453D3000D298A /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		E455B62426B47132000D298A /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
+		E458807A26BC047F005D6573 /* PatientTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableView.swift; sourceTree = "<group>"; };
+		E458807C26BC04FF005D6573 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
+		E458807E26BC7ABC005D6573 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E458808226BC861F005D6573 /* PatientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRepository.swift; sourceTree = "<group>"; };
+		E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewEntity.swift; sourceTree = "<group>"; };
+		E458808926BCDDA8005D6573 /* PatientFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewController.swift; sourceTree = "<group>"; };
+		E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewModel.swift; sourceTree = "<group>"; };
+		E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewState.swift; sourceTree = "<group>"; };
+		E458808D26BCDDA8005D6573 /* PatientFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormView.swift; sourceTree = "<group>"; };
+		E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewType.swift; sourceTree = "<group>"; };
+		E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormProtocols.swift; sourceTree = "<group>"; };
 		E467014726A9120400A28683 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		E4828AB526B361D9003E8138 /* PatientHallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallViewModel.swift; sourceTree = "<group>"; };
+		E4828AB626B361D9003E8138 /* PatientHallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallViewController.swift; sourceTree = "<group>"; };
+		E4828AB826B361D9003E8138 /* PatientHallViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallViewEntity.swift; sourceTree = "<group>"; };
+		E4828ABA26B361D9003E8138 /* PatientHallViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallViewState.swift; sourceTree = "<group>"; };
+		E4828ABB26B361D9003E8138 /* PatientHallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallView.swift; sourceTree = "<group>"; };
+		E4828ABC26B361D9003E8138 /* PatientHallViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallViewType.swift; sourceTree = "<group>"; };
+		E4828ABD26B361D9003E8138 /* PatientHallProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallProtocols.swift; sourceTree = "<group>"; };
+		E4828AC726B38D6D003E8138 /* ReminderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTextField.swift; sourceTree = "<group>"; };
+		E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		E4828AD126B3BF9F003E8138 /* ReminderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableView.swift; sourceTree = "<group>"; };
 		E4A8041026AEE91500AE8593 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E4A8041226AEEE7000AE8593 /* SplashViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewType.swift; sourceTree = "<group>"; };
 		E4A8041626AF043300AE8593 /* CoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLabel.swift; sourceTree = "<group>"; };
 		E4A8041926AF0D0A00AE8593 /* CoreLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLabelType.swift; sourceTree = "<group>"; };
 		E4A8042026AF2C7700AE8593 /* CoreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHeader.swift; sourceTree = "<group>"; };
 		E4A8043026B0489800AE8593 /* CoreHeaderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHeaderType.swift; sourceTree = "<group>"; };
-		E4A8043226B1B66500AE8593 /* CoreTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTextField.swift; sourceTree = "<group>"; };
 		E4A8043526B1D7B500AE8593 /* CoreButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreButtonType.swift; sourceTree = "<group>"; };
 		E4A8043D26B1F7BA00AE8593 /* SignInProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInProtocols.swift; sourceTree = "<group>"; };
 		E4A8043F26B1F7BA00AE8593 /* SignInViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewEntity.swift; sourceTree = "<group>"; };
@@ -184,41 +258,94 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		8FA9E29C26B36DCF0092473E /* CoreInputField */ = {
+		E444E58A26BDF62B00D94FBB /* CoreInputField */ = {
 			isa = PBXGroup;
 			children = (
-				8FA9E29D26B36DFD0092473E /* CoreInputField.swift */,
+				E444E58B26BDF62B00D94FBB /* CoreInputField.swift */,
 			);
 			path = CoreInputField;
 			sourceTree = "<group>";
 		};
-		8FD2B1E526B433C0000C9E69 /* SignUp */ = {
+		E444E58D26BDF64800D94FBB /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				8FD2B1E626B433C0000C9E69 /* SignUpViewController.swift */,
-				8FD2B1E726B433C0000C9E69 /* SignUpViewModel.swift */,
-				8FD2B1E826B433C0000C9E69 /* Entity */,
-				8FD2B1EA26B433C0000C9E69 /* View */,
-				8FD2B1EE26B433C0000C9E69 /* SignUpProtocols.swift */,
+				E444E58E26BDF64800D94FBB /* SignUpViewController.swift */,
+				E444E58F26BDF64800D94FBB /* SignUpViewModel.swift */,
+				E444E59026BDF64800D94FBB /* Entity */,
+				E444E59226BDF64800D94FBB /* View */,
+				E444E59526BDF64800D94FBB /* SignUpProtocols.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		8FD2B1E826B433C0000C9E69 /* Entity */ = {
+		E444E59026BDF64800D94FBB /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				8FD2B1E926B433C0000C9E69 /* SignUpViewEntity.swift */,
+				E444E59126BDF64800D94FBB /* SignUpViewEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		8FD2B1EA26B433C0000C9E69 /* View */ = {
+		E444E59226BDF64800D94FBB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8FD2B1EB26B433C0000C9E69 /* SignUpViewState.swift */,
-				8FD2B1ED26B433C0000C9E69 /* SignUpViewType.swift */,
+				E444E59C26BDF6D900D94FBB /* SignUpView.swift */,
+				E444E59326BDF64800D94FBB /* SignUpViewState.swift */,
+				E444E59426BDF64800D94FBB /* SignUpViewType.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E455B61826B44D4F000D298A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E455B62126B453B0000D298A /* Entities */,
+				E455B61926B45051000D298A /* Protocols */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E455B61926B45051000D298A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E455B61A26B45058000D298A /* Repositories */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E455B61A26B45058000D298A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E455B61B26B4508C000D298A /* ReminderRepositoryProtocol.swift */,
+				E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E455B61D26B45111000D298A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E455B61E26B45125000D298A /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E455B61E26B45125000D298A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E455B61F26B4517C000D298A /* ReminderRepository.swift */,
+				E458808226BC861F005D6573 /* PatientRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E455B62126B453B0000D298A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E455B62226B453D3000D298A /* Reminder.swift */,
+				E458807E26BC7ABC005D6573 /* Patient.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		E455F91D26A7BF37004A85B2 /* Application */ = {
@@ -240,6 +367,45 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		E458807926BC03EB005D6573 /* PatientTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E458807A26BC047F005D6573 /* PatientTableView.swift */,
+				E458807C26BC04FF005D6573 /* PatientTableViewCell.swift */,
+			);
+			path = PatientTableView;
+			sourceTree = "<group>";
+		};
+		E458808626BCDDA8005D6573 /* PatientForm */ = {
+			isa = PBXGroup;
+			children = (
+				E458808726BCDDA8005D6573 /* Entity */,
+				E458808926BCDDA8005D6573 /* PatientFormViewController.swift */,
+				E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */,
+				E458808B26BCDDA8005D6573 /* View */,
+				E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */,
+			);
+			path = PatientForm;
+			sourceTree = "<group>";
+		};
+		E458808726BCDDA8005D6573 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E458808B26BCDDA8005D6573 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */,
+				E458808D26BCDDA8005D6573 /* PatientFormView.swift */,
+				E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E467013526A8B66C00A28683 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,11 +419,11 @@
 		E467013626A8B67F00A28683 /* CoreUI */ = {
 			isa = PBXGroup;
 			children = (
-				8FA9E29C26B36DCF0092473E /* CoreInputField */,
-				E4A8043726B1D7D000AE8593 /* CoreTextField */,
+				E444E58A26BDF62B00D94FBB /* CoreInputField */,
 				E4A8043426B1D76400AE8593 /* CoreButton */,
 				E4A8041B26AF198C00AE8593 /* CoreHeader */,
 				E4A8041826AF0CF700AE8593 /* CoreLabel */,
+				E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */,
 			);
 			path = CoreUI;
 			sourceTree = "<group>";
@@ -265,7 +431,9 @@
 		E467013726A8B68B00A28683 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				8FD2B1E526B433C0000C9E69 /* SignUp */,
+				E444E58D26BDF64800D94FBB /* SignUp */,
+				E458808626BCDDA8005D6573 /* PatientForm */,
+				E4828AB426B361D9003E8138 /* PatientHall */,
 				E4A8043C26B1F7BA00AE8593 /* SignIn */,
 				E467014626A911D600A28683 /* Splash */,
 			);
@@ -275,6 +443,7 @@
 		E467013826A8BA7400A28683 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E444E59E26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf */,
 				8F07CE2226B43E30001E4E15 /* Nunito-Black.ttf */,
 				8F07CE1C26B43E0C001E4E15 /* Poppins-Bold.ttf */,
 				8F07CE1D26B43E0D001E4E15 /* Poppins-Medium.ttf */,
@@ -286,7 +455,6 @@
 				8F07CE1326B43DF2001E4E15 /* Nunito-Light.ttf */,
 				8F07CE1226B43DF2001E4E15 /* Nunito-Regular.ttf */,
 				8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */,
-				8F07CE0C26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -306,6 +474,56 @@
 				E4A8040F26AEE90400AE8593 /* View */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		E4828AB426B361D9003E8138 /* PatientHall */ = {
+			isa = PBXGroup;
+			children = (
+				E4828AB526B361D9003E8138 /* PatientHallViewModel.swift */,
+				E4828AB626B361D9003E8138 /* PatientHallViewController.swift */,
+				E4828AB726B361D9003E8138 /* Entity */,
+				E4828AB926B361D9003E8138 /* View */,
+				E4828ABD26B361D9003E8138 /* PatientHallProtocols.swift */,
+			);
+			path = PatientHall;
+			sourceTree = "<group>";
+		};
+		E4828AB726B361D9003E8138 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E4828AB826B361D9003E8138 /* PatientHallViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E4828AB926B361D9003E8138 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4828AC626B38B9E003E8138 /* Components */,
+				E4828ABA26B361D9003E8138 /* PatientHallViewState.swift */,
+				E4828ABB26B361D9003E8138 /* PatientHallView.swift */,
+				E4828ABC26B361D9003E8138 /* PatientHallViewType.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4828AC626B38B9E003E8138 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E458807926BC03EB005D6573 /* PatientTableView */,
+				E4828AD026B3BD54003E8138 /* ReminderTableView */,
+				E4828AC726B38D6D003E8138 /* ReminderTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E4828AD026B3BD54003E8138 /* ReminderTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E4828AD126B3BF9F003E8138 /* ReminderTableView.swift */,
+				E455B62426B47132000D298A /* ReminderTableViewCell.swift */,
+			);
+			path = ReminderTableView;
 			sourceTree = "<group>";
 		};
 		E4A8040F26AEE90400AE8593 /* View */ = {
@@ -344,18 +562,9 @@
 			path = CoreButton;
 			sourceTree = "<group>";
 		};
-		E4A8043726B1D7D000AE8593 /* CoreTextField */ = {
-			isa = PBXGroup;
-			children = (
-				E4A8043226B1B66500AE8593 /* CoreTextField.swift */,
-			);
-			path = CoreTextField;
-			sourceTree = "<group>";
-		};
 		E4A8043C26B1F7BA00AE8593 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				8FD2B1EC26B433C0000C9E69 /* SignUpView.swift */,
 				E4A8043D26B1F7BA00AE8593 /* SignInProtocols.swift */,
 				E4A8043E26B1F7BA00AE8593 /* Entity */,
 				E4A8044026B1F7BA00AE8593 /* View */,
@@ -408,6 +617,8 @@
 		E4DEE68B26A74F0E0026E89D /* USychol */ = {
 			isa = PBXGroup;
 			children = (
+				E455B61826B44D4F000D298A /* Domain */,
+				E455B61D26B45111000D298A /* Data */,
 				E467013526A8B66C00A28683 /* View */,
 				E455F91D26A7BF37004A85B2 /* Application */,
 				E455F91E26A7BF8C004A85B2 /* Assets */,
@@ -541,19 +752,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F07CE1826B43DF2001E4E15 /* Nunito-Regular.ttf in Resources */,
-				8F07CE1926B43DF2001E4E15 /* Nunito-Light.ttf in Resources */,
-				8F07CE1526B43DF2001E4E15 /* Nunito-Bold.ttf in Resources */,
-				8F07CE1E26B43E0D001E4E15 /* Poppins-Regular.ttf in Resources */,
-				8F07CE0D26B43DD1001E4E15 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
-				8F07CE1F26B43E0D001E4E15 /* Poppins-SemiBold.ttf in Resources */,
-				8F07CE2026B43E0D001E4E15 /* Poppins-Bold.ttf in Resources */,
-				8F07CE1426B43DF2001E4E15 /* Nunito-ExtraLight.ttf in Resources */,
-				8F07CE1726B43DF2001E4E15 /* Nunito-SemiBold.ttf in Resources */,
-				8F07CE2326B43E30001E4E15 /* Nunito-Black.ttf in Resources */,
-				8F07CE1626B43DF2001E4E15 /* Nunito-ExtraBold.ttf in Resources */,
-				8F07CE2126B43E0D001E4E15 /* Poppins-Medium.ttf in Resources */,
+				E444E5C026BDF84500D94FBB /* Nunito-SemiBold.ttf in Resources */,
+				E444E59F26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				E444E5AE26BDF82A00D94FBB /* Poppins-SemiBold.ttf in Resources */,
 				E4DEE69626A74F0F0026E89D /* Assets.xcassets in Resources */,
+				E444E5B426BDF83300D94FBB /* Nunito-ExtraBold.ttf in Resources */,
+				E444E5BA26BDF83C00D94FBB /* Nunito-Light.ttf in Resources */,
+				E444E5A226BDF81600D94FBB /* Nunito-Black.ttf in Resources */,
+				E444E5BD26BDF84000D94FBB /* Nunito-Regular.ttf in Resources */,
+				E444E5AB26BDF82500D94FBB /* Poppins-Regular.ttf in Resources */,
+				E444E5A526BDF81C00D94FBB /* Poppins-Bold.ttf in Resources */,
+				E444E5B126BDF82F00D94FBB /* Nunito-Bold.ttf in Resources */,
+				E444E5A826BDF82100D94FBB /* Poppins-Medium.ttf in Resources */,
+				E444E5B726BDF83800D94FBB /* Nunito-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +772,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E444E5C126BDF84500D94FBB /* Nunito-SemiBold.ttf in Resources */,
+				E444E5BE26BDF84100D94FBB /* Nunito-Regular.ttf in Resources */,
+				E444E5B226BDF82F00D94FBB /* Nunito-Bold.ttf in Resources */,
+				E444E5A026BDF81200D94FBB /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				E444E5A926BDF82100D94FBB /* Poppins-Medium.ttf in Resources */,
+				E444E5B826BDF83900D94FBB /* Nunito-ExtraLight.ttf in Resources */,
+				E444E5A626BDF81D00D94FBB /* Poppins-Bold.ttf in Resources */,
+				E444E5AF26BDF82B00D94FBB /* Poppins-SemiBold.ttf in Resources */,
+				E444E5BB26BDF83D00D94FBB /* Nunito-Light.ttf in Resources */,
+				E444E5A326BDF81700D94FBB /* Nunito-Black.ttf in Resources */,
+				E444E5AC26BDF82600D94FBB /* Poppins-Regular.ttf in Resources */,
+				E444E5B526BDF83400D94FBB /* Nunito-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +791,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E444E5C226BDF84700D94FBB /* Nunito-SemiBold.ttf in Resources */,
+				E444E5BF26BDF84200D94FBB /* Nunito-Regular.ttf in Resources */,
+				E444E5B326BDF83000D94FBB /* Nunito-Bold.ttf in Resources */,
+				E444E5A126BDF81400D94FBB /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				E444E5AA26BDF82200D94FBB /* Poppins-Medium.ttf in Resources */,
+				E444E5B926BDF83900D94FBB /* Nunito-ExtraLight.ttf in Resources */,
+				E444E5A726BDF81E00D94FBB /* Poppins-Bold.ttf in Resources */,
+				E444E5B026BDF82C00D94FBB /* Poppins-SemiBold.ttf in Resources */,
+				E444E5BC26BDF83D00D94FBB /* Nunito-Light.ttf in Resources */,
+				E444E5A426BDF81800D94FBB /* Nunito-Black.ttf in Resources */,
+				E444E5AD26BDF82700D94FBB /* Poppins-Regular.ttf in Resources */,
+				E444E5B626BDF83500D94FBB /* Nunito-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,34 +916,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FD2B1EF26B433C0000C9E69 /* SignUpViewController.swift in Sources */,
+				E444E59626BDF64800D94FBB /* SignUpViewController.swift in Sources */,
 				E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */,
-				8FA9E29E26B36DFD0092473E /* CoreInputField.swift in Sources */,
+				E455B61C26B4508C000D298A /* ReminderRepositoryProtocol.swift in Sources */,
+				E444E59826BDF64800D94FBB /* SignUpViewEntity.swift in Sources */,
+				E458807D26BC04FF005D6573 /* PatientTableViewCell.swift in Sources */,
+				E4828AC026B361D9003E8138 /* PatientHallViewEntity.swift in Sources */,
 				E4C380D626AA67EB00CF2A9C /* CoreButton.swift in Sources */,
 				E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */,
 				E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */,
+				E4828AC326B361D9003E8138 /* PatientHallViewType.swift in Sources */,
 				E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */,
-				8FD2B1F526B433C0000C9E69 /* SignUpProtocols.swift in Sources */,
+				E444E59B26BDF64800D94FBB /* SignUpProtocols.swift in Sources */,
+				E4828AC226B361D9003E8138 /* PatientHallView.swift in Sources */,
+				E4828ABE26B361D9003E8138 /* PatientHallViewModel.swift in Sources */,
 				E4A8044826B1F7BA00AE8593 /* SignInViewType.swift in Sources */,
-				8FD2B1F326B433C0000C9E69 /* SignUpView.swift in Sources */,
+				E455B62026B4517C000D298A /* ReminderRepository.swift in Sources */,
+				E4828ABF26B361D9003E8138 /* PatientHallViewController.swift in Sources */,
 				E4A8043126B0489800AE8593 /* CoreHeaderType.swift in Sources */,
-				8FD2B1F226B433C0000C9E69 /* SignUpViewState.swift in Sources */,
-				E4A8043326B1B66500AE8593 /* CoreTextField.swift in Sources */,
 				E4A8044B26B1F7BA00AE8593 /* SignInViewModel.swift in Sources */,
+				E4828ACF26B3A7AC003E8138 /* UIImageView+.swift in Sources */,
+				E4828AD226B3BF9F003E8138 /* ReminderTableView.swift in Sources */,
 				E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */,
 				E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */,
-				8FD2B1F026B433C0000C9E69 /* SignUpViewModel.swift in Sources */,
+				E458809026BCDDA8005D6573 /* PatientFormViewEntity.swift in Sources */,
 				E4A8044926B1F7BA00AE8593 /* SignInView.swift in Sources */,
-				8FD2B1F126B433C0000C9E69 /* SignUpViewEntity.swift in Sources */,
+				E458808126BC85F3005D6573 /* PatientRepositoryProtocol.swift in Sources */,
+				E4828AC826B38D6D003E8138 /* ReminderTextField.swift in Sources */,
+				E4828AC126B361D9003E8138 /* PatientHallViewState.swift in Sources */,
+				E458809226BCDDA8005D6573 /* PatientFormViewModel.swift in Sources */,
 				E4C541DE26A9B4D70047F5E3 /* GradientStyle.swift in Sources */,
 				E4A8044726B1F7BA00AE8593 /* SignInViewEntity.swift in Sources */,
 				E4DEE68D26A74F0E0026E89D /* AppDelegate.swift in Sources */,
 				E4DEE68F26A74F0E0026E89D /* SceneDelegate.swift in Sources */,
 				E4A8044A26B1F7BA00AE8593 /* SignInViewState.swift in Sources */,
+				E444E59D26BDF6D900D94FBB /* SignUpView.swift in Sources */,
+				E4828AC426B361D9003E8138 /* PatientHallProtocols.swift in Sources */,
+				E444E59926BDF64800D94FBB /* SignUpViewState.swift in Sources */,
+				E458807F26BC7ABC005D6573 /* Patient.swift in Sources */,
+				E444E59726BDF64800D94FBB /* SignUpViewModel.swift in Sources */,
+				E455B62526B47132000D298A /* ReminderTableViewCell.swift in Sources */,
+				E444E58C26BDF62B00D94FBB /* CoreInputField.swift in Sources */,
 				E4A8044626B1F7BA00AE8593 /* SignInProtocols.swift in Sources */,
+				E458809126BCDDA8005D6573 /* PatientFormViewController.swift in Sources */,
+				E458809626BCDDA8005D6573 /* PatientFormProtocols.swift in Sources */,
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
+				E458807B26BC047F005D6573 /* PatientTableView.swift in Sources */,
+				E458808326BC861F005D6573 /* PatientRepository.swift in Sources */,
 				E467014826A9120400A28683 /* SplashViewController.swift in Sources */,
-				8FD2B1F426B433C0000C9E69 /* SignUpViewType.swift in Sources */,
+				E458809426BCDDA8005D6573 /* PatientFormView.swift in Sources */,
+				E444E59A26BDF64800D94FBB /* SignUpViewType.swift in Sources */,
+				E458809326BCDDA8005D6573 /* PatientFormViewState.swift in Sources */,
+				E458809526BCDDA8005D6573 /* PatientFormViewType.swift in Sources */,
+				E455B62326B453D3000D298A /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

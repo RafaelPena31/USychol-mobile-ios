@@ -55,8 +55,8 @@ class CoreHeader {
             sublogoColorName = "ParcialWhiteColor"
         }
         
-        let logoLabel: UILabel = CoreLabel(type: .logo, text: "USychol", color: logoColorName)
-        let sublogoLabel: UILabel = CoreLabel(type: .text, text: "Psychology has never been so digital", color: sublogoColorName)
+        let logoLabel: CoreLabel = CoreLabel(type: .logo, text: "USychol", color: logoColorName)
+        let sublogoLabel: CoreLabel = CoreLabel(type: .text, text: "Psychology has never been so digital", color: sublogoColorName)
         
         let leftStack = UIStackView(arrangedSubviews: [logoLabel, sublogoLabel])
         
