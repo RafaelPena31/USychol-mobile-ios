@@ -8,5 +8,5 @@
 //
 
 public struct PatientFormViewEntity: Equatable {
-
+    let isEdit: Bool
 }

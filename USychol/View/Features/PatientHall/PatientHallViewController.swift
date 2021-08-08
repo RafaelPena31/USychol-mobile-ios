@@ -65,6 +65,8 @@ public class PatientHallViewController: UIViewController {
         leftButton.setImage(UIImage(named: "profile-icon"), for: .normal)
         leftButton.tintColor = .white
         
+        leftButton.addTarget(self, action: #selector(onLeftHeaderButtonClick), for: .touchUpInside)
+        
         let leftButtonNavBar = UIBarButtonItem(customView: leftButton)
         
         navigationItem.leftBarButtonItem = leftButtonNavBar
@@ -72,6 +74,8 @@ public class PatientHallViewController: UIViewController {
         let rightButton = UIButton()
         rightButton.setImage(UIImage(named: "plus-icon"), for: .normal)
         rightButton.tintColor = .white
+        
+        rightButton.addTarget(self, action: #selector(onRightHeaderButtonClick), for: .touchUpInside)
         
         let rightButtonNavBar = UIBarButtonItem(customView: rightButton)
         
@@ -84,6 +88,26 @@ public class PatientHallViewController: UIViewController {
         }
         contentView?.delegate = self
     }
+    
+    // MARK: - ACTIONS
+    
+    @objc func onLeftHeaderButtonClick() {
+        let ClinicFormVM = ClinicFormViewModel()
+        let ClinicFormVC = ClinicFormViewController(viewModel: ClinicFormVM)
+        
+        ClinicFormVM.viewController = ClinicFormVC
+        
+        self.navigationController?.pushViewController(ClinicFormVC, animated: true)
+    }
+    
+    @objc func onRightHeaderButtonClick() {
+        let PatientFormVM = PatientFormViewModel()
+        let PatientFormVC = PatientFormViewController(viewModel: PatientFormVM)
+        
+        PatientFormVM.viewController = PatientFormVC
+        
+        self.navigationController?.pushViewController(PatientFormVC, animated: true)
+    }
 }
 
 extension PatientHallViewController: PatientHallViewControllerType {
@@ -93,6 +117,15 @@ extension PatientHallViewController: PatientHallViewControllerType {
 }
 
 extension PatientHallViewController: PatientHallViewDelegate {
+    public func onHandlePatientProfileRedirect() {
+        let PatientProfileVM = PatientProfileViewModel()
+        let PatientProfileVC = PatientProfileViewController(viewModel: PatientProfileVM)
+        
+        PatientProfileVM.viewController = PatientProfileVC
+        
+        self.navigationController?.pushViewController(PatientProfileVC, animated: true)
+    }
+    
     public func onHandleAddReminder() {
         print("onHandleAddReminder")
     }

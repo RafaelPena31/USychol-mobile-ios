@@ -4,7 +4,6 @@
 //  USychol
 //
 //  Created Rafael Augusto Mesquita on 06/08/21.
-//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 //
 
@@ -46,7 +45,16 @@ public class PatientFormViewController: UIViewController {
     // MARK: - PRIVATE
     
     private func setup() {
+        headerSetup()
         contentSetup()
+    }
+    
+    private func headerSetup() {
+        let rightButton = UIButton()
+        
+        rightButton.addTarget(self, action: #selector(onRightHeaderButtonClick), for: .touchUpInside)
+        
+        _ = CoreHeader(type: .main, isRightButtonAvailable: true, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: rightButton)
     }
     
     private func contentSetup() {
@@ -54,6 +62,16 @@ public class PatientFormViewController: UIViewController {
             self.view = contentView.content
         }
         contentView?.delegate = self
+    }
+    
+    // MARK: - ACTIONS
+    
+    @objc func onRightHeaderButtonClick() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.isTranslucent = false
+        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

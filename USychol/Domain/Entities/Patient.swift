@@ -21,6 +21,7 @@ public enum PatientMaritalStatus {
 public struct Patient: Equatable {
     let name: String
     let profilePicture = "https://mk0anatomieunes58h83.kinstacdn.com/wp-content/themes/cera/assets/images/avatars/user-avatar.png"
+    let patientSummary: String
     let age: String
     let patientClass: PatientClass
     let motherName: String

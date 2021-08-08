@@ -1,3 +1,10 @@
+//
+//  CoreInputField.swift
+//  USychol
+//
+//  Created by Rafael Augusto Mesquita on 07/08/21.
+//
+
 import UIKit
 
 final public class CoreInputField: UIStackView  {

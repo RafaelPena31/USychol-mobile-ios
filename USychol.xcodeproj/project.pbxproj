@@ -117,6 +117,42 @@
 		E4828AC826B38D6D003E8138 /* ReminderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828AC726B38D6D003E8138 /* ReminderTextField.swift */; };
 		E4828ACF26B3A7AC003E8138 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */; };
 		E4828AD226B3BF9F003E8138 /* ReminderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828AD126B3BF9F003E8138 /* ReminderTableView.swift */; };
+		E491EA8826BF223B002E436B /* CoreInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA8726BF223B002E436B /* CoreInputField.swift */; };
+		E491EA8A26BF2739002E436B /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA8926BF2739002E436B /* UITextField+.swift */; };
+		E491EA8D26BF6665002E436B /* PatientFormStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA8C26BF6665002E436B /* PatientFormStack.swift */; };
+		E491EA9026BF6D5F002E436B /* ClinicFormStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA8F26BF6D5F002E436B /* ClinicFormStack.swift */; };
+		E491EA9326BF73D3002E436B /* CoreRedirectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9226BF73D3002E436B /* CoreRedirectButton.swift */; };
+		E491EAA026BF81F4002E436B /* PatientProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9726BF81F4002E436B /* PatientProfileViewController.swift */; };
+		E491EAA126BF81F4002E436B /* PatientProfileViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9926BF81F4002E436B /* PatientProfileViewEntity.swift */; };
+		E491EAA226BF81F4002E436B /* PatientProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9A26BF81F4002E436B /* PatientProfileViewModel.swift */; };
+		E491EAA326BF81F4002E436B /* PatientProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9B26BF81F4002E436B /* PatientProfileProtocols.swift */; };
+		E491EAA426BF81F4002E436B /* PatientProfileViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9D26BF81F4002E436B /* PatientProfileViewState.swift */; };
+		E491EAA526BF81F4002E436B /* PatientProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9E26BF81F4002E436B /* PatientProfileView.swift */; };
+		E491EAA626BF81F4002E436B /* PatientProfileViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EA9F26BF81F4002E436B /* PatientProfileViewType.swift */; };
+		E491EAA926BF8554002E436B /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAA826BF8554002E436B /* SearchTextField.swift */; };
+		E491EAAC26BF8722002E436B /* ReportTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAAB26BF8722002E436B /* ReportTableView.swift */; };
+		E491EAAE26BF8751002E436B /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAAD26BF8751002E436B /* ReportTableViewCell.swift */; };
+		E491EAB026BF87E8002E436B /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAAF26BF87E8002E436B /* Report.swift */; };
+		E491EAB226BF88BE002E436B /* PerformActivy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAB126BF88BE002E436B /* PerformActivy.swift */; };
+		E491EAB426BF8958002E436B /* PerformActivyRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAB326BF8958002E436B /* PerformActivyRepositoryProtocol.swift */; };
+		E491EAB626BF8993002E436B /* ReportRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAB526BF8993002E436B /* ReportRepositoryProtocol.swift */; };
+		E491EAB826BF89D2002E436B /* PerformActivyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAB726BF89D2002E436B /* PerformActivyRepository.swift */; };
+		E491EABA26BF8A6E002E436B /* ReportRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAB926BF8A6E002E436B /* ReportRepository.swift */; };
+		E491EADF26BFADC8002E436B /* PatientReportViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAD726BFADC8002E436B /* PatientReportViewEntity.swift */; };
+		E491EAE026BFADC8002E436B /* PatientReportProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAD826BFADC8002E436B /* PatientReportProtocols.swift */; };
+		E491EAE126BFADC8002E436B /* PatientReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAD926BFADC8002E436B /* PatientReportViewController.swift */; };
+		E491EAE226BFADC8002E436B /* PatientReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EADA26BFADC8002E436B /* PatientReportViewModel.swift */; };
+		E491EAE326BFADC8002E436B /* PatientReportViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EADC26BFADC8002E436B /* PatientReportViewType.swift */; };
+		E491EAE426BFADC8002E436B /* PatientReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EADD26BFADC8002E436B /* PatientReportView.swift */; };
+		E491EAE526BFADC8002E436B /* PatientReportViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EADE26BFADC8002E436B /* PatientReportViewState.swift */; };
+		E491EAF226BFAEB9002E436B /* PatientAnamnesisProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAE926BFAEB9002E436B /* PatientAnamnesisProtocols.swift */; };
+		E491EAF326BFAEB9002E436B /* PatientAnamnesisViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAEB26BFAEB9002E436B /* PatientAnamnesisViewEntity.swift */; };
+		E491EAF426BFAEB9002E436B /* PatientAnamnesisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAEC26BFAEB9002E436B /* PatientAnamnesisViewController.swift */; };
+		E491EAF526BFAEB9002E436B /* PatientAnamnesisViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAEE26BFAEB9002E436B /* PatientAnamnesisViewType.swift */; };
+		E491EAF626BFAEB9002E436B /* PatientAnamnesisViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAEF26BFAEB9002E436B /* PatientAnamnesisViewState.swift */; };
+		E491EAF726BFAEB9002E436B /* PatientAnamnesisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAF026BFAEB9002E436B /* PatientAnamnesisView.swift */; };
+		E491EAF826BFAEB9002E436B /* PatientAnamnesisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAF126BFAEB9002E436B /* PatientAnamnesisViewModel.swift */; };
+		E491EAFB26BFB096002E436B /* AnamnesisFormStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EAFA26BFB096002E436B /* AnamnesisFormStack.swift */; };
 		E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041026AEE91500AE8593 /* SplashView.swift */; };
 		E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041226AEEE7000AE8593 /* SplashViewType.swift */; };
 		E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041626AF043300AE8593 /* CoreLabel.swift */; };
@@ -250,6 +286,42 @@
 		E4828AC726B38D6D003E8138 /* ReminderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTextField.swift; sourceTree = "<group>"; };
 		E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		E4828AD126B3BF9F003E8138 /* ReminderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableView.swift; sourceTree = "<group>"; };
+		E491EA8726BF223B002E436B /* CoreInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreInputField.swift; sourceTree = "<group>"; };
+		E491EA8926BF2739002E436B /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		E491EA8C26BF6665002E436B /* PatientFormStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientFormStack.swift; sourceTree = "<group>"; };
+		E491EA8F26BF6D5F002E436B /* ClinicFormStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicFormStack.swift; sourceTree = "<group>"; };
+		E491EA9226BF73D3002E436B /* CoreRedirectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreRedirectButton.swift; sourceTree = "<group>"; };
+		E491EA9726BF81F4002E436B /* PatientProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewController.swift; sourceTree = "<group>"; };
+		E491EA9926BF81F4002E436B /* PatientProfileViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewEntity.swift; sourceTree = "<group>"; };
+		E491EA9A26BF81F4002E436B /* PatientProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewModel.swift; sourceTree = "<group>"; };
+		E491EA9B26BF81F4002E436B /* PatientProfileProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileProtocols.swift; sourceTree = "<group>"; };
+		E491EA9D26BF81F4002E436B /* PatientProfileViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewState.swift; sourceTree = "<group>"; };
+		E491EA9E26BF81F4002E436B /* PatientProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileView.swift; sourceTree = "<group>"; };
+		E491EA9F26BF81F4002E436B /* PatientProfileViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewType.swift; sourceTree = "<group>"; };
+		E491EAA826BF8554002E436B /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		E491EAAB26BF8722002E436B /* ReportTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableView.swift; sourceTree = "<group>"; };
+		E491EAAD26BF8751002E436B /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
+		E491EAAF26BF87E8002E436B /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		E491EAB126BF88BE002E436B /* PerformActivy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformActivy.swift; sourceTree = "<group>"; };
+		E491EAB326BF8958002E436B /* PerformActivyRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformActivyRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E491EAB526BF8993002E436B /* ReportRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E491EAB726BF89D2002E436B /* PerformActivyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformActivyRepository.swift; sourceTree = "<group>"; };
+		E491EAB926BF8A6E002E436B /* ReportRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRepository.swift; sourceTree = "<group>"; };
+		E491EAD726BFADC8002E436B /* PatientReportViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReportViewEntity.swift; sourceTree = "<group>"; };
+		E491EAD826BFADC8002E436B /* PatientReportProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReportProtocols.swift; sourceTree = "<group>"; };
+		E491EAD926BFADC8002E436B /* PatientReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReportViewController.swift; sourceTree = "<group>"; };
+		E491EADA26BFADC8002E436B /* PatientReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReportViewModel.swift; sourceTree = "<group>"; };
+		E491EADC26BFADC8002E436B /* PatientReportViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReportViewType.swift; sourceTree = "<group>"; };
+		E491EADD26BFADC8002E436B /* PatientReportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReportView.swift; sourceTree = "<group>"; };
+		E491EADE26BFADC8002E436B /* PatientReportViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReportViewState.swift; sourceTree = "<group>"; };
+		E491EAE926BFAEB9002E436B /* PatientAnamnesisProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAnamnesisProtocols.swift; sourceTree = "<group>"; };
+		E491EAEB26BFAEB9002E436B /* PatientAnamnesisViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAnamnesisViewEntity.swift; sourceTree = "<group>"; };
+		E491EAEC26BFAEB9002E436B /* PatientAnamnesisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAnamnesisViewController.swift; sourceTree = "<group>"; };
+		E491EAEE26BFAEB9002E436B /* PatientAnamnesisViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAnamnesisViewType.swift; sourceTree = "<group>"; };
+		E491EAEF26BFAEB9002E436B /* PatientAnamnesisViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAnamnesisViewState.swift; sourceTree = "<group>"; };
+		E491EAF026BFAEB9002E436B /* PatientAnamnesisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAnamnesisView.swift; sourceTree = "<group>"; };
+		E491EAF126BFAEB9002E436B /* PatientAnamnesisViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientAnamnesisViewModel.swift; sourceTree = "<group>"; };
+		E491EAFA26BFB096002E436B /* AnamnesisFormStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnamnesisFormStack.swift; sourceTree = "<group>"; };
 		E4A8041026AEE91500AE8593 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E4A8041226AEEE7000AE8593 /* SplashViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewType.swift; sourceTree = "<group>"; };
 		E4A8041626AF043300AE8593 /* CoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLabel.swift; sourceTree = "<group>"; };
@@ -550,6 +622,8 @@
 			children = (
 				E455B61B26B4508C000D298A /* ReminderRepositoryProtocol.swift */,
 				E458808026BC85F3005D6573 /* PatientRepositoryProtocol.swift */,
+				E491EAB326BF8958002E436B /* PerformActivyRepositoryProtocol.swift */,
+				E491EAB526BF8993002E436B /* ReportRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -567,6 +641,8 @@
 			children = (
 				E455B61F26B4517C000D298A /* ReminderRepository.swift */,
 				E458808226BC861F005D6573 /* PatientRepository.swift */,
+				E491EAB726BF89D2002E436B /* PerformActivyRepository.swift */,
+				E491EAB926BF8A6E002E436B /* ReportRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -576,6 +652,8 @@
 			children = (
 				E455B62226B453D3000D298A /* Reminder.swift */,
 				E458807E26BC7ABC005D6573 /* Patient.swift */,
+				E491EAAF26BF87E8002E436B /* Report.swift */,
+				E491EAB126BF88BE002E436B /* PerformActivy.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -631,6 +709,7 @@
 		E458808B26BCDDA8005D6573 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E491EA8B26BF6648002E436B /* Components */,
 				E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */,
 				E458808D26BCDDA8005D6573 /* PatientFormView.swift */,
 				E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */,
@@ -763,6 +842,156 @@
 				E455B62426B47132000D298A /* ReminderTableViewCell.swift */,
 			);
 			path = ReminderTableView;
+			sourceTree = "<group>";
+		};
+		E491EA8626BF221F002E436B /* CoreInputField */ = {
+			isa = PBXGroup;
+			children = (
+				E491EA8726BF223B002E436B /* CoreInputField.swift */,
+			);
+			path = CoreInputField;
+			sourceTree = "<group>";
+		};
+		E491EA8B26BF6648002E436B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E491EA8C26BF6665002E436B /* PatientFormStack.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E491EA8E26BF6D50002E436B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E491EA8F26BF6D5F002E436B /* ClinicFormStack.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E491EA9126BF73B6002E436B /* CoreRedirectButton */ = {
+			isa = PBXGroup;
+			children = (
+				E491EA9226BF73D3002E436B /* CoreRedirectButton.swift */,
+			);
+			path = CoreRedirectButton;
+			sourceTree = "<group>";
+		};
+		E491EA9626BF81F4002E436B /* PatientProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E491EA9726BF81F4002E436B /* PatientProfileViewController.swift */,
+				E491EA9826BF81F4002E436B /* Entity */,
+				E491EA9A26BF81F4002E436B /* PatientProfileViewModel.swift */,
+				E491EA9B26BF81F4002E436B /* PatientProfileProtocols.swift */,
+				E491EA9C26BF81F4002E436B /* View */,
+			);
+			path = PatientProfile;
+			sourceTree = "<group>";
+		};
+		E491EA9826BF81F4002E436B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E491EA9926BF81F4002E436B /* PatientProfileViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E491EA9C26BF81F4002E436B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAA726BF8538002E436B /* Components */,
+				E491EA9D26BF81F4002E436B /* PatientProfileViewState.swift */,
+				E491EA9E26BF81F4002E436B /* PatientProfileView.swift */,
+				E491EA9F26BF81F4002E436B /* PatientProfileViewType.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E491EAA726BF8538002E436B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAAA26BF86FB002E436B /* ReportTableView */,
+				E491EAA826BF8554002E436B /* SearchTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E491EAAA26BF86FB002E436B /* ReportTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAAB26BF8722002E436B /* ReportTableView.swift */,
+				E491EAAD26BF8751002E436B /* ReportTableViewCell.swift */,
+			);
+			path = ReportTableView;
+			sourceTree = "<group>";
+		};
+		E491EAD526BFADC8002E436B /* PatientReport */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAD626BFADC8002E436B /* Entity */,
+				E491EAD826BFADC8002E436B /* PatientReportProtocols.swift */,
+				E491EAD926BFADC8002E436B /* PatientReportViewController.swift */,
+				E491EADA26BFADC8002E436B /* PatientReportViewModel.swift */,
+				E491EADB26BFADC8002E436B /* View */,
+			);
+			path = PatientReport;
+			sourceTree = "<group>";
+		};
+		E491EAD626BFADC8002E436B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAD726BFADC8002E436B /* PatientReportViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E491EADB26BFADC8002E436B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E491EADC26BFADC8002E436B /* PatientReportViewType.swift */,
+				E491EADD26BFADC8002E436B /* PatientReportView.swift */,
+				E491EADE26BFADC8002E436B /* PatientReportViewState.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E491EAE826BFAEB9002E436B /* PatientAnamnesis */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAE926BFAEB9002E436B /* PatientAnamnesisProtocols.swift */,
+				E491EAEA26BFAEB9002E436B /* Entity */,
+				E491EAEC26BFAEB9002E436B /* PatientAnamnesisViewController.swift */,
+				E491EAED26BFAEB9002E436B /* View */,
+				E491EAF126BFAEB9002E436B /* PatientAnamnesisViewModel.swift */,
+			);
+			path = PatientAnamnesis;
+			sourceTree = "<group>";
+		};
+		E491EAEA26BFAEB9002E436B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAEB26BFAEB9002E436B /* PatientAnamnesisViewEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E491EAED26BFAEB9002E436B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAF926BFB076002E436B /* Components */,
+				E491EAEE26BFAEB9002E436B /* PatientAnamnesisViewType.swift */,
+				E491EAEF26BFAEB9002E436B /* PatientAnamnesisViewState.swift */,
+				E491EAF026BFAEB9002E436B /* PatientAnamnesisView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E491EAF926BFB076002E436B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E491EAFA26BFB096002E436B /* AnamnesisFormStack.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E4A8040F26AEE90400AE8593 /* View */ = {
@@ -1165,12 +1394,15 @@
 				E444E59626BDF64800D94FBB /* SignUpViewController.swift in Sources */,
 				8FC66A0126BF916300069DED /* FullPlanView.swift in Sources */,
 				E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */,
+				E491EAB826BF89D2002E436B /* PerformActivyRepository.swift in Sources */,
 				E455B61C26B4508C000D298A /* ReminderRepositoryProtocol.swift in Sources */,
 				E444E59826BDF64800D94FBB /* SignUpViewEntity.swift in Sources */,
 				E458807D26BC04FF005D6573 /* PatientTableViewCell.swift in Sources */,
 				E4828AC026B361D9003E8138 /* PatientHallViewEntity.swift in Sources */,
+				E491EAE126BFADC8002E436B /* PatientReportViewController.swift in Sources */,
 				E4C380D626AA67EB00CF2A9C /* CoreButton.swift in Sources */,
 				E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */,
+				E491EAF226BFAEB9002E436B /* PatientAnamnesisProtocols.swift in Sources */,
 				E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */,
 				8F0C29D626BE26100096296B /* VirtualPlanViewController.swift in Sources */,
 				8FC669FE26BF916300069DED /* FullPlanViewEntity.swift in Sources */,
@@ -1188,16 +1420,23 @@
 				E4A8044826B1F7BA00AE8593 /* SignInViewType.swift in Sources */,
 				8FC669EE26BF8C6D00069DED /* DigitalPlanViewState.swift in Sources */,
 				E455B62026B4517C000D298A /* ReminderRepository.swift in Sources */,
+				E444E5DD26BE466500D94FBB /* ClinicFormViewState.swift in Sources */,
+				E444E5DA26BE466500D94FBB /* ClinicFormProtocols.swift in Sources */,
 				E4828ABF26B361D9003E8138 /* PatientHallViewController.swift in Sources */,
 				8FC66A1826BF9B3800069DED /* NewActivityViewEntity.swift in Sources */,
 				E4A8043126B0489800AE8593 /* CoreHeaderType.swift in Sources */,
 				8F0C29D326BE26100096296B /* VirtualPlanView.swift in Sources */,
 				E4A8044B26B1F7BA00AE8593 /* SignInViewModel.swift in Sources */,
+				E491EA8A26BF2739002E436B /* UITextField+.swift in Sources */,
+				E491EAB426BF8958002E436B /* PerformActivyRepositoryProtocol.swift in Sources */,
 				E4828ACF26B3A7AC003E8138 /* UIImageView+.swift in Sources */,
+				E491EAF426BFAEB9002E436B /* PatientAnamnesisViewController.swift in Sources */,
+				E491EAF626BFAEB9002E436B /* PatientAnamnesisViewState.swift in Sources */,
 				E4828AD226B3BF9F003E8138 /* ReminderTableView.swift in Sources */,
 				8FC66A1C26BF9B3800069DED /* NewActivityView.swift in Sources */,
 				8FC66A2F26BFA5BC00069DED /* NewReportViewState.swift in Sources */,
 				E4A8043626B1D7B500AE8593 /* CoreButtonType.swift in Sources */,
+				E491EAF326BFAEB9002E436B /* PatientAnamnesisViewEntity.swift in Sources */,
 				E4A8042126AF2C7700AE8593 /* CoreHeader.swift in Sources */,
 				E458809026BCDDA8005D6573 /* PatientFormViewEntity.swift in Sources */,
 				E4A8044926B1F7BA00AE8593 /* SignInView.swift in Sources */,
@@ -1234,17 +1473,28 @@
 				E458809126BCDDA8005D6573 /* PatientFormViewController.swift in Sources */,
 				8FC66A0226BF916300069DED /* FullPlanViewType.swift in Sources */,
 				E458809626BCDDA8005D6573 /* PatientFormProtocols.swift in Sources */,
+				E491EAB026BF87E8002E436B /* Report.swift in Sources */,
+				E444E5DF26BE466500D94FBB /* ClinicFormViewModel.swift in Sources */,
+				E491EAA326BF81F4002E436B /* PatientProfileProtocols.swift in Sources */,
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
 				8FC669FF26BF916300069DED /* FullPlanViewController.swift in Sources */,
 				E458807B26BC047F005D6573 /* PatientTableView.swift in Sources */,
+				E491EAA626BF81F4002E436B /* PatientProfileViewType.swift in Sources */,
+				E491EAE526BFADC8002E436B /* PatientReportViewState.swift in Sources */,
+				E491EAF826BFAEB9002E436B /* PatientAnamnesisViewModel.swift in Sources */,
+				E491EAA126BF81F4002E436B /* PatientProfileViewEntity.swift in Sources */,
+				E491EAE226BFADC8002E436B /* PatientReportViewModel.swift in Sources */,
 				E458808326BC861F005D6573 /* PatientRepository.swift in Sources */,
 				8F0C29D426BE26100096296B /* VirtualPlanViewType.swift in Sources */,
 				E467014826A9120400A28683 /* SplashViewController.swift in Sources */,
+				E491EAA426BF81F4002E436B /* PatientProfileViewState.swift in Sources */,
+				E491EA9326BF73D3002E436B /* CoreRedirectButton.swift in Sources */,
 				E458809426BCDDA8005D6573 /* PatientFormView.swift in Sources */,
 				E444E59A26BDF64800D94FBB /* SignUpViewType.swift in Sources */,
 				E458809326BCDDA8005D6573 /* PatientFormViewState.swift in Sources */,
 				E458809526BCDDA8005D6573 /* PatientFormViewType.swift in Sources */,
 				E455B62326B453D3000D298A /* Reminder.swift in Sources */,
+				E491EAA926BF8554002E436B /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

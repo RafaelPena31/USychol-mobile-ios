@@ -16,6 +16,7 @@ public protocol PatientHallViewType: AnyObject {
 
 public protocol PatientHallViewDelegate: AnyObject {
     func onHandleAddReminder()
+    func onHandlePatientProfileRedirect()
 }
 
 extension PatientHallViewType where Self: UIView {
