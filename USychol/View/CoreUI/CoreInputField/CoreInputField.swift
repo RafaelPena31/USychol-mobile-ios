@@ -1,70 +1,73 @@
-//
-//  CoreInputField.swift
-//  USychol
-//
-//  Created by Fernando Rodrigues on 29/07/21.
-//
-
 import UIKit
 
-final public class CoreInputField: UIView  {
+final public class CoreInputField: UIStackView  {
+    
     // MARK: - PARAMS
-
+    
     let inputPlaceholder: String
     let labelText: String
+    let height: Int
+    
+    // MARK: - UI
+    
+    private lazy var inputField: TextField = {
+        let input = TextField()
+        
+        let padding = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+        input.placeholder = inputPlaceholder
+        input.backgroundColor = UIColor(named: "GreyLightColor")
+        input.layer.cornerRadius = 8
+        
+        return input
+    }()
+
+    private lazy var label: UILabel = {
+        let label = CoreLabel(type: .labelInput, text: labelText, color: "GreyLabelColor")
+        
+        return label
+    }()
+    
     // MARK: - INITIALIZERS
     
-    init(frame: CGRect = .zero, placeholder: String, labelText: String){
+    init(frame: CGRect = .zero, placeholder: String, labelText: String, height: Int = 55){
         self.inputPlaceholder = placeholder
         self.labelText = labelText
+        self.height = height
 
         super.init(frame: frame)
         setup()
     }
-    
+
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - UI
-    
-    let inputField: UITextField = {
-        let input = UITextField()
-        return input
-    }()
-    
-    let label: UILabel = {
-       let label = CoreLabel(type: .labelInput, text: "Email", color: "GreyLabelColor")
-        return label
-    }()
-    
+
     // MARK: - PRIVATE
     
     private func setup(){
-        applyContent()
         buildHierarchy()
-        buildConstraints()
+        buildStyle()
+        addConstraints()
+    }
+
+    private func buildHierarchy() {
+        self.addArrangedSubview(label)
+        self.addArrangedSubview(inputField)
     }
     
-    private func applyContent(){
-        inputField.placeholder = self.inputPlaceholder
-        label.text = self.labelText
+    private func buildStyle() {
+        self.axis = .vertical
+        self.alignment = .leading
+        self.spacing = 8
     }
-    
-    private func buildHierarchy(){
-        self.addSubview(label)
-        self.addSubview(inputField)
-    }
-    
-    private func buildConstraints(){
+
+    private func addConstraints(){
         inputField.snp.makeConstraints{(make) -> Void in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 0))
-            make.height.equalTo(34)
-        }
-        
-        label.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(inputField).inset(UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0))
+            make.height.equalTo(self.height)
+            make.leading.equalTo(self)
+            make.trailing.equalTo(self)
         }
     }
 }

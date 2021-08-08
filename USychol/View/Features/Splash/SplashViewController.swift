@@ -42,7 +42,7 @@ class SplashViewController: UIViewController {
     }
     
     private func headerSetup() {
-        _ = CoreHeader(type: .secondary, navigationItem: self.navigationItem, navigationController: self.navigationController!)
+        _ = CoreHeader(type: .secondary, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: nil)
     }
     
     private func contentSetup() {

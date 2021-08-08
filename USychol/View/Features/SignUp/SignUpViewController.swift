@@ -47,6 +47,15 @@ public class SignUpViewController: UIViewController {
     
     private func setup() {
         contentSetup()
+        headerSetup()
+    }
+    
+    private func headerSetup() {
+        let rightButton = UIButton()
+        
+        rightButton.addTarget(self, action: #selector(onRightHeaderButtonClick), for: .touchUpInside)
+        
+        _ = CoreHeader(type: .main, isRightButtonAvailable: true, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: rightButton)
     }
     
     private func contentSetup() {
@@ -54,6 +63,16 @@ public class SignUpViewController: UIViewController {
             self.view = contentView.content
         }
         contentView?.delegate = self
+    }
+    
+    // MARK: - ACTIONS
+    
+    @objc func onRightHeaderButtonClick() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.isTranslucent = false
+        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -65,6 +84,13 @@ extension SignUpViewController: SignUpViewControllerType {
 
 extension SignUpViewController: SignUpViewDelegate {
     public func onHandleClick() {
+        let VirtualPlanVM = VirtualPlanViewModel()
+        let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
+        
+        self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
+    }
+    
+    public func onHandleChange() {
         let SignInVM = SignInViewModel()
         let SignInVC = SignInViewController(viewModel: SignInVM)
         

@@ -25,12 +25,29 @@ final public class SignInView: UIView {
     private lazy var passwordInput: UIView = CoreInputField(placeholder: "Password", labelText: "Password")
     
     private lazy var button: CoreButton = {
-        let button = CoreButton(type: .normal, title: "Start now", onPressMethod: onHandleClick)
+        let button = CoreButton(type: .normal, title: "Sign in", onPressMethod: onHandleClick)
         
         return button
     }()
     
-    private lazy var label: CoreLabel = CoreLabel(type: .labelInput, text: "Create new account", color: "NeonStrongLightColor")
+    private lazy var label: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.addTarget(self, action: #selector(onHandleChange), for: .touchUpInside)
+        button.setTitle("Create a new account", for: .normal)
+        button.backgroundColor = .white
+        button.contentHorizontalAlignment = .left
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Poppins-Medium", size: 12)
+        return button
+    }()
+    
+    private lazy var formStack: UIStackView = {
+       let stack = UIStackView(arrangedSubviews: [emailInput, passwordInput])
+        stack.alignment = .center
+        stack.axis = .vertical
+        stack.spacing = 16
+       return stack
+    }()
     
     // MARK: - PUBLIC API
 
@@ -56,8 +73,8 @@ final public class SignInView: UIView {
     }
     
     private func buildViewHierarchy() {
-        containerView.addSubview(emailInput)
-        containerView.addSubview(passwordInput)
+        containerView.addSubview(formStack)
+        
         addSubview(containerView)
         addSubview(label)
         addSubview(button)
@@ -67,12 +84,19 @@ final public class SignInView: UIView {
         containerView.snp.makeConstraints {(make) -> Void in
             make.edges.equalToSuperview()
         }
+        
+        formStack.snp.makeConstraints{(make) -> Void in
+            make.top.equalTo(156)
+            make.leading.equalTo(containerView).inset(16)
+            make.trailing.equalTo(containerView).inset(16)
+        }
+        
         emailInput.snp.makeConstraints{(make) -> Void in
-            make.top.equalToSuperview().offset(64)
+            make.leading.trailing.equalTo(0)
         }
         
         passwordInput.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(emailInput).inset(UIEdgeInsets(top: 256, left: 0, bottom: 0, right: 0))
+            make.leading.trailing.equalTo(0)
         }
         
         button.snp.makeConstraints{(make) -> Void in
@@ -83,7 +107,9 @@ final public class SignInView: UIView {
         }
         
         label.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(button).inset(UIEdgeInsets(top: -88, left: 0, bottom: 0, right: 0))
+            make.bottom.equalTo(button).inset(64)
+            make.leading.equalTo(containerView).inset(16)
+            make.trailing.equalTo(containerView).inset(16)
         }
     }
     
@@ -96,6 +122,11 @@ final public class SignInView: UIView {
     func onHandleClick () {
         delegate?.onHandleClick()
     }
+    
+    @objc func onHandleChange () {
+        delegate?.onHandleChange()
+    }
+
 }
 
 extension SignInView: SignInViewType {

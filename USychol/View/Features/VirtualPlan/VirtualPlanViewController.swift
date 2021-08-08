@@ -1,28 +1,30 @@
 
 //
-//  SignInViewController.swift
+//  VirtualPlanViewController.swift
 //  USychol
 //
-//  Created Rafael Augusto Mesquita on 28/07/21.
+//  Created Fernando Rodrigues on 06/08/21.
+//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
+//
 //
 
 import UIKit
 
-public class SignInViewController: UIViewController {
+public class VirtualPlanViewController: UIViewController {
 
     // MARK: - PROPERTIES
 
-    public let viewModel: SignInViewModelType?
-    public let contentView: SignInViewType?
+    public let viewModel: VirtualPlanViewModelType?
+    public let contentView: VirtualPlanViewType?
 
     // MARK: - PUBLIC API
 
-    public weak var delegate: SignInViewControllerDelegate?
+    public weak var delegate: VirtualPlanViewControllerDelegate?
 
     // MARK: - INITIALIZERS
 
-    public init(contentView: SignInViewType = SignInView(),
-                viewModel: SignInViewModelType) {
+    public init(contentView: VirtualPlanViewType = VirtualPlanView(),
+                viewModel: VirtualPlanViewModelType) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -44,8 +46,12 @@ public class SignInViewController: UIViewController {
     // MARK: - PRIVATE
     
     private func setup() {
-        _ = CoreHeader(type: .main, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: nil)
         contentSetup()
+        headerSetup()
+    }
+    
+    private func headerSetup(){
+        _ = CoreHeader(type: .plan, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: nil)
     }
     
     private func contentSetup() {
@@ -56,8 +62,8 @@ public class SignInViewController: UIViewController {
     }
 }
 
-extension SignInViewController: SignInViewControllerType {
-    public func updateView(with viewState: SignInViewState) {
+extension VirtualPlanViewController: VirtualPlanViewControllerType {
+    public func updateView(with viewState: VirtualPlanViewState) {
         contentView?.updateView(with: viewState)
     }
     
@@ -68,15 +74,14 @@ extension SignInViewController: SignInViewControllerType {
         self.navigationController?.pushViewController(PatientHallVC, animated: true)
     }
     
-    public func onHandleChange() {
-        let SignUpVM = SignUpViewModel()
-        let SignUpVC = SignUpViewController(viewModel: SignUpVM)
+    public func onHandleTouch() {
+        let DigitalPlanVM = DigitalPlanViewModel()
+        let DigitalPlanVC = DigitalPlanViewController(viewModel: DigitalPlanVM)
         
-        self.navigationController?.pushViewController(SignUpVC, animated: true)
+        self.navigationController?.pushViewController(DigitalPlanVC, animated: true)
     }
 }
 
-extension SignInViewController: SignInViewDelegate {
+extension VirtualPlanViewController: VirtualPlanViewDelegate {
 
 }
-

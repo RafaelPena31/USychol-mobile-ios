@@ -14,6 +14,7 @@ public protocol SignInViewType: AnyObject {
 
 public protocol SignInViewDelegate: AnyObject {
     func onHandleClick()
+    func onHandleChange()
 }
 
 extension SignInViewType where Self: UIView {

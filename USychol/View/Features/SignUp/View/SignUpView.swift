@@ -31,12 +31,13 @@ final public class SignUpView: UIView {
         return view
     }()
     
-    private lazy var emailInput: UIView = CoreInputField(placeholder: "Email", labelText: "Email")
-    private lazy var nameInput: UIView = CoreInputField(placeholder: "Name", labelText: "Name")
-    private lazy var birthdayInput: UIView = CoreInputField(placeholder: "January 01 2020", labelText: "Birthday")
-    private lazy var registrationInput: UIView = CoreInputField(placeholder: "00000", labelText: "CPR Registration Number")
-    private lazy var documentInput: UIView = CoreInputField(placeholder: "***-***-***.**", labelText: "ID Document")
-    private lazy var passwordInput: UIView = CoreInputField(placeholder: "********", labelText: "Password")
+    
+    private lazy var emailInput: CoreInputField = CoreInputField(placeholder: "Email", labelText: "Email")
+    private lazy var nameInput: CoreInputField = CoreInputField(placeholder: "Name", labelText: "Name")
+    private lazy var birthdayInput: CoreInputField = CoreInputField(placeholder: "January 01 2020", labelText: "Birthday")
+    private lazy var registrationInput: CoreInputField = CoreInputField(placeholder: "00000", labelText: "CPR Registration Number")
+    private lazy var documentInput: CoreInputField = CoreInputField(placeholder: "***-***-***.**", labelText: "ID Document")
+    private lazy var passwordInput: CoreInputField = CoreInputField(placeholder: "********", labelText: "Password")
     
     private lazy var button: CoreButton = {
         let button = CoreButton(type: .normal, title: "Sign up", onPressMethod: onHandleClick)
@@ -44,7 +45,24 @@ final public class SignUpView: UIView {
         return button
     }()
     
-    private lazy var label: CoreLabel = CoreLabel(type: .labelInput, text: "I already have an account", color: "NeonStrongLightColor")
+    private lazy var label: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.addTarget(self, action: #selector(onHandleChange), for: .touchUpInside)
+        button.setTitle("Already have an account", for: .normal)
+        button.backgroundColor = .white
+        button.contentHorizontalAlignment = .left
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Poppins-Medium", size: 12)
+        return button
+    }()
+    
+    private lazy var formStack: UIStackView = {
+       let stack = UIStackView(arrangedSubviews: [emailInput, nameInput, birthdayInput, registrationInput, documentInput, passwordInput])
+        stack.alignment = .center
+        stack.axis = .vertical
+        stack.spacing = 16
+       return stack
+    }()
     
     // MARK: - PUBLIC API
 
@@ -70,66 +88,83 @@ final public class SignUpView: UIView {
     }
     
     private func buildViewHierarchy() {
-        contentView.addSubview(emailInput)
-        contentView.addSubview(nameInput)
-        contentView.addSubview(birthdayInput)
-        contentView.addSubview(registrationInput)
-        contentView.addSubview(documentInput)
-        contentView.addSubview(passwordInput)
+        contentView.addSubview(formStack)
+        
+        contentView.addSubview(label)
+        contentView.addSubview(button)
+        
         scrollView.addSubview(contentView)
-        containerView.addSubview(label)
-        containerView.addSubview(button)
+        
         containerView.addSubview(scrollView)
         addSubview(containerView)
     }
     
     private func addConstraints() {
         containerView.snp.makeConstraints {(make) -> Void in
-            make.edges.equalToSuperview()
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.top.equalTo(0)
+            make.bottom.equalTo(0)
         }
         
         scrollView.snp.makeConstraints{(make) -> Void in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(safeAreaLayoutGuide)
         }
         
         contentView.snp.makeConstraints{(make) -> Void in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
+            make.leading.equalTo(scrollView)
+            make.trailing.equalTo(scrollView)
+            make.top.equalTo(scrollView)
+            make.bottom.equalTo(scrollView)
+            make.width.equalTo(scrollView)
+            make.height.equalTo(containerView).priority(.low)
+        }
+        
+        formStack.snp.makeConstraints{(make) -> Void in
+            make.top.equalTo(80)
+            make.leading.equalTo(containerView).inset(16)
+            make.trailing.equalTo(containerView).inset(16)
         }
         
         nameInput.snp.makeConstraints{(make) -> Void in
-            make.top.equalToSuperview().offset(-424)
+            make.leading.trailing.equalTo(0)
         }
         
         birthdayInput.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(nameInput).inset(UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0))
+            make.leading.trailing.equalTo(0)
         }
 
         registrationInput.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(birthdayInput).inset(UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0))
+            make.leading.trailing.equalTo(0)
         }
         
         emailInput.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(registrationInput).inset(UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0))
+            make.leading.trailing.equalTo(0)
         }
                 
         documentInput.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(emailInput).inset(UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0))
+            make.leading.trailing.equalTo(0)
         }
         
         passwordInput.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(documentInput).inset(UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0))
+            make.leading.trailing.equalTo(0)
         }
 
         
         button.snp.makeConstraints{(make) -> Void in
+            make.bottom.equalTo(containerView).inset(36)
             make.height.equalTo(55)
-            make.bottom.equalTo(self.containerView.safeAreaLayoutGuide).inset(16)
             make.right.equalTo(self.containerView.safeAreaLayoutGuide).inset(16)
             make.left.equalTo(self.containerView.safeAreaLayoutGuide).offset(16)
         }
         
         label.snp.makeConstraints{(make) -> Void in
-            make.edges.equalTo(button).inset(UIEdgeInsets(top: -88, left: 0, bottom: 0, right: 0))
+            make.bottom.equalTo(containerView).inset(96)
+            make.right.equalTo(self.containerView.safeAreaLayoutGuide).inset(16)
+            make.left.equalTo(self.containerView.safeAreaLayoutGuide).offset(16)
         }
     }
     
@@ -139,6 +174,10 @@ final public class SignUpView: UIView {
     
     func onHandleClick () {
         delegate?.onHandleClick()
+    }
+    
+    @objc func onHandleChange(){
+        delegate?.onHandleChange()
     }
 }
 
