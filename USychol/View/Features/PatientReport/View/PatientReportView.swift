@@ -116,6 +116,30 @@ final public class PatientReportView: UIView {
         return stack
     }()
     
+    private lazy var consultationDividerLabel: CoreDividerLabel = {
+        let label = CoreDividerLabel(text: "Consultation evaluation", iconName: "paper-icon")
+        
+        return label
+    }()
+    
+    private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "8", labelText: "Consultation Evaluation")
+    
+    private lazy var consultationResumeStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [consultationDividerLabel, consultationInput])
+        
+        stack.axis = .vertical
+        stack.alignment = .leading
+        stack.spacing = 16
+        
+        return stack
+    }()
+    
+    private lazy var editReportButton: CoreRedirectButton = {
+        let button = CoreRedirectButton(leftIconName: "list-icon", title: "Edit report", onPressMethod: onHandleEditReport)
+        
+        return button
+    }()
+    
     // MARK: - PUBLIC API
 
     public weak var delegate: PatientReportViewDelegate?
@@ -148,6 +172,10 @@ final public class PatientReportView: UIView {
         contentView.addSubview(dividerView)
         
         contentView.addSubview(patientResumeStack)
+        
+        contentView.addSubview(consultationResumeStack)
+        
+        contentView.addSubview(editReportButton)
         
         scrollView.addSubview(contentView)
         
@@ -219,12 +247,37 @@ final public class PatientReportView: UIView {
         patientResumeStack.snp.makeConstraints{(make) -> Void in
             make.top.equalTo(dividerView).offset(80)
             make.leading.equalTo(contentView).inset(16)
-            make.trailing.equalTo(16).inset(16)
+            make.trailing.equalTo(contentView).inset(16)
+        }
+        
+        consultationResumeStack.snp.makeConstraints{(make) -> Void in
+            make.top.equalTo(patientResumeStack.snp.bottom).offset(32)
+            make.leading.equalTo(contentView).inset(16)
+            make.trailing.equalTo(contentView).inset(16)
+        }
+        
+        consultationInput.snp.makeConstraints{(make) -> Void in
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+        }
+        
+        editReportButton.snp.makeConstraints{(make) -> Void in
+            make.top.equalTo(consultationInput.snp.bottom).offset(32)
+            make.leading.equalTo(contentView).offset(16)
+            make.trailing.equalTo(contentView).inset(16)
+            make.height.equalTo(55)
+            make.bottomMargin.equalTo(scrollView).inset(24)
         }
     }
     
     private func updateView(with entity: PatientReportViewEntity) {
         
+    }
+    
+    // MARK: - ACTIONS
+    
+    func onHandleEditReport() {
+        delegate?.onHandleEditReport()
     }
 }
 

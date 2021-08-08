@@ -55,7 +55,7 @@ public class NewActivityViewController: UIViewController {
             
             rightButton.addTarget(self, action: #selector(onRightHeaderButtonClick), for: .touchUpInside)
             
-            _ = CoreHeader(type: .plan, isRightButtonAvailable: true, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: rightButton)
+            _ = CoreHeader(type: .main, isRightButtonAvailable: true, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: rightButton)
         }
     
     private func contentSetup() {

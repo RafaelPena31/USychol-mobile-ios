@@ -21,8 +21,8 @@ final public class NewActivityView: UIView {
     }()
     
     private lazy var activityNameInput: CoreInputField = CoreInputField(placeholder: "Activity name", labelText: "Activity Name")
-    private lazy var deliveryDayInput: CoreInputField = CoreInputField(placeholder: "Delivery Day", labelText: "January 01 2021")
-    private lazy var descriptionInput: CoreInputField = CoreInputField(placeholder: "Description", labelText: "Today")
+    private lazy var deliveryDayInput: CoreInputField = CoreInputField(placeholder: "January 01 2021", labelText: "Delivery Day")
+    private lazy var descriptionInput: CoreInputField = CoreInputField(placeholder: "Today...", labelText: "Description")
     
     private lazy var button: CoreButton = CoreButton(type: .normal, title: "Create", onPressMethod: onHandleClick)
     

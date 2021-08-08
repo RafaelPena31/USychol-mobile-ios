@@ -59,8 +59,8 @@ class CoreHeader {
                 
             case .plan:
                 navigationController.navigationBar.backgroundColor = .clear
-                logoColorName = "MainPurpleColor"
-                sublogoColorName = "PurpleLightColor"
+                logoColorName = "WhiteColor"
+                sublogoColorName = "ParcialWhiteColor"
         }
         
         

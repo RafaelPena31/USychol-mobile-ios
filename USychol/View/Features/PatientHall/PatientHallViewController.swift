@@ -112,6 +112,7 @@ public class PatientHallViewController: UIViewController {
 
 extension PatientHallViewController: PatientHallViewControllerType {
     public func updateView(with viewState: PatientHallViewState) {
+        print("controller")
         contentView?.updateView(with: viewState)
     }
 }

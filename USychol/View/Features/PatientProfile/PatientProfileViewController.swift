@@ -125,11 +125,21 @@ extension PatientProfileViewController: PatientProfileViewDelegate {
     }
     
     public func onHandleCreateActivy() {
-        print("onHandleCreateActivy")
+        let NewActivityVM = NewActivityViewModel()
+        let NewActivityVC = NewActivityViewController(viewModel: NewActivityVM)
+        
+        NewActivityVM.viewController = NewActivityVC
+        
+        self.navigationController?.pushViewController(NewActivityVC, animated: true)
     }
     
     public func onHandleCreateReport() {
-        print("onHandleCreateReport")
+        let NewReportVM = NewReportViewModel()
+        let NewReportVC = NewReportViewController(viewModel: NewReportVM)
+        
+        NewReportVM.viewController = NewReportVC
+        
+        self.navigationController?.pushViewController(NewReportVC, animated: true)
     }
     
     public func onHandleSearchReport() {

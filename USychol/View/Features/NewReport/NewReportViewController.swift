@@ -47,13 +47,32 @@ public class NewReportViewController: UIViewController {
     
     private func setup() {
         contentSetup()
+        headerSetup()
     }
+    
+    private func headerSetup() {
+            let rightButton = UIButton()
+            
+            rightButton.addTarget(self, action: #selector(onRightHeaderButtonClick), for: .touchUpInside)
+            
+            _ = CoreHeader(type: .main, isRightButtonAvailable: true, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: rightButton)
+        }
     
     private func contentSetup() {
         if let contentView = contentView {
             self.view = contentView.content
         }
         contentView?.delegate = self
+    }
+    
+    // MARK: - ACTIONS
+    
+    @objc func onRightHeaderButtonClick() {
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

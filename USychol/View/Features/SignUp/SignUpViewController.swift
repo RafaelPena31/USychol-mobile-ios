@@ -51,11 +51,7 @@ public class SignUpViewController: UIViewController {
     }
     
     private func headerSetup() {
-        let rightButton = UIButton()
-        
-        rightButton.addTarget(self, action: #selector(onRightHeaderButtonClick), for: .touchUpInside)
-        
-        _ = CoreHeader(type: .main, isRightButtonAvailable: true, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: rightButton)
+        _ = CoreHeader(type: .main, isRightButtonAvailable: true, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: nil)
     }
     
     private func contentSetup() {
@@ -63,16 +59,6 @@ public class SignUpViewController: UIViewController {
             self.view = contentView.content
         }
         contentView?.delegate = self
-    }
-    
-    // MARK: - ACTIONS
-    
-    @objc func onRightHeaderButtonClick() {
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.navigationBar.isTranslucent = false
-        
-        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -87,13 +73,12 @@ extension SignUpViewController: SignUpViewDelegate {
         let VirtualPlanVM = VirtualPlanViewModel()
         let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
         
+        VirtualPlanVM.viewController = VirtualPlanVC
+        
         self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
     }
     
     public func onHandleChange() {
-        let SignInVM = SignInViewModel()
-        let SignInVC = SignInViewController(viewModel: SignInVM)
-        
-        self.navigationController?.pushViewController(SignInVC, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

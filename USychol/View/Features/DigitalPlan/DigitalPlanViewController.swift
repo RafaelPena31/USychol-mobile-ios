@@ -65,12 +65,16 @@ public class DigitalPlanViewController: UIViewController {
         let PatientHallVM = PatientHallViewModel()
         let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
         
+        PatientHallVM.viewController = PatientHallVC
+        
         self.navigationController?.pushViewController(PatientHallVC, animated: true)
     }
     
     public func onHandleTouch() {
         let FullPlanVM = FullPlanViewModel()
         let FullPlanVC = FullPlanViewController(viewModel: FullPlanVM)
+        
+        FullPlanVM.viewController = FullPlanVC
         
         self.navigationController?.pushViewController(FullPlanVC, animated: true)
     }

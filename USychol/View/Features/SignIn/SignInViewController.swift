@@ -65,12 +65,16 @@ extension SignInViewController: SignInViewControllerType {
         let PatientHallVM = PatientHallViewModel()
         let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
         
+        PatientHallVM.viewController = PatientHallVC
+        
         self.navigationController?.pushViewController(PatientHallVC, animated: true)
     }
     
     public func onHandleChange() {
         let SignUpVM = SignUpViewModel()
         let SignUpVC = SignUpViewController(viewModel: SignUpVM)
+        
+        SignUpVM.viewController = SignUpVC
         
         self.navigationController?.pushViewController(SignUpVC, animated: true)
     }

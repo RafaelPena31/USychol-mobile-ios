@@ -68,8 +68,10 @@ extension FullPlanViewController: FullPlanViewControllerType {
     }
     
     public func onHandleClick() {
-        let PatientHallVM = NewReportViewModel()
-        let PatientHallVC = NewReportViewController(viewModel: PatientHallVM)
+        let PatientHallVM = PatientHallViewModel()
+        let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+        
+        PatientHallVM.viewController = PatientHallVC
         
         self.navigationController?.pushViewController(PatientHallVC, animated: true)
     }
@@ -77,6 +79,8 @@ extension FullPlanViewController: FullPlanViewControllerType {
     public func onHandleTouch() {
         let VirtualPlanVM = VirtualPlanViewModel()
         let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
+        
+        VirtualPlanVM.viewController = VirtualPlanVC
         
         self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
     }

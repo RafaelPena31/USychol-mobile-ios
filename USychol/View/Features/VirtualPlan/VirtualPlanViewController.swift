@@ -71,12 +71,16 @@ extension VirtualPlanViewController: VirtualPlanViewControllerType {
         let PatientHallVM = PatientHallViewModel()
         let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
         
+        PatientHallVM.viewController = PatientHallVC
+        
         self.navigationController?.pushViewController(PatientHallVC, animated: true)
     }
     
     public func onHandleTouch() {
         let DigitalPlanVM = DigitalPlanViewModel()
         let DigitalPlanVC = DigitalPlanViewController(viewModel: DigitalPlanVM)
+        
+        DigitalPlanVM.viewController = DigitalPlanVC
         
         self.navigationController?.pushViewController(DigitalPlanVC, animated: true)
     }

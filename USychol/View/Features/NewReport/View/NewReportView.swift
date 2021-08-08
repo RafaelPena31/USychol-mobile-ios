@@ -21,7 +21,7 @@ final public class NewReportView: UIView {
     }()
     
     private lazy var reportNameInput: CoreInputField = CoreInputField(placeholder: "Thoughts of the day", labelText: "Activity Name")
-    private lazy var resumeInput: CoreInputField = CoreInputField(placeholder: "Today...", labelText: "Resume", height: 220)
+    private lazy var resumeInput: CoreInputField = CoreInputField(placeholder: "Today...", labelText: "Resume")
     private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "Rank from 0 - 10", labelText: "Consultation Evaluation")
     private lazy var reportInput: CoreInputField = CoreInputField(placeholder: "Januart 01 2021", labelText: "Report's day")
     
