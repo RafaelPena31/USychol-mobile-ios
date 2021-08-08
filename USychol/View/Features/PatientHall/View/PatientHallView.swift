@@ -206,4 +206,12 @@ extension PatientHallView: UITableViewDataSource {
         
         return cell
     }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == reminderTableView {
+            print("Reminder")
+        } else {
+            delegate?.onHandlePatientProfileRedirect()
+        }
+    }
 }

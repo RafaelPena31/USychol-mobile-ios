@@ -63,6 +63,8 @@ final class CoreRedirectButton: UIButton {
         self.layer.cornerRadius = 8
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(named: "MainPurpleColor")?.cgColor
+        
+        self.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 11)!
     }
     
     private func setAttributes() {

@@ -1,15 +1,15 @@
 //
-//  PatientFormView.swift
+//  PatientAnamnesisView.swift
 //  USychol
 //
-//  Created Rafael Augusto Mesquita on 06/08/21.
+//  Created Rafael Augusto Mesquita on 08/08/21.
+//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 //
 
 import UIKit
-import SnapKit
 
-final public class PatientFormView: UIView {
+final public class PatientAnamnesisView: UIView {
     
     // MARK: - UI
     
@@ -37,27 +37,39 @@ final public class PatientFormView: UIView {
         return view
     }()
     
+    private lazy var topRoundBarView: UIView = {
+        let topRoundBarView = UIView()
+        
+        topRoundBarView.backgroundColor = UIColor(named: "MainPurpleColor")
+        
+        topRoundBarView.clipsToBounds = true
+        topRoundBarView.layer.cornerRadius = 10
+        topRoundBarView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        
+        return topRoundBarView
+    }()
+    
     private lazy var coreImageProfile: CoreImageProfile = {
         let image = CoreImageProfile(profileURL: "https://mk0anatomieunes58h83.kinstacdn.com/wp-content/themes/cera/assets/images/avatars/user-avatar.png")
         
         return image
     }()
     
-    private lazy var patientFormStack: PatientFormStack = {
-        let form = PatientFormStack()
+    private lazy var anamnesisFormStack: AnamnesisFormStack = {
+        let form = AnamnesisFormStack()
 
         return form
     }()
     
-    private lazy var createButtom: CoreButton = {
-        let button = CoreButton(type: .normal, title: "Create", onPressMethod: onPressCreate)
+    private lazy var editAnamnesisButton: CoreRedirectButton = {
+        let button = CoreRedirectButton(leftIconName: "list-icon", title: "Edit anamnesis", onPressMethod: onHandleEditAnamnesis)
         
         return button
     }()
     
     // MARK: - PUBLIC API
 
-    public weak var delegate: PatientFormViewDelegate?
+    public weak var delegate: PatientAnamnesisViewDelegate?
     
     // MARK: - INITIALIZERS
     
@@ -71,7 +83,7 @@ final public class PatientFormView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - PRIVATE METHODS
+    // MARK: - PRIVATE
     
     func setup() {
         buildViewHierarchy()
@@ -80,14 +92,15 @@ final public class PatientFormView: UIView {
     
     private func buildViewHierarchy() {
         contentView.addSubview(coreImageProfile)
-        contentView.addSubview(patientFormStack)
-        contentView.addSubview(createButtom)
+        contentView.addSubview(anamnesisFormStack)
+        contentView.addSubview(editAnamnesisButton)
         
         scrollView.addSubview(contentView)
         
+        containerView.addSubview(topRoundBarView)
         containerView.addSubview(scrollView)
         
-        self.addSubview(containerView)
+        addSubview(containerView)
     }
     
     private func addConstraints() {
@@ -98,10 +111,17 @@ final public class PatientFormView: UIView {
             make.bottom.equalTo(0)
         }
         
+        topRoundBarView.snp.makeConstraints {(make) -> Void in
+            make.height.equalTo(20)
+            make.leading.equalTo(containerView)
+            make.trailing.equalTo(containerView)
+            make.top.equalTo(containerView)
+        }
+        
         scrollView.snp.makeConstraints {(make) -> Void in
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
-            make.top.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(topRoundBarView.snp.bottom)
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
         
@@ -114,18 +134,18 @@ final public class PatientFormView: UIView {
         }
         
         coreImageProfile.snp.makeConstraints {(make) -> Void in
-            make.top.equalTo(contentView)
+            make.top.equalTo(contentView).offset(40)
             make.centerX.equalTo(contentView)
         }
         
-        patientFormStack.snp.makeConstraints{(make) -> Void in
+        anamnesisFormStack.snp.makeConstraints{(make) -> Void in
             make.top.equalTo(coreImageProfile.snp.bottom).offset(24)
             make.leading.equalTo(containerView).inset(16)
             make.trailing.equalTo(containerView).inset(16)
         }
         
-        createButtom.snp.makeConstraints{(make) -> Void in
-            make.top.equalTo(patientFormStack.snp.bottom).offset(32)
+        editAnamnesisButton.snp.makeConstraints{(make) -> Void in
+            make.top.equalTo(anamnesisFormStack.snp.bottom).offset(32)
             make.leading.equalTo(contentView).offset(16)
             make.trailing.equalTo(contentView).inset(16)
             make.height.equalTo(55)
@@ -133,19 +153,19 @@ final public class PatientFormView: UIView {
         }
     }
     
-    private func updateView(with entity: PatientFormViewEntity) {
+    private func updateView(with entity: PatientAnamnesisViewEntity) {
         
     }
     
     // MARK: - ACTIONS
     
-    private func onPressCreate() {
-        print("onPressCreate")
+    func onHandleEditAnamnesis() {
+        
     }
 }
 
-extension PatientFormView: PatientFormViewType {
-    public func updateView(with viewState: PatientFormViewState) {
-
+extension PatientAnamnesisView: PatientAnamnesisViewType {
+    public func updateView(with viewState: PatientAnamnesisViewState) {
+        
     }
 }

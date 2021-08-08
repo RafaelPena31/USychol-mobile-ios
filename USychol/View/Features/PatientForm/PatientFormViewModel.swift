@@ -21,13 +21,19 @@ public class PatientFormViewModel: PatientFormViewModelType {
     
     // MARK: - INITIALIZERS
 
-    public init() {
-
+    public init(isEdit: Bool = false) {
+        updateState(isEdit)
     }
     
     // MARK: - PUBLIC API
 
     public func initState() {
         
+    }
+    
+    // MARK: - PRIVATE METHODS
+    
+    private func updateState(_ isEdit: Bool) {
+        viewState = .hasData(PatientFormViewEntity(isEdit: isEdit))
     }
 }

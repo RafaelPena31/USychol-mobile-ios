@@ -117,6 +117,15 @@ extension PatientHallViewController: PatientHallViewControllerType {
 }
 
 extension PatientHallViewController: PatientHallViewDelegate {
+    public func onHandlePatientProfileRedirect() {
+        let PatientProfileVM = PatientProfileViewModel()
+        let PatientProfileVC = PatientProfileViewController(viewModel: PatientProfileVM)
+        
+        PatientProfileVM.viewController = PatientProfileVC
+        
+        self.navigationController?.pushViewController(PatientProfileVC, animated: true)
+    }
+    
     public func onHandleAddReminder() {
         print("onHandleAddReminder")
     }

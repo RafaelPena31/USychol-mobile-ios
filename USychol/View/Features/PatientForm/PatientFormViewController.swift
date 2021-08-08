@@ -48,6 +48,7 @@ public class PatientFormViewController: UIViewController {
         headerSetup()
         contentSetup()
     }
+    
     private func headerSetup() {
         let rightButton = UIButton()
         
