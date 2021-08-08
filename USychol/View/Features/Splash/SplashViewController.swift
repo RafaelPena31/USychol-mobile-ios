@@ -42,7 +42,7 @@ class SplashViewController: UIViewController {
     }
     
     private func headerSetup() {
-        _ = CoreHeader(type: .secondary, navigationItem: self.navigationItem, navigationController: self.navigationController!)
+        _ = CoreHeader(type: .secondary, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: nil)
     }
     
     private func contentSetup() {
@@ -55,11 +55,11 @@ class SplashViewController: UIViewController {
 
 extension SplashViewController: SplashViewDelegate {
     func onHandleClick() {
-        let SignInVM = PatientHallViewModel()
-        let SignInVC = PatientHallViewController(viewModel: SignInVM)
+        let PatientHallVM = PatientHallViewModel()
+        let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
         
-        SignInVM.viewController = SignInVC
+        PatientHallVM.viewController = PatientHallVC
         
-        self.navigationController?.pushViewController(SignInVC, animated: true)
+        self.navigationController?.pushViewController(PatientHallVC, animated: true)
     }
 }

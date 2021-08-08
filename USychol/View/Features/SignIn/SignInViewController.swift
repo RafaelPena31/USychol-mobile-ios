@@ -44,7 +44,7 @@ public class SignInViewController: UIViewController {
     // MARK: - PRIVATE
     
     private func setup() {
-        _ = CoreHeader(type: .main, navigationItem: self.navigationItem, navigationController: self.navigationController!)
+        _ = CoreHeader(type: .main, navigationItem: self.navigationItem, navigationController: self.navigationController!, rightButton: nil)
         contentSetup()
     }
     

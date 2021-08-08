@@ -15,14 +15,16 @@ class CoreHeader {
     let isRightButtonAvailable: Bool
     let navigationItem: UINavigationItem
     let navigationController: UINavigationController
+    let rightButton: UIButton?
     
     // MARK: - INITIALIZERS
     
-    init(type: HeaderTypeOptions, isRightButtonAvailable: Bool = false, navigationItem: UINavigationItem, navigationController: UINavigationController) {
+    init(type: HeaderTypeOptions, isRightButtonAvailable: Bool = false, navigationItem: UINavigationItem, navigationController: UINavigationController, rightButton: UIButton?) {
         self.type = type
         self.isRightButtonAvailable = isRightButtonAvailable
         self.navigationItem = navigationItem
         self.navigationController = navigationController
+        self.rightButton = rightButton
         
         setup()
     }
@@ -50,6 +52,7 @@ class CoreHeader {
         case .main:
             logoColorName = "MainPurpleColor"
             sublogoColorName = "PurpleLightColor"
+            navigationController.navigationBar.backgroundColor = .white
         case .secondary:
             logoColorName = "WhiteColor"
             sublogoColorName = "ParcialWhiteColor"
@@ -70,20 +73,27 @@ class CoreHeader {
     }
     
     private func buildRight() {
-        let button = UIButton()
+        guard let rightButtonView = rightButton else {return}
         
         let imageButton = UIImage(named: "arrow-left-icon")
         
-        button.setImage(imageButton, for: .normal)
-        button.tintColor = .white
+        rightButtonView.setImage(imageButton, for: .normal)
         
-        let rightButton = UIBarButtonItem(customView: button)
+        switch type {
+        case .main:
+            rightButtonView.tintColor = UIColor(named: "MainPurpleColor")
+        case .secondary:
+            rightButtonView.tintColor = .white
+        }
         
-        navigationItem.rightBarButtonItem = rightButton
+        let button = UIBarButtonItem(customView: rightButtonView)
+        
+        navigationItem.rightBarButtonItem = button
     }
     
     private func addNavigationConfigs() {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationItem.largeTitleDisplayMode = .always
+        navigationController.navigationBar.isTranslucent = true
     }
 }
