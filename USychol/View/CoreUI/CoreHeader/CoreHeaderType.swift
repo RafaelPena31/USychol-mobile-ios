@@ -10,4 +10,5 @@ import UIKit
 public enum HeaderTypeOptions {
     case main
     case secondary
+    case plan
 }

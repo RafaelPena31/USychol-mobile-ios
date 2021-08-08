@@ -15,7 +15,7 @@ public protocol PatientReportViewType: AnyObject {
 }
 
 public protocol PatientReportViewDelegate: AnyObject {
-    // events clicks on view
+    func onHandleEditReport()
 }
 
 extension PatientReportViewType where Self: UIView {

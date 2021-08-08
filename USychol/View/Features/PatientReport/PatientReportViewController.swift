@@ -100,5 +100,7 @@ extension PatientReportViewController: PatientReportViewControllerType {
 }
 
 extension PatientReportViewController: PatientReportViewDelegate {
-
+    public func onHandleEditReport() {
+        print("onHandleEditReport")
+    }
 }

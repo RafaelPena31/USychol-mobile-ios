@@ -49,14 +49,20 @@ class CoreHeader {
         let sublogoColorName: String
         
         switch type {
-        case .main:
-            logoColorName = "MainPurpleColor"
-            sublogoColorName = "PurpleLightColor"
-            navigationController.navigationBar.backgroundColor = .white
-        case .secondary:
-            logoColorName = "WhiteColor"
-            sublogoColorName = "ParcialWhiteColor"
+            case .main:
+                logoColorName = "MainPurpleColor"
+                sublogoColorName = "PurpleLightColor"
+                navigationController.navigationBar.backgroundColor = .white
+            case .secondary:
+                logoColorName = "WhiteColor"
+                sublogoColorName = "ParcialWhiteColor"
+                
+            case .plan:
+                navigationController.navigationBar.backgroundColor = .clear
+                logoColorName = "WhiteColor"
+                sublogoColorName = "ParcialWhiteColor"
         }
+        
         
         let logoLabel: CoreLabel = CoreLabel(type: .logo, text: "USychol", color: logoColorName)
         let sublogoLabel: CoreLabel = CoreLabel(type: .text, text: "Psychology has never been so digital", color: sublogoColorName)
@@ -80,10 +86,12 @@ class CoreHeader {
         rightButtonView.setImage(imageButton, for: .normal)
         
         switch type {
-        case .main:
-            rightButtonView.tintColor = UIColor(named: "MainPurpleColor")
-        case .secondary:
-            rightButtonView.tintColor = .white
+            case .main:
+                rightButtonView.tintColor = UIColor(named: "MainPurpleColor")
+            case .secondary:
+                rightButtonView.tintColor = .white
+            default:
+                rightButtonView.tintColor = UIColor(named: "MainPurpleColor")
         }
         
         let button = UIBarButtonItem(customView: rightButtonView)

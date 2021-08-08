@@ -13,6 +13,7 @@ final public class CoreInputField: UIStackView  {
     
     let inputPlaceholder: String
     let labelText: String
+    let height: Int
     
     // MARK: - UI
     
@@ -22,7 +23,6 @@ final public class CoreInputField: UIStackView  {
         let padding = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         
         input.placeholder = inputPlaceholder
-        
         input.backgroundColor = UIColor(named: "GreyLightColor")
         input.layer.cornerRadius = 8
         
@@ -37,9 +37,10 @@ final public class CoreInputField: UIStackView  {
     
     // MARK: - INITIALIZERS
     
-    init(frame: CGRect = .zero, placeholder: String, labelText: String){
+    init(frame: CGRect = .zero, placeholder: String, labelText: String, height: Int = 55){
         self.inputPlaceholder = placeholder
         self.labelText = labelText
+        self.height = height
 
         super.init(frame: frame)
         setup()
@@ -71,7 +72,7 @@ final public class CoreInputField: UIStackView  {
 
     private func addConstraints(){
         inputField.snp.makeConstraints{(make) -> Void in
-            make.height.equalTo(55)
+            make.height.equalTo(self.height)
             make.leading.equalTo(self)
             make.trailing.equalTo(self)
         }
