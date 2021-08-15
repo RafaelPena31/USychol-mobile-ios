@@ -31,3 +31,7 @@ public class VirtualPlanViewModel: VirtualPlanViewModelType {
         
     }
 }
+
+extension VirtualPlanViewModel: VirtualPlanViewControllerDelegate {
+    
+}

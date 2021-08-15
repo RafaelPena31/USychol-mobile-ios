@@ -17,6 +17,7 @@ public protocol SignUpViewType: AnyObject {
 public protocol SignUpViewDelegate: AnyObject {
     func onHandleClick()
     func onHandleChange()
+    func signUp(psycho: Psycho)
 }
 
 extension SignUpViewType where Self: UIView {

@@ -60,12 +60,19 @@ extension SignInViewController: SignInViewControllerType {
     public func updateView(with viewState: SignInViewState) {
         contentView?.updateView(with: viewState)
     }
+}
+
+extension SignInViewController: SignInViewDelegate {
+    public func signIn(email: String, password: String) {
+        delegate?.signIn(email: email, password: password)
+    }
     
     public func onHandleClick() {
         let PatientHallVM = PatientHallViewModel()
         let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
         
         PatientHallVM.viewController = PatientHallVC
+        PatientHallVC.delegate = PatientHallVM
         
         self.navigationController?.pushViewController(PatientHallVC, animated: true)
     }
@@ -75,12 +82,9 @@ extension SignInViewController: SignInViewControllerType {
         let SignUpVC = SignUpViewController(viewModel: SignUpVM)
         
         SignUpVM.viewController = SignUpVC
+        SignUpVC.delegate = SignUpVM
         
         self.navigationController?.pushViewController(SignUpVC, animated: true)
     }
-}
-
-extension SignInViewController: SignInViewDelegate {
-
 }
 

@@ -58,6 +58,8 @@ extension SplashViewController: SplashViewDelegate {
         let SignInVM = SignInViewModel()
         let SignInVC = SignInViewController(viewModel: SignInVM)
 
+        SignInVC.delegate = SignInVM
+        
         self.navigationController?.pushViewController(SignInVC, animated: true)
     }
 }

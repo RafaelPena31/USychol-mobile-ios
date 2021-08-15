@@ -21,5 +21,5 @@ public protocol SignInViewModelType: AnyObject {
 }
 
 public protocol SignInViewControllerDelegate: AnyObject {
-    
+    func signIn(email: String, password: String)
 }

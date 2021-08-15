@@ -42,3 +42,6 @@ public class PatientHallViewModel: PatientHallViewModelType {
         viewState = .hasData(PatientHallViewEntity(remidersData: reminders, patientsData: patients))
     }
 }
+
+extension PatientHallViewModel: PatientHallViewControllerDelegate {
+}

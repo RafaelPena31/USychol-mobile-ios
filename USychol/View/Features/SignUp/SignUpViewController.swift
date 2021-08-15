@@ -69,11 +69,16 @@ extension SignUpViewController: SignUpViewControllerType {
 }
 
 extension SignUpViewController: SignUpViewDelegate {
+    public func signUp(psycho: Psycho) {
+        delegate?.signUp(psycho: psycho)
+    }
+    
     public func onHandleClick() {
         let VirtualPlanVM = VirtualPlanViewModel()
         let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
         
         VirtualPlanVM.viewController = VirtualPlanVC
+        VirtualPlanVC.delegate = VirtualPlanVM
         
         self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
     }

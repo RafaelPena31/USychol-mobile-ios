@@ -10,4 +10,5 @@
 public enum SignUpViewState: Equatable {
     case hasData(SignUpViewEntity)
     case isEmpty
+    case hasSignUp(Bool)
 }

@@ -17,6 +17,9 @@
 		8F0C29D526BE26100096296B /* VirtualPlanProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C29CE26BE26100096296B /* VirtualPlanProtocols.swift */; };
 		8F0C29D626BE26100096296B /* VirtualPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C29CF26BE26100096296B /* VirtualPlanViewController.swift */; };
 		8F1B1ED526BF236A002119D3 /* CorePlanField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1B1ED426BF236A002119D3 /* CorePlanField.swift */; };
+		8FA4547526C89B1B00D8155E /* Psycho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4547426C89B1B00D8155E /* Psycho.swift */; };
+		8FA4547726C89B4600D8155E /* PsychoRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4547626C89B4600D8155E /* PsychoRepositoryProtocol.swift */; };
+		8FA4547926C89B6300D8155E /* PsychoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA4547826C89B6300D8155E /* PsychoRepository.swift */; };
 		8FC669EB26BF8C6D00069DED /* DigitalPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC669E226BF8C6D00069DED /* DigitalPlanViewModel.swift */; };
 		8FC669EC26BF8C6D00069DED /* DigitalPlanViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC669E426BF8C6D00069DED /* DigitalPlanViewEntity.swift */; };
 		8FC669ED26BF8C6D00069DED /* DigitalPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC669E526BF8C6D00069DED /* DigitalPlanViewController.swift */; };
@@ -225,6 +228,9 @@
 		8F0C29CE26BE26100096296B /* VirtualPlanProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualPlanProtocols.swift; sourceTree = "<group>"; };
 		8F0C29CF26BE26100096296B /* VirtualPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualPlanViewController.swift; sourceTree = "<group>"; };
 		8F1B1ED426BF236A002119D3 /* CorePlanField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlanField.swift; sourceTree = "<group>"; };
+		8FA4547426C89B1B00D8155E /* Psycho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Psycho.swift; sourceTree = "<group>"; };
+		8FA4547626C89B4600D8155E /* PsychoRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychoRepositoryProtocol.swift; sourceTree = "<group>"; };
+		8FA4547826C89B6300D8155E /* PsychoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychoRepository.swift; sourceTree = "<group>"; };
 		8FC669E226BF8C6D00069DED /* DigitalPlanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalPlanViewModel.swift; sourceTree = "<group>"; };
 		8FC669E426BF8C6D00069DED /* DigitalPlanViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalPlanViewEntity.swift; sourceTree = "<group>"; };
 		8FC669E526BF8C6D00069DED /* DigitalPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalPlanViewController.swift; sourceTree = "<group>"; };
@@ -591,6 +597,7 @@
 				E425BB7926BFC5E400E1DAA7 /* ReminderRepository.swift */,
 				E425BB7A26BFC5E400E1DAA7 /* PatientRepository.swift */,
 				E425BB7B26BFC5E400E1DAA7 /* ReportRepository.swift */,
+				8FA4547826C89B6300D8155E /* PsychoRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -619,6 +626,7 @@
 				E425BB8426BFC5EC00E1DAA7 /* ReportRepositoryProtocol.swift */,
 				E425BB8526BFC5EC00E1DAA7 /* PerformActivyRepositoryProtocol.swift */,
 				E425BB8626BFC5EC00E1DAA7 /* ReminderRepositoryProtocol.swift */,
+				8FA4547626C89B4600D8155E /* PsychoRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -630,6 +638,7 @@
 				E425BB8926BFC5EC00E1DAA7 /* Reminder.swift */,
 				E425BB8A26BFC5EC00E1DAA7 /* Patient.swift */,
 				E425BB8B26BFC5EC00E1DAA7 /* PerformActivy.swift */,
+				8FA4547426C89B1B00D8155E /* Psycho.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1483,6 +1492,7 @@
 				E491EB5126BFC210002E436B /* PatientReportViewType.swift in Sources */,
 				E425BB8E26BFC5EC00E1DAA7 /* PerformActivyRepositoryProtocol.swift in Sources */,
 				E444E59626BDF64800D94FBB /* SignUpViewController.swift in Sources */,
+				8FA4547926C89B6300D8155E /* PsychoRepository.swift in Sources */,
 				8FC66A0126BF916300069DED /* FullPlanView.swift in Sources */,
 				E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */,
 				E491EB1526BFC1E3002E436B /* ClinicFormViewController.swift in Sources */,
@@ -1497,6 +1507,7 @@
 				E491EB7126BFC397002E436B /* AnamnesisFormStack.swift in Sources */,
 				E491EB1226BFC1E3002E436B /* ClinicFormViewState.swift in Sources */,
 				8FC66A2C26BFA5BC00069DED /* NewReportProtocols.swift in Sources */,
+				8FA4547726C89B4600D8155E /* PsychoRepositoryProtocol.swift in Sources */,
 				E425BBB026BFC6C300E1DAA7 /* PatientTableView.swift in Sources */,
 				E491EB8726BFC3BC002E436B /* PatientProfileViewState.swift in Sources */,
 				E491EB8326BFC3BC002E436B /* PatientProfileViewController.swift in Sources */,
@@ -1585,6 +1596,7 @@
 				8FC66A0226BF916300069DED /* FullPlanViewType.swift in Sources */,
 				E458809626BCDDA8005D6573 /* PatientFormProtocols.swift in Sources */,
 				E491EB7026BFC397002E436B /* PatientAnamnesisViewState.swift in Sources */,
+				8FA4547526C89B1B00D8155E /* Psycho.swift in Sources */,
 				E425BB9226BFC5EC00E1DAA7 /* Patient.swift in Sources */,
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
 				8FC669FF26BF916300069DED /* FullPlanViewController.swift in Sources */,

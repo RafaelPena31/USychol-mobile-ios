@@ -17,7 +17,7 @@ final public class CoreInputField: UIStackView  {
     
     // MARK: - UI
     
-    private lazy var inputField: TextField = {
+    public lazy var inputField: TextField = {
         let input = TextField()
         
         let padding = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -29,7 +29,7 @@ final public class CoreInputField: UIStackView  {
         return input
     }()
 
-    private lazy var label: UILabel = {
+    public lazy var label: UILabel = {
         let label = CoreLabel(type: .labelInput, text: labelText, color: "GreyLabelColor")
         
         return label

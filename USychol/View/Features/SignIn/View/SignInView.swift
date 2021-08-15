@@ -20,12 +20,12 @@ final public class SignInView: UIView {
         return view
     }()
     
-    private lazy var emailInput: UIView = CoreInputField(placeholder: "Email", labelText: "Email")
+    private lazy var emailInput: CoreInputField = CoreInputField(placeholder: "Email", labelText: "Email")
     
-    private lazy var passwordInput: UIView = CoreInputField(placeholder: "Password", labelText: "Password")
+    private lazy var passwordInput: CoreInputField = CoreInputField(placeholder: "Password", labelText: "Password")
     
     private lazy var button: CoreButton = {
-        let button = CoreButton(type: .normal, title: "Sign in", onPressMethod: onHandleClick)
+        let button = CoreButton(type: .normal, title: "Sign in", onPressMethod: signIn)
         
         return button
     }()
@@ -119,8 +119,11 @@ final public class SignInView: UIView {
     
     // MARK: - ACTIONS
     
-    func onHandleClick () {
-        delegate?.onHandleClick()
+    @objc func signIn(){
+        delegate?.signIn(
+            email: emailInput.inputField.text ?? "",
+            password: passwordInput.inputField.text ?? ""
+        )
     }
     
     @objc func onHandleChange () {
@@ -131,6 +134,14 @@ final public class SignInView: UIView {
 
 extension SignInView: SignInViewType {
     public func updateView(with viewState: SignInViewState) {
-        
+        switch viewState {
+        case .isLogged(true):
+            delegate?.onHandleClick()
+            print("Opa")
+        case .isLogged(false):
+            print("Não foi")
+        default:
+            print("Não foi")
+        }
     }
 }

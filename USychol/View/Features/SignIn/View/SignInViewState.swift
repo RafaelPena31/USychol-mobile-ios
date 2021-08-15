@@ -8,4 +8,5 @@
 public enum SignInViewState: Equatable {
     case hasData(SignInViewEntity)
     case isEmpty
+    case isLogged(Bool)
 }

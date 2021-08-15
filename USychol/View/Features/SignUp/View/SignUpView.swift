@@ -40,7 +40,7 @@ final public class SignUpView: UIView {
     private lazy var passwordInput: CoreInputField = CoreInputField(placeholder: "********", labelText: "Password")
     
     private lazy var button: CoreButton = {
-        let button = CoreButton(type: .normal, title: "Sign up", onPressMethod: onHandleClick)
+        let button = CoreButton(type: .normal, title: "Sign up", onPressMethod: signUp)
         
         return button
     }()
@@ -172,8 +172,17 @@ final public class SignUpView: UIView {
         
     }
     
-    func onHandleClick () {
-        delegate?.onHandleClick()
+    @objc func signUp () {
+        let psycho = Psycho(
+            name: nameInput.inputField.text ?? "",
+            email: emailInput.inputField.text ?? "",
+            registration: registrationInput.inputField.text ?? "",
+            birthday: birthdayInput.inputField.text ?? "",
+            idDocument: documentInput.inputField.text ?? "",
+            password: passwordInput.inputField.text ?? "",
+            plans: nil
+        )
+        delegate?.signUp(psycho: psycho)
     }
     
     @objc func onHandleChange(){
@@ -184,6 +193,12 @@ final public class SignUpView: UIView {
 
 extension SignUpView: SignUpViewType {
     public func updateView(with viewState: SignUpViewState) {
-        
+        print(viewState)
+        switch viewState {
+        case .hasSignUp(true):
+            delegate?.onHandleClick()
+        default:
+            print("Não foi")
+        }
     }
 }

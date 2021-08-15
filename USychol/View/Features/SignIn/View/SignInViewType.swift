@@ -13,6 +13,7 @@ public protocol SignInViewType: AnyObject {
 }
 
 public protocol SignInViewDelegate: AnyObject {
+    func signIn(email: String, password: String)
     func onHandleClick()
     func onHandleChange()
 }

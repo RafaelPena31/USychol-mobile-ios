@@ -29,3 +29,12 @@ public class SignInViewModel: SignInViewModelType {
         
     }
 }
+
+extension SignInViewModel: SignInViewControllerDelegate {
+    public func signIn(email: String, password: String){
+        let psychoRepository = PsychoRepository()
+        let isLogged = psychoRepository.signIn(email: email, password: password)
+        print(isLogged)
+        viewState = .isLogged(isLogged)
+    }
+}

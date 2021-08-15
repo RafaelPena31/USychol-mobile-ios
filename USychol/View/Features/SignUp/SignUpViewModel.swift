@@ -31,3 +31,21 @@ public class SignUpViewModel: SignUpViewModelType {
         
     }
 }
+
+extension SignUpViewModel: SignUpViewControllerDelegate {
+    public func signUp(psycho: Psycho){
+        let psycho = Psycho(
+            name: psycho.name,
+            email: psycho.email,
+            registration: psycho.registration,
+            birthday: psycho.birthday,
+            idDocument: psycho.idDocument,
+            password: psycho.password,
+            plans: psycho.plans
+        )
+        
+        let psychoRepository = PsychoRepository()
+        psychoRepository.signUp(psycho: psycho)
+        viewState = .hasSignUp(true)
+    }
+}
