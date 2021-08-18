@@ -16,10 +16,12 @@ public class PatientProfileViewController: UIViewController {
 
     public let viewModel: PatientProfileViewModelType?
     public let contentView: PatientProfileViewType?
-
+    
     // MARK: - PUBLIC API
 
     public weak var delegate: PatientProfileViewControllerDelegate?
+    public weak var viewDelegate: PatientProfileViewControllerViewDelegate?
+    public weak var handleStateChange: PatientProfileBackStateChangeControl?
 
     // MARK: - INITIALIZERS
 
@@ -50,7 +52,7 @@ public class PatientProfileViewController: UIViewController {
         headerSetup()
     }
     
-    private func headerSetup() {
+    private func headerSetup(_ title: String = "") {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.isTranslucent = false
@@ -58,7 +60,7 @@ public class PatientProfileViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "MainPurpleColor")
         
-        let title = CoreLabel(type: .title, text: "James Sirius", color: "WhiteColor")
+        let title = CoreLabel(type: .title, text: title, color: "WhiteColor")
         let subtitle = CoreLabel(type: .cardText, text: "Latest consultations", color: "StrongParcialWhiteColor")
         
         let stack = UIStackView(arrangedSubviews: [title, subtitle])
@@ -88,9 +90,16 @@ public class PatientProfileViewController: UIViewController {
         contentView?.delegate = self
     }
     
+    private func handleErrorAlert(title: String, message: String) {
+        let alert = CoreAlerts().handleErrorAlert(title: title, message: message, buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
+    
     // MARK: - ACTIONS
     
     @objc func onLeftHeaderButtonClick() {
+        handleStateChange?.handleStateChange()
+        
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.isTranslucent = false
@@ -101,6 +110,13 @@ public class PatientProfileViewController: UIViewController {
 
 extension PatientProfileViewController: PatientProfileViewControllerType {
     public func updateView(with viewState: PatientProfileViewState) {
+        switch viewState {
+        case .hasData(let entity):
+            headerSetup(entity.patient.name)
+        default:
+            break
+        }
+
         contentView?.updateView(with: viewState)
     }
 }
@@ -116,13 +132,17 @@ extension PatientProfileViewController: PatientProfileViewDelegate {
         self.navigationController?.pushViewController(PatientAnamnesisVC, animated: true)
     }
     
-    public func onHandleAccessReport() {
-        let PatientReportVM = PatientReportViewModel()
-        let PatientReportVC = PatientReportViewController(viewModel: PatientReportVM)
-        
-        PatientReportVM.viewController = PatientReportVC
-        
-        self.navigationController?.pushViewController(PatientReportVC, animated: true)
+    public func onHandleAccessReport(report: Report) {
+        if delegate!.setCurrentReport(report: report) {
+            let PatientReportVM = PatientReportViewModel()
+            let PatientReportVC = PatientReportViewController(viewModel: PatientReportVM)
+            
+            PatientReportVM.viewController = PatientReportVC
+            
+            self.navigationController?.pushViewController(PatientReportVC, animated: true)
+        } else {
+            handleErrorAlert(title: "Heads up", message: "It was not possible to access your report's patient, please contact the USychol Team support team")
+        }
     }
     
     public func onHandleCreateActivy() {
@@ -141,11 +161,19 @@ extension PatientProfileViewController: PatientProfileViewDelegate {
         
         NewReportVM.viewController = NewReportVC
         NewReportVC.delegate = NewReportVM
+        NewReportVC.handleStateChange = self
         
         self.navigationController?.pushViewController(NewReportVC, animated: true)
     }
     
     public func onHandleSearchReport() {
         print("onHandleSearchReport")
+    }
+}
+
+extension PatientProfileViewController: NewReportBackStateChangeControl {
+    public func NewReportHandleStateChange() {
+        viewModel?.updateState()
+        viewDelegate?.reloadData()
     }
 }

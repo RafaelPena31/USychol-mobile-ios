@@ -7,4 +7,5 @@
 
 public protocol ReminderRepositoryProtocol {
     func getReminders(userId: String) -> [Reminder]
+    func createReminder(title: String) -> Bool
 }

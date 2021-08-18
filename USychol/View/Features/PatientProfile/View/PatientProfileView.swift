@@ -220,8 +220,8 @@ final public class PatientProfileView: UIView {
     
     // MARK: - ACTIONS
     
-    func onHandleAccessReport() {
-        delegate?.onHandleAccessReport()
+    func onHandleAccessReport(report: Report) {
+        delegate?.onHandleAccessReport(report: report)
     }
     
     func onHandleSearchReport() {
@@ -247,6 +247,8 @@ extension PatientProfileView: PatientProfileViewType {
         case .hasData(let entity):
             reportsData = entity.reportsData
             patientData = entity.patient
+            
+            patientSummaryDescription.text = patientData?.patientSummary
         default: break
         }
     }
@@ -282,6 +284,13 @@ extension PatientProfileView: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        onHandleAccessReport()
+        let report = reportsData[indexPath.row]
+        onHandleAccessReport(report: report)
+    }
+}
+
+extension PatientProfileView: PatientProfileViewControllerViewDelegate {
+    public func reloadData() {
+        reportTableView.reloadData()
     }
 }

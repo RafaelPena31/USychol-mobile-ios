@@ -39,7 +39,10 @@ public class PatientFormViewModel: PatientFormViewModelType {
 }
 
 extension PatientFormViewModel: PatientFormViewControllerDelegate {
-    public func onHandleCreatePatient(patient: Patient) {
-        print(patient)
+    public func onHandleCreatePatient(patient: Patient) -> Bool {
+        let patientRepository = PatientRepository()
+        let updateStatus = patientRepository.createPatient(patient: patient)
+        
+        return updateStatus
     }
 }

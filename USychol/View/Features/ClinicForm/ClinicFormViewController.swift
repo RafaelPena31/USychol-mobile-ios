@@ -108,9 +108,7 @@ extension ClinicFormViewController: ClinicFormViewDelegate {
     public func saveNewUserInfo(user: User) {
         let updateStatus = delegate!.onHandleUpdateClinicUserData(clinicUser: user)
         
-        if updateStatus {
-            self.navigationController?.popViewController(animated: true)
-        } else {
+        if !updateStatus {
             onHandleFormAlertError()
         }
     }

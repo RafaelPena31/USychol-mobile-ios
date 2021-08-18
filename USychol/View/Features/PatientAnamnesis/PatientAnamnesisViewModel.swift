@@ -35,14 +35,32 @@ public class PatientAnamnesisViewModel: PatientAnamnesisViewModelType {
     
     private func updateState() {
         let patientRepository = PatientRepository()
-        if let patient = patientRepository.getPatientById(patientId: "0") {
+        if let patient = patientRepository.getCurrentPatient() {
             viewState = .hasData(PatientAnamnesisViewEntity(patient: patient))
         }
     }
 }
 
 extension PatientAnamnesisViewModel: PatientAnamnesisViewControllerDelegate {
-    public func onHandleUpdatePatient(patient: Patient) {
-        print(patient)
+    public func onHandleUpdatePatient(patient: Patient) -> Bool {
+        let userRepository = UserRepository()
+        let patientRepository = PatientRepository()
+        if let currentUserInfo = userRepository.getUser() {
+            
+            var currentPatients = currentUserInfo.patient
+            let currentPatientsInfoIndex = currentPatients.firstIndex(where: {$0.id == patient.id})!
+            
+            currentPatients.remove(at: currentPatientsInfoIndex)
+            currentPatients.insert(patient, at: 0)
+            
+            let newUserInfo = EntityTree(userInfo: currentUserInfo.userInfo, patient: currentPatients, reminder: currentUserInfo.reminder)
+            
+            let updateState = userRepository.updateData(userInfo: newUserInfo)
+
+            let patientUpdateState = patientRepository.setCurrentPatient(patient: patient)
+            
+            return updateState && patientUpdateState
+        }
+        return false
     }
 }

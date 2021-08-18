@@ -34,6 +34,53 @@
             endingLineNumber = "9"
             landmarkName = "unknown"
             landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - bd3e092d0bd888a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "USychol.ReportTableView.__allocating_init(frame: __C.CGRect, style: __C.UITableViewStyle) -&gt; USychol.ReportTableView"
+                  moduleName = "USychol"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelaugustomesquita/Documents/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - f3d7c9f40d372418"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "USychol.ReportTableView.init(frame: __C.CGRect, style: __C.UITableViewStyle) -&gt; USychol.ReportTableView"
+                  moduleName = "USychol"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelaugustomesquita/Documents/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "78">
+               </Location>
+               <Location
+                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - 86d7e8e0ce804ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "USychol.ReportTableView.__deallocating_deinit"
+                  moduleName = "USychol"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelaugustomesquita/Documents/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -8,7 +8,7 @@
 //
 import UIKit
 
-public protocol PatientProfileViewType: AnyObject {
+public protocol PatientProfileViewType: PatientProfileViewControllerViewDelegate {
     var content: UIView { get }
     var delegate: PatientProfileViewDelegate? { get set }
     func updateView(with viewState: PatientProfileViewState)
@@ -19,7 +19,7 @@ public protocol PatientProfileViewDelegate: AnyObject {
     func onHandleAccessAnamnesis()
     func onHandleCreateActivy()
     func onHandleCreateReport()
-    func onHandleAccessReport()
+    func onHandleAccessReport(report: Report)
 }
 
 extension PatientProfileViewType where Self: UIView {

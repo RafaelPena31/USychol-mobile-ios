@@ -159,7 +159,12 @@ final public class PatientHallView: UIView {
     // MARK: - ACTIONS
     
     func onHandleAddReminder(_ text: String) {
-        delegate?.onHandleAddReminder(text)
+        if text.isEmpty {
+            delegate?.onHandleErrorAlert()
+        } else {
+            delegate?.onHandleAddReminder(text)
+            reminderTextField.text = ""
+        }
     }
 }
 
@@ -223,10 +228,16 @@ extension PatientHallView: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == reminderTableView {
-            print("Reminder")
-        } else {
-            delegate?.onHandlePatientProfileRedirect()
+        if tableView != reminderTableView {
+            let patient = patientData[indexPath.row]
+            delegate?.onHandlePatientProfileRedirect(patient: patient)
         }
+    }
+}
+
+extension PatientHallView: PatientHallViewControllerViewDelegate {
+    public func reloadData() {
+        patientTableView.reloadData()
+        reminderTableView.reloadData()
     }
 }

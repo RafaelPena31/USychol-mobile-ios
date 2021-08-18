@@ -86,6 +86,11 @@ public class PatientAnamnesisViewController: UIViewController {
         contentView?.delegate = self
     }
     
+    public func onHandleFormAlertError() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Unable to update your data, please contact the USychol Team support team", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
+    
     // MARK: - ACTIONS
     
     @objc func onLeftHeaderButtonClick() {
@@ -101,7 +106,11 @@ extension PatientAnamnesisViewController: PatientAnamnesisViewControllerType {
 
 extension PatientAnamnesisViewController: PatientAnamnesisViewDelegate {
     public func onHandleUpdatePatient(patient: Patient) {
-        delegate?.onHandleUpdatePatient(patient: patient)
+        if delegate!.onHandleUpdatePatient(patient: patient) {
+            onLeftHeaderButtonClick()
+        } else {
+            onHandleFormAlertError()
+        }
     }
     public func handleFormAlert() {
         let alert = CoreAlerts().handleCreateFormAlert()

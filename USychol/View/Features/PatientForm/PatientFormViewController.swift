@@ -19,6 +19,7 @@ public class PatientFormViewController: UIViewController {
     // MARK: - PUBLIC API
 
     public weak var delegate: PatientFormViewControllerDelegate?
+    public weak var handleStateChange: PatientFormBackStateChangeControl?
 
     // MARK: - INITIALIZERS
 
@@ -64,6 +65,11 @@ public class PatientFormViewController: UIViewController {
         contentView?.delegate = self
     }
     
+    public func onHandleFormAlertError() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Unable to create your patient, please contact the USychol Team support team", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
+    
     // MARK: - ACTIONS
     
     @objc func onRightHeaderButtonClick() {
@@ -83,6 +89,13 @@ extension PatientFormViewController: PatientFormViewControllerType {
 
 extension PatientFormViewController: PatientFormViewDelegate {
     public func onHandleCreatePatient(patient: Patient) {
-        delegate?.onHandleCreatePatient(patient: patient)
+        let updateStatus = delegate!.onHandleCreatePatient(patient: patient)
+        
+        if updateStatus {
+            handleStateChange?.handleStateChange()
+            onRightHeaderButtonClick()
+        } else {
+            onHandleFormAlertError()
+        }
     }
 }

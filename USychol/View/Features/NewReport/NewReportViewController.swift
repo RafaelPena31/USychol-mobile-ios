@@ -20,6 +20,7 @@ public class NewReportViewController: UIViewController {
     // MARK: - PUBLIC API
 
     public weak var delegate: NewReportViewControllerDelegate?
+    public weak var handleStateChange: NewReportBackStateChangeControl?
 
     // MARK: - INITIALIZERS
 
@@ -89,6 +90,9 @@ extension NewReportViewController: NewReportViewDelegate {
     }
     
     public func onHandleCreateReport(_ report: Report) {
-        delegate?.onHandleCreateReport(report)
+        if delegate!.onHandleCreateReport(report) {
+            handleStateChange?.NewReportHandleStateChange()
+            onRightHeaderButtonClick()
+        }
     }
 }

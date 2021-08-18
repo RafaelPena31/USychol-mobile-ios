@@ -122,7 +122,7 @@ final public class PatientReportView: UIView {
         return label
     }()
     
-    private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "0", labelText: "Consultation Evaluation")
+    private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "0", labelText: "Consultation Evaluation", isEnabled: false)
     
     private lazy var consultationResumeStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [consultationDividerLabel, consultationInput])
@@ -271,8 +271,11 @@ extension PatientReportView: PatientReportViewType {
         case .hasData(let entity):
             reportData = entity.report
             
+            let consultationEvaluation = "\(reportData?.consultEvaluation ?? 0)"
+            
             dateLabel.text = reportData?.date
             resumeText.text = reportData?.resume
+            consultationInput.setText(consultationEvaluation)
         default: break
         }
     }

@@ -23,7 +23,7 @@ final public class NewReportView: UIView {
     private lazy var activityNameInput: CoreInputField = CoreInputField(placeholder: "Thoughts of the day", labelText: "Activity Name")
     private lazy var resumeInput: CoreInputField = CoreInputField(placeholder: "Today...", labelText: "Resume")
     private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "Rank from 0 - 10", labelText: "Consultation Evaluation", keyboardType: .numberPad)
-    private lazy var reportInput: CoreInputField = CoreInputField(placeholder: "Januart 01 2021", labelText: "Report's day")
+    private lazy var reportInput: CoreInputField = CoreInputField(placeholder: "January 01 2021", labelText: "Report's day")
     private lazy var startAtInput: CoreInputField = CoreInputField(placeholder: "00:00 PM", labelText: "Start At")
     
     private lazy var formStack: UIStackView = {

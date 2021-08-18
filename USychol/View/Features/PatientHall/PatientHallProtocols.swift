@@ -19,8 +19,14 @@ public protocol PatientHallViewModelType: AnyObject {
     var viewState: PatientHallViewState { get }
     
     func initState()
+    func updateState()
 }
 
 public protocol PatientHallViewControllerDelegate: AnyObject {
-    func onHandleAddReminder(_ text: String)
+    func onHandleAddReminder(_ text: String) -> Bool
+    func setCurrentPatient(patient: Patient) -> Bool
+}
+
+public protocol PatientHallViewControllerViewDelegate: AnyObject {
+    func reloadData()
 }

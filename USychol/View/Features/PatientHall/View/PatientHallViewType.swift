@@ -8,7 +8,7 @@
 //
 import UIKit
 
-public protocol PatientHallViewType: AnyObject {
+public protocol PatientHallViewType: PatientHallViewControllerViewDelegate {
     var content: UIView { get }
     var delegate: PatientHallViewDelegate? { get set }
     func updateView(with viewState: PatientHallViewState)
@@ -16,7 +16,8 @@ public protocol PatientHallViewType: AnyObject {
 
 public protocol PatientHallViewDelegate: AnyObject {
     func onHandleAddReminder(_ text: String)
-    func onHandlePatientProfileRedirect()
+    func onHandlePatientProfileRedirect(patient: Patient)
+    func onHandleErrorAlert()
 }
 
 extension PatientHallViewType where Self: UIView {

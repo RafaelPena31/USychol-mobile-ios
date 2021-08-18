@@ -82,6 +82,7 @@ extension SignInViewController: SignInViewDelegate {
                 
                 PatientHallVM.viewController = PatientHallVC
                 PatientHallVC.delegate = PatientHallVM
+                PatientHallVC.viewDelegate = PatientHallVC.contentView
                 
                 self.navigationController?.pushViewController(PatientHallVC, animated: true)
             } else {

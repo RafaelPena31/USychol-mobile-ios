@@ -15,10 +15,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+//          let localStorage = UserDefaults.standard
+            
+            let isLoggin = false
+//          implement localStorage.isLoggedIn(), after add logout button in layout, to stay connected
             
             let SplashVC = SplashViewController()
             
-            window.rootViewController = UINavigationController(rootViewController: SplashVC)
+            let PatientHallVM = PatientHallViewModel()
+            let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+            
+            PatientHallVM.viewController = PatientHallVC
+            PatientHallVC.delegate = PatientHallVM
+            PatientHallVC.viewDelegate = PatientHallVC.contentView
+            
+            let rootVC = isLoggin ? PatientHallVC : SplashVC
+            
+            window.rootViewController = UINavigationController(rootViewController: rootVC)
             
             self.window = window
             window.makeKeyAndVisible()

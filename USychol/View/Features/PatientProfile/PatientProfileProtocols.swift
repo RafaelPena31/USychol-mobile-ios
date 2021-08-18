@@ -20,8 +20,17 @@ public protocol PatientProfileViewModelType: AnyObject {
     var viewState: PatientProfileViewState { get }
     
     func initState()
+    func updateState()
 }
 
 public protocol PatientProfileViewControllerDelegate: AnyObject {
-    
+    func setCurrentReport(report: Report) -> Bool
+}
+
+public protocol PatientProfileViewControllerViewDelegate: AnyObject {
+    func reloadData()
+}
+
+public protocol PatientProfileBackStateChangeControl: AnyObject {
+    func handleStateChange()
 }

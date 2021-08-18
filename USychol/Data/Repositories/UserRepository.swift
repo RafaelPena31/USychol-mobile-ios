@@ -110,7 +110,7 @@ public class UserRepository: UserRepositoryProtocol {
                 return true
             } catch let err {
                 let errMsg = err.localizedDescription
-                print("Unable to update the data in pdateData - User Repository - Error: \(errMsg)")
+                print("Unable to update the data in updateData - User Repository - Error: \(errMsg)")
                 return false
             }
         }

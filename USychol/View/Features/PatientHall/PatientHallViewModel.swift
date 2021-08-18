@@ -30,9 +30,7 @@ public class PatientHallViewModel: PatientHallViewModelType {
         updateState()
     }
     
-    // MARK: - PRIVATES
-    
-    private func updateState() {
+    public func updateState() {
         let reminderRepository = ReminderRepository()
         let reminders = reminderRepository.getReminders(userId: "0")
         
@@ -44,7 +42,15 @@ public class PatientHallViewModel: PatientHallViewModelType {
 }
 
 extension PatientHallViewModel: PatientHallViewControllerDelegate {
-    public func onHandleAddReminder(_ text: String) {
-        print(text)
+    public func setCurrentPatient(patient: Patient) -> Bool {
+        let patientRepository = PatientRepository()
+        let updateState = patientRepository.setCurrentPatient(patient: patient)
+        
+        return updateState
+    }
+    
+    public func onHandleAddReminder(_ text: String) -> Bool {
+        let reminderRepository = ReminderRepository()
+        return reminderRepository.createReminder(title: text)
     }
 }

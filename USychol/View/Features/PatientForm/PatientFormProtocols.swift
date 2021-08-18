@@ -23,5 +23,9 @@ public protocol PatientFormViewModelType: AnyObject {
 }
 
 public protocol PatientFormViewControllerDelegate: AnyObject {
-    func onHandleCreatePatient(patient: Patient)
+    func onHandleCreatePatient(patient: Patient) -> Bool
+}
+
+public protocol PatientFormBackStateChangeControl: AnyObject {
+    func handleStateChange()
 }

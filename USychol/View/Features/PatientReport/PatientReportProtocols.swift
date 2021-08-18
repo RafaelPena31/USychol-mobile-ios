@@ -23,5 +23,5 @@ public protocol PatientReportViewModelType: AnyObject {
 }
 
 public protocol PatientReportViewControllerDelegate: AnyObject {
-    
+    func onHandleCreateReport(report: Report) -> Bool
 }

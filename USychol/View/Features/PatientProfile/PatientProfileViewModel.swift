@@ -31,15 +31,22 @@ public class PatientProfileViewModel: PatientProfileViewModelType {
         updateState()
     }
     
-    // MARK: - PRIVATE METHODS
-    
-    private func updateState() {
+    public func updateState() {
         let reportRepository = ReportRepository()
-        let reports = reportRepository.getReports(patientId: "0")
-        
         let patientRepository = PatientRepository()
-        if let patient = patientRepository.getPatientById(patientId: "0") {
-            viewState = .hasData(PatientProfileViewEntity(reportsData: reports, patient: patient))
-        }
+        
+        let currentPatientInfo = patientRepository.getCurrentPatient()!
+        let reports = reportRepository.getReports(patientId: currentPatientInfo.id)
+        
+        viewState = .hasData(PatientProfileViewEntity(reportsData: reports, patient: currentPatientInfo))
+    }
+}
+
+extension PatientProfileViewModel: PatientProfileViewControllerDelegate {
+    public func setCurrentReport(report: Report) -> Bool {
+        let reportRepository = ReportRepository()
+        let updateState = reportRepository.setCurrentReport(report: report)
+        
+        return updateState
     }
 }

@@ -35,8 +35,12 @@ public class PatientReportViewModel: PatientReportViewModelType {
     
     private func updateState() {
         let reportRepository = ReportRepository()
-        if let report = reportRepository.getReportById(patientId: "0", reportId: "0") {
-            viewState = .hasData(PatientReportViewEntity(report: report))
+        let patientRepository = PatientRepository()
+        
+        if let report = reportRepository.getCurrentReport() {
+            if let patient = patientRepository.getCurrentPatient() {
+                viewState = .hasData(PatientReportViewEntity(report: report, patient: patient))
+            }
         }
     }
 }

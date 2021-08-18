@@ -9,4 +9,5 @@
 
 public struct PatientReportViewEntity: Equatable {
     let report: Report
+    let patient: Patient
 }

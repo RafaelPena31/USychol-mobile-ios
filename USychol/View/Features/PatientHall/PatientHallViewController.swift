@@ -19,6 +19,7 @@ public class PatientHallViewController: UIViewController {
     // MARK: - PUBLIC API
 
     public weak var delegate: PatientHallViewControllerDelegate?
+    public weak var viewDelegate: PatientHallViewControllerViewDelegate?
 
     // MARK: - INITIALIZERS
 
@@ -87,6 +88,11 @@ public class PatientHallViewController: UIViewController {
         contentView?.delegate = self
     }
     
+    private func handleErrorAlert(title: String, message: String) {
+        let alert = CoreAlerts().handleErrorAlert(title: title, message: message, buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
+    
     // MARK: - ACTIONS
     
     @objc func onLeftHeaderButtonClick() {
@@ -105,6 +111,7 @@ public class PatientHallViewController: UIViewController {
         
         PatientFormVM.viewController = PatientFormVC
         PatientFormVC.delegate = PatientFormVM
+        PatientFormVC.handleStateChange = self
         
         self.navigationController?.pushViewController(PatientFormVC, animated: true)
     }
@@ -118,16 +125,41 @@ extension PatientHallViewController: PatientHallViewControllerType {
 }
 
 extension PatientHallViewController: PatientHallViewDelegate {
-    public func onHandlePatientProfileRedirect() {
-        let PatientProfileVM = PatientProfileViewModel()
-        let PatientProfileVC = PatientProfileViewController(viewModel: PatientProfileVM)
-        
-        PatientProfileVM.viewController = PatientProfileVC
-        
-        self.navigationController?.pushViewController(PatientProfileVC, animated: true)
+    public func onHandleErrorAlert() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Fill in all fields with valid data", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
+    
+    public func onHandlePatientProfileRedirect(patient: Patient) {
+        if delegate!.setCurrentPatient(patient: patient) {
+            let PatientProfileVM = PatientProfileViewModel()
+            let PatientProfileVC = PatientProfileViewController(viewModel: PatientProfileVM)
+            
+            PatientProfileVM.viewController = PatientProfileVC
+            PatientProfileVC.delegate = PatientProfileVM
+            PatientProfileVC.handleStateChange = self
+            PatientProfileVC.viewDelegate = PatientProfileVC.contentView
+            
+            self.navigationController?.pushViewController(PatientProfileVC, animated: true)
+        } else {
+            handleErrorAlert(title: "Heads up", message: "It was not possible to access your patient, please contact the USychol Team support team")
+        }
     }
     
     public func onHandleAddReminder(_ text: String) {
-        delegate?.onHandleAddReminder(text)
+        let updateStatus = delegate!.onHandleAddReminder(text)
+        
+        if !updateStatus {
+            handleErrorAlert(title: "Heads up", message: "It was not possible to create your reminder, please contact the USychol Team support team")
+        } else {
+            handleStateChange()
+        }
+    }
+}
+
+extension PatientHallViewController: PatientFormBackStateChangeControl, PatientProfileBackStateChangeControl {
+    public func handleStateChange() {
+        viewModel?.updateState()
+        viewDelegate?.reloadData()
     }
 }
