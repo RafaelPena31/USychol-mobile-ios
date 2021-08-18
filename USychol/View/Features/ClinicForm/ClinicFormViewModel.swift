@@ -42,7 +42,13 @@ public class ClinicFormViewModel: ClinicFormViewModelType {
 }
 
 extension ClinicFormViewModel: ClinicFormViewControllerDelegate {
-    public func onHandleUpdateClinicUserData(clinicUser: User) {
-        print(clinicUser)
+    public func onHandleUpdateClinicUserData(clinicUser: User) -> Bool {
+        let userRepository = UserRepository()
+        if let currentUserInfoEntityTree = userRepository.getUser() {
+            let updatedUserInfoEntityTree = EntityTree(userInfo: clinicUser, patient: currentUserInfoEntityTree.patient, reminder: currentUserInfoEntityTree.reminder)
+            
+            return userRepository.updateData(userInfo: updatedUserInfoEntityTree)
+        }
+        return false
     }
 }

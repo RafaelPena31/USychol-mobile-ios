@@ -51,7 +51,10 @@ public class UserRepository: UserRepositoryProtocol {
                 usersInfo.append(authEntityTree)
                 
                 let newUsersData =  try encoder.encode(usersInfo)
+                let newUserDataAuthEntityTree = try encoder.encode(authEntityTree)
+                
                 localStorage.set(newUsersData, forKey: "users")
+                localStorage.set(newUserDataAuthEntityTree, forKey: "currentUserData")
                 
                 return .authenticated
             } catch let err {
@@ -79,7 +82,7 @@ public class UserRepository: UserRepositoryProtocol {
                 return userInfo.entity
             } catch let err {
                 let errMsg = err.localizedDescription
-                print("Unable to save the data in SignUp - User Repository: [First Save] - Error: \(errMsg)")
+                print("Unable to get the data in getUser - User Repository - Error: \(errMsg)")
                 return nil
             }
         }
@@ -107,7 +110,7 @@ public class UserRepository: UserRepositoryProtocol {
                 return true
             } catch let err {
                 let errMsg = err.localizedDescription
-                print("Unable to save the data in SignUp - User Repository: [First Save] - Error: \(errMsg)")
+                print("Unable to update the data in pdateData - User Repository - Error: \(errMsg)")
                 return false
             }
         }

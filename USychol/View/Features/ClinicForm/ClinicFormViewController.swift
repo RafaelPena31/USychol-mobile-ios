@@ -86,6 +86,11 @@ public class ClinicFormViewController: UIViewController {
         contentView?.delegate = self
     }
     
+    public func onHandleFormAlertError() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Unable to update your data, please contact the USychol Team support team", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
+    
     // MARK: - ACTIONS
     
     @objc func onLeftHeaderButtonClick() {
@@ -101,7 +106,13 @@ extension ClinicFormViewController: ClinicFormViewControllerType {
 
 extension ClinicFormViewController: ClinicFormViewDelegate {
     public func saveNewUserInfo(user: User) {
-        delegate?.onHandleUpdateClinicUserData(clinicUser: user)
+        let updateStatus = delegate!.onHandleUpdateClinicUserData(clinicUser: user)
+        
+        if updateStatus {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            onHandleFormAlertError()
+        }
     }
     
     public func getPlansByString(_ type: String?) -> Plans? {

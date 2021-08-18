@@ -94,6 +94,7 @@ public class PatientHallViewController: UIViewController {
         let ClinicFormVC = ClinicFormViewController(viewModel: ClinicFormVM)
         
         ClinicFormVM.viewController = ClinicFormVC
+        ClinicFormVC.delegate = ClinicFormVM
         
         self.navigationController?.pushViewController(ClinicFormVC, animated: true)
     }

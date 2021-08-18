@@ -23,5 +23,5 @@ public protocol ClinicFormViewModelType: AnyObject {
 }
 
 public protocol ClinicFormViewControllerDelegate: AnyObject {
-    func onHandleUpdateClinicUserData(clinicUser: User)
+    func onHandleUpdateClinicUserData(clinicUser: User) -> Bool
 }
