@@ -31,3 +31,12 @@ public class SignUpViewModel: SignUpViewModelType {
         
     }
 }
+
+extension SignUpViewModel: SignUpViewControllerDelegate {
+    public func onHandleSignUp(user: User) -> EnumAuthResponse {
+        let userRepository = UserRepository()
+        let auth = userRepository.signUp(name: user.name, email: user.email, age: user.age, crp: user.crp, cpf: user.cpf, password: user.password)
+        
+        return auth
+    }
+}

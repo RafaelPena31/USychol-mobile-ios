@@ -28,6 +28,21 @@ public class ClinicFormViewModel: ClinicFormViewModelType {
     // MARK: - PUBLIC API
 
     public func initState() {
-        
+        updateState()
+    }
+    
+    // MARK: - PRIVATES
+    
+    private func updateState() {
+        let userRepository = UserRepository()
+        if let clinicUser = userRepository.getUser()?.userInfo {
+            viewState = .hasData(ClinicFormViewEntity(clinicUser: clinicUser))
+        }
+    }
+}
+
+extension ClinicFormViewModel: ClinicFormViewControllerDelegate {
+    public func onHandleUpdateClinicUserData(clinicUser: User) {
+        print(clinicUser)
     }
 }

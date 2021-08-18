@@ -8,46 +8,49 @@
 import UIKit
 
 final class ClinicFormStack: UIStackView {
+    // MARK: - PARAMS
+    
+    var clinicUser: User?
     
     // MARK: - UI
     
-    private lazy var identificationDividerLabel: CoreDividerLabel = {
+    public lazy var identificationDividerLabel: CoreDividerLabel = {
         let label = CoreDividerLabel(text: "Identification", iconName: "profile-icon")
         
         return label
     }()
     
-    private lazy var nameTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Name", labelText: "Name")
+    public lazy var nameTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Name", labelText: "Name", initText: clinicUser?.name, isEnabled: false)
         
         return input
     }()
     
-    private lazy var ageTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Age", labelText: "Age")
+    public lazy var ageTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Age", labelText: "Age", keyboardType: .numberPad, initText: clinicUser?.age, isEnabled: false)
         
         return input
     }()
     
-    private lazy var emailTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Email", labelText: "Email")
+    public lazy var emailTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Email", labelText: "Email", keyboardType: .emailAddress, initText: clinicUser?.email, isEnabled: false)
         
         return input
     }()
     
-    private lazy var crpTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "CRP", labelText: "CRP")
+    public lazy var crpTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "CRP", labelText: "CRP", keyboardType: .numberPad, initText: clinicUser?.crp, isEnabled: false)
         
         return input
     }()
     
-    private lazy var cpfTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "CPF", labelText: "CPF")
+    public lazy var cpfTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "CPF", labelText: "CPF", keyboardType: .numberPad, initText: clinicUser?.cpf, isEnabled: false)
         
         return input
     }()
     
-    private lazy var identificationFormStack: UIStackView = {
+    public lazy var identificationFormStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [identificationDividerLabel, nameTextField, ageTextField, emailTextField, crpTextField, cpfTextField])
         
         stack.axis = .vertical
@@ -57,25 +60,25 @@ final class ClinicFormStack: UIStackView {
         return stack
     }()
     
-    private lazy var planDividerLabel: CoreDividerLabel = {
+    public lazy var planDividerLabel: CoreDividerLabel = {
         let label = CoreDividerLabel(text: "Plan", iconName: "list-icon")
         
         return label
     }()
     
-    private lazy var planNameTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Plan's name", labelText: "Plan's name")
+    public lazy var planNameTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Plan's name", labelText: "Plan's name", isEnabled: false)
         
         return input
     }()
     
-    private lazy var expirationDayTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Expiration day", labelText: "Expiration day")
+    public lazy var expirationDayTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Expiration day", labelText: "Expiration day", keyboardType: .numberPad, isEnabled: false)
         
         return input
     }()
     
-    private lazy var planFormStack: UIStackView = {
+    public lazy var planFormStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [planDividerLabel, planNameTextField, expirationDayTextField])
         
         stack.axis = .vertical
@@ -87,7 +90,9 @@ final class ClinicFormStack: UIStackView {
     
     // MARK: - INITIALIZERS
     
-    override init(frame: CGRect = .zero) {
+    init(frame: CGRect = .zero, clinicUser: User?) {
+        self.clinicUser = clinicUser
+        
         super.init(frame: frame)
         
         setup()

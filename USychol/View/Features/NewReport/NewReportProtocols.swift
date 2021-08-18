@@ -23,5 +23,5 @@ public protocol NewReportViewModelType: AnyObject {
 }
 
 public protocol NewReportViewControllerDelegate: AnyObject {
-    
+    func onHandleCreateReport(_ report: Report)
 }

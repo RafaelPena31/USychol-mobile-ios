@@ -23,5 +23,5 @@ public protocol PatientAnamnesisViewModelType: AnyObject {
 }
 
 public protocol PatientAnamnesisViewControllerDelegate: AnyObject {
-    
+    func onHandleUpdatePatient(patient: Patient)
 }

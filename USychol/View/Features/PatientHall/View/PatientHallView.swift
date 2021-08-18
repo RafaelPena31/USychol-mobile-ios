@@ -57,10 +57,12 @@ final public class PatientHallView: UIView {
         let header = UIView()
         
         header.backgroundColor = UIColor(named: "MainPurpleColor")
-        header.layer.cornerRadius = 15
+        
         header.layer.shadowColor = UIColor(named: "NeonBlackColor")?.cgColor
         header.layer.shadowOpacity = 0.5
         header.layer.shadowRadius = 10
+        header.layer.cornerRadius = 15
+        header.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         
         return header
     }()
@@ -102,12 +104,11 @@ final public class PatientHallView: UIView {
     }
     
     private func buildViewHierarchy() {
-        headerView.addSubview(reminderTableView)
         headerView.addSubview(reminderTextField)
         headerView.addSubview(dividerView)
+        headerView.addSubview(reminderTableView)
         
         containerView.addSubview(headerView)
-        
         containerView.addSubview(patientTableView)
         
         addSubview(containerView)
@@ -130,7 +131,7 @@ final public class PatientHallView: UIView {
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
         }
-        
+
         reminderTextField.snp.makeConstraints { (make) -> Void in
             make.leading.equalTo(headerView).offset(16)
             make.trailing.equalTo(headerView).inset(16)
@@ -157,8 +158,8 @@ final public class PatientHallView: UIView {
     
     // MARK: - ACTIONS
     
-    func onHandleAddReminder() {
-        delegate?.onHandleAddReminder()
+    func onHandleAddReminder(_ text: String) {
+        delegate?.onHandleAddReminder(text)
     }
 }
 
@@ -190,9 +191,22 @@ extension PatientHallView: UITableViewDelegate {
 extension PatientHallView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == reminderTableView {
-            return self.reminderData.count
+            let reminderCount = reminderData.count
+            
+            if reminderCount > 0 {
+                tableView.restoreBackgroundView()
+            }
+            
+            return reminderCount
         }
-        return self.patientData.count
+        
+        let patientCount = patientData.count
+        
+        if patientCount > 0 {
+            tableView.restoreBackgroundView()
+        }
+        
+        return patientCount
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

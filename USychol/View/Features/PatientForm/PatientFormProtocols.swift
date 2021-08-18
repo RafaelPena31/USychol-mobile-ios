@@ -23,5 +23,5 @@ public protocol PatientFormViewModelType: AnyObject {
 }
 
 public protocol PatientFormViewControllerDelegate: AnyObject {
-    
+    func onHandleCreatePatient(patient: Patient)
 }

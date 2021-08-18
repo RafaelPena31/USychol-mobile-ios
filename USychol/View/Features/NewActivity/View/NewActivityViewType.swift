@@ -15,7 +15,7 @@ public protocol NewActivityViewType: AnyObject {
 }
 
 public protocol NewActivityViewDelegate: AnyObject {
-    // events clicks on view
+    func onHandleCreateActivy(_ activy: PerformActivy)
 }
 
 extension NewActivityViewType where Self: UIView {

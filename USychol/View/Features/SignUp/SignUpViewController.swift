@@ -69,13 +69,35 @@ extension SignUpViewController: SignUpViewControllerType {
 }
 
 extension SignUpViewController: SignUpViewDelegate {
-    public func onHandleClick() {
-        let VirtualPlanVM = VirtualPlanViewModel()
-        let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
+    public func onHandleFormAlert() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Fill in all fields with valid data", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
+    
+    public func onHandleClick(user: User) {
+        let authStatus = delegate?.onHandleSignUp(user: user)
         
-        VirtualPlanVM.viewController = VirtualPlanVC
-        
-        self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
+        switch authStatus {
+        case .authenticated:
+            let VirtualPlanVM = VirtualPlanViewModel()
+            let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
+            
+            VirtualPlanVM.viewController = VirtualPlanVC
+            VirtualPlanVC.delegate = VirtualPlanVM
+            
+            self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
+            break
+        case .unauthenticated:
+            let alert = CoreAlerts().handleDefaultAlert(title: "Heads up", message: "Unable to register, contact USychol Team support", buttonText: "Continue")
+            self.present(alert, animated: true)
+            break
+        case .error(let err):
+            let alert = CoreAlerts().handleErrorAlert(title: "Heads up", message: "Error: \(err), contact USychol Team support", buttonText: "Continue")
+            self.present(alert, animated: true)
+            break
+        default:
+            break
+        }
     }
     
     public func onHandleChange() {

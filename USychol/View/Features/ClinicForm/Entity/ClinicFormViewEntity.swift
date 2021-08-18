@@ -8,5 +8,5 @@
 //
 
 public struct ClinicFormViewEntity: Equatable {
-
+    let clinicUser: User
 }

@@ -16,6 +16,8 @@ public enum LabelTypeOptions {
     case labelInput
     case divider
     case logo
+    case empty
+    case select
 }
 
 public protocol CoreLabelType: AnyObject {

@@ -23,5 +23,5 @@ public protocol NewActivityViewModelType: AnyObject {
 }
 
 public protocol NewActivityViewControllerDelegate: AnyObject {
-    
+    func onHandleCreateActivy(_ activy: PerformActivy)
 }

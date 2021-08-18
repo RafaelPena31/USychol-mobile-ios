@@ -18,14 +18,19 @@ public enum PatientMaritalStatus {
     case widower
 }
 
-public struct Patient: Equatable {
+public struct Patient: Equatable, Codable {
+    let id: String
+    
     let name: String
-    let profilePicture = "https://mk0anatomieunes58h83.kinstacdn.com/wp-content/themes/cera/assets/images/avatars/user-avatar.png"
+    var profilePicture = "https://mk0anatomieunes58h83.kinstacdn.com/wp-content/themes/cera/assets/images/avatars/user-avatar.png"
     let patientSummary: String
     let age: String
-    let patientClass: PatientClass
+    let patientClass: String
     let motherName: String
     let fatherName: String?
-    let maritalStatus: PatientMaritalStatus
+    let maritalStatus: String
     let appointmentCount: Int
+    let reports: [Report]
+    
+    let fromUser: String
 }

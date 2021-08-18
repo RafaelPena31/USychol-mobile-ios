@@ -23,5 +23,5 @@ public protocol SignUpViewModelType: AnyObject {
 }
 
 public protocol SignUpViewControllerDelegate: AnyObject {
-    
+    func onHandleSignUp(user: User) -> EnumAuthResponse
 }

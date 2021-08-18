@@ -8,7 +8,6 @@
 import UIKit
 
 final class PatientFormStack: UIStackView {
-    
     // MARK: - UI
     
     private lazy var identificationDividerLabel: CoreDividerLabel = {
@@ -17,38 +16,50 @@ final class PatientFormStack: UIStackView {
         return label
     }()
     
-    private lazy var nameTextField: CoreInputField = {
+    public lazy var nameTextField: CoreInputField = {
         let input = CoreInputField(placeholder: "Name", labelText: "Name")
         
         return input
     }()
     
-    private lazy var ageTextField: CoreInputField = {
+    public lazy var ageTextField: CoreInputField = {
         let input = CoreInputField(placeholder: "Age", labelText: "Age")
         
         return input
     }()
     
-    private lazy var patientClassTextField: CoreInputField = {
+    public lazy var summaryTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Summary", labelText: "Summary")
+        
+        return input
+    }()
+    
+    public lazy var patientClassTextField: CoreInputField = {
         let input = CoreInputField(placeholder: "Patient Class", labelText: "Patient Class")
         
         return input
     }()
     
-    private lazy var motherTextField: CoreInputField = {
+    public lazy var motherTextField: CoreInputField = {
         let input = CoreInputField(placeholder: "Mother's Name", labelText: "Mother's Name")
         
         return input
     }()
     
-    private lazy var fatherTextField: CoreInputField = {
+    public lazy var fatherTextField: CoreInputField = {
         let input = CoreInputField(placeholder: "Father's Name", labelText: "Father's Name")
         
         return input
     }()
     
-    private lazy var maritalTextField: CoreInputField = {
+    public lazy var maritalTextField: CoreInputField = {
         let input = CoreInputField(placeholder: "Marital Status", labelText: "Marital Status")
+        
+        return input
+    }()
+    
+    public lazy var appointmentCountTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Appointment Count", labelText: "Appointment Count")
         
         return input
     }()
@@ -78,10 +89,12 @@ final class PatientFormStack: UIStackView {
         self.addArrangedSubview(identificationDividerLabel)
         self.addArrangedSubview(nameTextField)
         self.addArrangedSubview(ageTextField)
+        self.addArrangedSubview(summaryTextField)
         self.addArrangedSubview(patientClassTextField)
         self.addArrangedSubview(motherTextField)
         self.addArrangedSubview(fatherTextField)
         self.addArrangedSubview(maritalTextField)
+        self.addArrangedSubview(appointmentCountTextField)
     }
     
     private func buildStyle() {
@@ -97,6 +110,11 @@ final class PatientFormStack: UIStackView {
         }
         
         ageTextField.snp.makeConstraints{(make) -> Void in
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+        }
+        
+        summaryTextField.snp.makeConstraints{(make) -> Void in
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
         }
@@ -117,6 +135,11 @@ final class PatientFormStack: UIStackView {
         }
         
         maritalTextField.snp.makeConstraints{(make) -> Void in
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+        }
+        
+        appointmentCountTextField.snp.makeConstraints{(make) -> Void in
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
         }

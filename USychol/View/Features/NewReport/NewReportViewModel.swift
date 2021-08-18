@@ -31,3 +31,9 @@ public class NewReportViewModel: NewReportViewModelType {
         
     }
 }
+
+extension NewReportViewModel: NewReportViewControllerDelegate {
+    public func onHandleCreateReport(_ report: Report) {
+        print(report)
+    }
+}

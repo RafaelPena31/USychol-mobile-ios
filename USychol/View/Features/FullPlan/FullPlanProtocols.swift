@@ -23,5 +23,5 @@ public protocol FullPlanViewModelType: AnyObject {
 }
 
 public protocol FullPlanViewControllerDelegate: AnyObject {
-    
+    func setPlan() -> Bool
 }

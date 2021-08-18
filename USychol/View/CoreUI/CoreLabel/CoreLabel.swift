@@ -55,8 +55,11 @@ final public class CoreLabel: UILabel {
             self.font = UIFont(name: "Poppins-Regular", size: 16)
         case .logo:
             self.font = UIFont(name: "Nunito-SemiBold", size: 26)
+        case .empty:
+            self.font = UIFont(name: "Nunito-SemiBold", size: 20)
+        case .select:
+            self.font = UIFont(name: "Inter-Regular", size: 16)
         }
-        
         self.textColor = UIColor(named: color)
     }
     

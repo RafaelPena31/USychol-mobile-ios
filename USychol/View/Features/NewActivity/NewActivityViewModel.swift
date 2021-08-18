@@ -31,3 +31,9 @@ public class NewActivityViewModel: NewActivityViewModelType {
         
     }
 }
+
+extension NewActivityViewModel: NewActivityViewControllerDelegate {
+    public func onHandleCreateActivy(_ activy: PerformActivy) {
+        print(activy)
+    }
+}

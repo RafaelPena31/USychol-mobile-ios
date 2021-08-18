@@ -20,13 +20,14 @@ final public class NewReportView: UIView {
         return view
     }()
     
-    private lazy var reportNameInput: CoreInputField = CoreInputField(placeholder: "Thoughts of the day", labelText: "Activity Name")
+    private lazy var activityNameInput: CoreInputField = CoreInputField(placeholder: "Thoughts of the day", labelText: "Activity Name")
     private lazy var resumeInput: CoreInputField = CoreInputField(placeholder: "Today...", labelText: "Resume")
-    private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "Rank from 0 - 10", labelText: "Consultation Evaluation")
+    private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "Rank from 0 - 10", labelText: "Consultation Evaluation", keyboardType: .numberPad)
     private lazy var reportInput: CoreInputField = CoreInputField(placeholder: "Januart 01 2021", labelText: "Report's day")
+    private lazy var startAtInput: CoreInputField = CoreInputField(placeholder: "00:00 PM", labelText: "Start At")
     
     private lazy var formStack: UIStackView = {
-       let stack = UIStackView(arrangedSubviews: [reportNameInput, resumeInput, consultationInput, reportInput])
+       let stack = UIStackView(arrangedSubviews: [activityNameInput, resumeInput, consultationInput, reportInput, startAtInput])
         stack.alignment = .center
         stack.axis = .vertical
         stack.spacing = 16
@@ -78,7 +79,7 @@ final public class NewReportView: UIView {
             make.trailing.equalTo(containerView).inset(16)
         }
         
-        reportNameInput.snp.makeConstraints{(make) -> Void in
+        activityNameInput.snp.makeConstraints{(make) -> Void in
             make.leading.trailing.equalTo(0)
         }
         
@@ -94,6 +95,10 @@ final public class NewReportView: UIView {
             make.leading.trailing.equalTo(0)
         }
         
+        startAtInput.snp.makeConstraints{(make) -> Void in
+            make.leading.trailing.equalTo(0)
+        }
+        
         button.snp.makeConstraints{(make) -> Void in
             make.bottom.equalTo(containerView).inset(36)
             make.height.equalTo(55)
@@ -106,8 +111,22 @@ final public class NewReportView: UIView {
         
     }
     
-    func onHandleClick(){
+    // MARK: - ACTION
+    
+    func onHandleClick() {
+        let activityName = activityNameInput.text
+        let resume = resumeInput.text
+        let consultationEvaluation = Int(consultationInput.text) ?? 0
+        let reportDay = reportInput.text
+        let startAt = startAtInput.text
         
+        if activityName.isEmpty || resume.isEmpty || consultationEvaluation < 0 || reportDay.isEmpty || startAt.isEmpty {
+            delegate?.handleErrorAlert()
+        } else {
+            let userID = UserDefaults.standard.getUserID()
+            let newReport = Report(id: UUID().uuidString, date: reportDay, startAt: startAt, activies: [activityName], resume: resume, consultEvaluation: consultationEvaluation, fromPatient: userID)
+            delegate?.onHandleCreateReport(newReport)
+        }
     }
 }
 

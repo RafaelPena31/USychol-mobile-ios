@@ -23,5 +23,5 @@ public protocol DigitalPlanViewModelType: AnyObject {
 }
 
 public protocol DigitalPlanViewControllerDelegate: AnyObject {
-    
+    func setPlan() -> Bool
 }

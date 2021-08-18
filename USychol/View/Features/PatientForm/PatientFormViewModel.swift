@@ -37,3 +37,9 @@ public class PatientFormViewModel: PatientFormViewModelType {
         viewState = .hasData(PatientFormViewEntity(isEdit: isEdit))
     }
 }
+
+extension PatientFormViewModel: PatientFormViewControllerDelegate {
+    public func onHandleCreatePatient(patient: Patient) {
+        print(patient)
+    }
+}

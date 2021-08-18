@@ -111,6 +111,7 @@ extension PatientProfileViewController: PatientProfileViewDelegate {
         let PatientAnamnesisVC = PatientAnamnesisViewController(viewModel: PatientAnamnesisVM)
         
         PatientAnamnesisVM.viewController = PatientAnamnesisVC
+        PatientAnamnesisVC.delegate = PatientAnamnesisVM
         
         self.navigationController?.pushViewController(PatientAnamnesisVC, animated: true)
     }
@@ -129,6 +130,7 @@ extension PatientProfileViewController: PatientProfileViewDelegate {
         let NewActivityVC = NewActivityViewController(viewModel: NewActivityVM)
         
         NewActivityVM.viewController = NewActivityVC
+        NewActivityVC.delegate = NewActivityVM
         
         self.navigationController?.pushViewController(NewActivityVC, animated: true)
     }
@@ -138,6 +140,7 @@ extension PatientProfileViewController: PatientProfileViewDelegate {
         let NewReportVC = NewReportViewController(viewModel: NewReportVM)
         
         NewReportVM.viewController = NewReportVC
+        NewReportVC.delegate = NewReportVM
         
         self.navigationController?.pushViewController(NewReportVC, animated: true)
     }

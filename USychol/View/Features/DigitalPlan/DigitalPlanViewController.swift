@@ -61,22 +61,9 @@ public class DigitalPlanViewController: UIViewController {
         contentView?.delegate = self
     }
     
-    public func onHandleClick() {
-        let PatientHallVM = PatientHallViewModel()
-        let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
-        
-        PatientHallVM.viewController = PatientHallVC
-        
-        self.navigationController?.pushViewController(PatientHallVC, animated: true)
-    }
-    
-    public func onHandleTouch() {
-        let FullPlanVM = FullPlanViewModel()
-        let FullPlanVC = FullPlanViewController(viewModel: FullPlanVM)
-        
-        FullPlanVM.viewController = FullPlanVC
-        
-        self.navigationController?.pushViewController(FullPlanVC, animated: true)
+    private func onHandleFormAlert() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Unable to assign this plan to your profile, contact the USychol Team support team", buttonText: "Continue")
+        self.present(alert, animated: true)
     }
 }
 
@@ -87,5 +74,29 @@ extension DigitalPlanViewController: DigitalPlanViewControllerType {
 }
 
 extension DigitalPlanViewController: DigitalPlanViewDelegate {
-
+    public func onHandleClick() {
+        let updateStatus = delegate!.setPlan()
+        
+        if updateStatus {
+            let PatientHallVM = PatientHallViewModel()
+            let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+            
+            PatientHallVM.viewController = PatientHallVC
+            PatientHallVC.delegate = PatientHallVM
+            
+            self.navigationController?.pushViewController(PatientHallVC, animated: true)
+        } else {
+            onHandleFormAlert()
+        }
+    }
+    
+    public func onHandleTouch() {
+        let FullPlanVM = FullPlanViewModel()
+        let FullPlanVC = FullPlanViewController(viewModel: FullPlanVM)
+        
+        FullPlanVM.viewController = FullPlanVC
+        FullPlanVC.delegate = FullPlanVM
+        
+        self.navigationController?.pushViewController(FullPlanVC, animated: true)
+    }
 }

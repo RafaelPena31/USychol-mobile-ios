@@ -10,6 +10,10 @@
 import UIKit
 
 final public class PatientAnamnesisView: UIView {
+    // MARK: - PROPERTIES
+    
+    var patient = Patient(id: "", name: "", patientSummary: "", age: "", patientClass: "", motherName: "", fatherName: "", maritalStatus: "", appointmentCount: 1, reports: [], fromUser: "")
+    var isEditable = false
     
     // MARK: - UI
     
@@ -159,13 +163,80 @@ final public class PatientAnamnesisView: UIView {
     
     // MARK: - ACTIONS
     
-    func onHandleEditAnamnesis() {
+    func onHandleReleaseEditInfo() {
+        isEditable = !isEditable
         
+        anamnesisFormStack.nameTextField.setIsEnable(isEditable)
+        anamnesisFormStack.ageTextField.setIsEnable(isEditable)
+        anamnesisFormStack.summaryTextField.setIsEnable(isEditable)
+        anamnesisFormStack.patientClassTextField.setIsEnable(isEditable)
+        anamnesisFormStack.motherTextField.setIsEnable(isEditable)
+        anamnesisFormStack.fatherTextField.setIsEnable(isEditable)
+        anamnesisFormStack.maritalTextField.setIsEnable(isEditable)
+        anamnesisFormStack.appointmentCountTextField.setIsEnable(isEditable)
+    }
+    
+    func updatePatientData() {
+        let name = anamnesisFormStack.nameTextField.text.isEmpty ? patient.name : anamnesisFormStack.nameTextField.text
+        let age = anamnesisFormStack.ageTextField.text.isEmpty ? patient.age : anamnesisFormStack.ageTextField.text
+        let summary = anamnesisFormStack.summaryTextField.text.isEmpty ? patient.patientSummary : anamnesisFormStack.summaryTextField.text
+        let patientClass =  anamnesisFormStack.patientClassTextField.text.isEmpty ? patient.patientClass : anamnesisFormStack.patientClassTextField.text
+        let motherName = anamnesisFormStack.motherTextField.text.isEmpty ? patient.motherName : anamnesisFormStack.motherTextField.text
+        let fatherName = anamnesisFormStack.fatherTextField.text.isEmpty ? patient.fatherName : anamnesisFormStack.fatherTextField.text
+        let maritalStatus = anamnesisFormStack.maritalTextField.text.isEmpty ? patient.maritalStatus : anamnesisFormStack.maritalTextField.text
+        let appointmentCount = anamnesisFormStack.appointmentCountTextField.text.isEmpty ? patient.appointmentCount : Int(anamnesisFormStack.appointmentCountTextField.text) ?? patient.appointmentCount
+        
+        
+        
+        let newPatient = Patient(id: patient.id,
+                                 name: name,
+                                 patientSummary: summary,
+                                 age: age,
+                                 patientClass: patientClass,
+                                 motherName: motherName,
+                                 fatherName: fatherName,
+                                 maritalStatus: maritalStatus,
+                                 appointmentCount: appointmentCount,
+                                 reports: [],
+                                 fromUser: patient.fromUser)
+        
+        patient = newPatient
+        delegate?.handleFormAlert()
+    }
+    
+    func updateInputs() {
+        anamnesisFormStack.nameTextField.setText(patient.name)
+        anamnesisFormStack.ageTextField.setText(patient.age)
+        anamnesisFormStack.summaryTextField.setText(patient.patientSummary)
+        anamnesisFormStack.patientClassTextField.setText(patient.patientClass)
+        anamnesisFormStack.motherTextField.setText(patient.motherName)
+        anamnesisFormStack.fatherTextField.setText(patient.fatherName ?? "")
+        anamnesisFormStack.maritalTextField.setText(patient.maritalStatus)
+        anamnesisFormStack.appointmentCountTextField.setText(String(patient.appointmentCount))
+    }
+    
+    func onHandleEditAnamnesis() {
+        if isEditable {
+            updatePatientData()
+            onHandleReleaseEditInfo()
+            delegate?.onHandleUpdatePatient(patient: patient)
+            updateInputs()
+            editAnamnesisButton.setTitle("Edit Anamnesis", for: .normal)
+        } else {
+            onHandleReleaseEditInfo()
+            editAnamnesisButton.setTitle("Save Anamnesis", for: .normal)
+        }
     }
 }
 
 extension PatientAnamnesisView: PatientAnamnesisViewType {
     public func updateView(with viewState: PatientAnamnesisViewState) {
-        
+        switch viewState {
+        case .hasData(let entity):
+            self.patient = entity.patient
+            updateInputs()
+        default:
+            break
+        }
     }
 }

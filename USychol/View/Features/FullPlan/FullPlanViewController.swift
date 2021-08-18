@@ -60,20 +60,34 @@ public class FullPlanViewController: UIViewController {
         }
         contentView?.delegate = self
     }
+    
+    private func onHandleFormAlert() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Unable to assign this plan to your profile, contact the USychol Team support team", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
 }
 
 extension FullPlanViewController: FullPlanViewControllerType {
     public func updateView(with viewState: FullPlanViewState) {
         contentView?.updateView(with: viewState)
     }
-    
+}
+
+extension FullPlanViewController: FullPlanViewDelegate {
     public func onHandleClick() {
-        let PatientHallVM = PatientHallViewModel()
-        let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+        let updateStatus = delegate!.setPlan()
         
-        PatientHallVM.viewController = PatientHallVC
-        
-        self.navigationController?.pushViewController(PatientHallVC, animated: true)
+        if updateStatus {
+            let PatientHallVM = PatientHallViewModel()
+            let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+            
+            PatientHallVM.viewController = PatientHallVC
+            PatientHallVC.delegate = PatientHallVM
+            
+            self.navigationController?.pushViewController(PatientHallVC, animated: true)
+        } else {
+            onHandleFormAlert()
+        }
     }
     
     public func onHandleTouch() {
@@ -81,11 +95,8 @@ extension FullPlanViewController: FullPlanViewControllerType {
         let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
         
         VirtualPlanVM.viewController = VirtualPlanVC
+        VirtualPlanVC.delegate = VirtualPlanVM
         
         self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
     }
-}
-
-extension FullPlanViewController: FullPlanViewDelegate {
-
 }

@@ -60,6 +60,11 @@ public class VirtualPlanViewController: UIViewController {
         }
         contentView?.delegate = self
     }
+    
+    private func onHandleFormAlert() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Unable to assign this plan to your profile, contact the USychol Team support team", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
 }
 
 extension VirtualPlanViewController: VirtualPlanViewControllerType {
@@ -68,12 +73,19 @@ extension VirtualPlanViewController: VirtualPlanViewControllerType {
     }
     
     public func onHandleClick() {
-        let PatientHallVM = PatientHallViewModel()
-        let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+        let updateStatus = delegate!.setPlan()
         
-        PatientHallVM.viewController = PatientHallVC
-        
-        self.navigationController?.pushViewController(PatientHallVC, animated: true)
+        if updateStatus {
+            let PatientHallVM = PatientHallViewModel()
+            let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+            
+            PatientHallVM.viewController = PatientHallVC
+            PatientHallVC.delegate = PatientHallVM
+            
+            self.navigationController?.pushViewController(PatientHallVC, animated: true)
+        } else {
+            onHandleFormAlert()
+        }
     }
     
     public func onHandleTouch() {
@@ -81,6 +93,7 @@ extension VirtualPlanViewController: VirtualPlanViewControllerType {
         let DigitalPlanVC = DigitalPlanViewController(viewModel: DigitalPlanVM)
         
         DigitalPlanVM.viewController = DigitalPlanVC
+        DigitalPlanVC.delegate = DigitalPlanVM
         
         self.navigationController?.pushViewController(DigitalPlanVC, animated: true)
     }

@@ -110,7 +110,7 @@ final public class PatientProfileView: UIView {
     }()
     
     private lazy var redirectButtonStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [accessAnamnesisButton, createActivyButton, createReportButton])
+        let stack = UIStackView(arrangedSubviews: [accessAnamnesisButton, createReportButton])
         
         stack.alignment = .center
         stack.axis = .vertical
@@ -179,7 +179,7 @@ final public class PatientProfileView: UIView {
             make.height.equalTo(185)
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
-            make.top.equalTo(searchTextField.snp.bottom).offset(24)
+            make.top.equalTo(searchTextField.snp.bottom).offset(8)
         }
 
         dividerView.snp.makeConstraints {(make) -> Void in
@@ -196,12 +196,6 @@ final public class PatientProfileView: UIView {
         }
         
         accessAnamnesisButton.snp.makeConstraints{(make) -> Void in
-            make.height.equalTo(50)
-            make.leading.equalTo(containerView).offset(16)
-            make.trailing.equalTo(containerView).inset(16)
-        }
-        
-        createActivyButton.snp.makeConstraints{(make) -> Void in
             make.height.equalTo(50)
             make.leading.equalTo(containerView).offset(16)
             make.trailing.equalTo(containerView).inset(16)
@@ -268,7 +262,13 @@ extension PatientProfileView: UITableViewDelegate {
 
 extension PatientProfileView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.reportsData.count
+        let dataCount = self.reportsData.count
+        
+        if dataCount > 0 {
+            tableView.restoreBackgroundView()
+        }
+        
+        return dataCount
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

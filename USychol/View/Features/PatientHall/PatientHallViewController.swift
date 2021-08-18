@@ -4,7 +4,6 @@
 //  USychol
 //
 //  Created Rafael Augusto Mesquita on 29/07/21.
-//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 //
 
@@ -23,8 +22,7 @@ public class PatientHallViewController: UIViewController {
 
     // MARK: - INITIALIZERS
 
-    public init(contentView: PatientHallViewType = PatientHallView(),
-                viewModel: PatientHallViewModelType) {
+    public init(contentView: PatientHallViewType = PatientHallView(), viewModel: PatientHallViewModelType) {
         self.contentView = contentView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -105,6 +103,7 @@ public class PatientHallViewController: UIViewController {
         let PatientFormVC = PatientFormViewController(viewModel: PatientFormVM)
         
         PatientFormVM.viewController = PatientFormVC
+        PatientFormVC.delegate = PatientFormVM
         
         self.navigationController?.pushViewController(PatientFormVC, animated: true)
     }
@@ -127,7 +126,7 @@ extension PatientHallViewController: PatientHallViewDelegate {
         self.navigationController?.pushViewController(PatientProfileVC, animated: true)
     }
     
-    public func onHandleAddReminder() {
-        print("onHandleAddReminder")
+    public func onHandleAddReminder(_ text: String) {
+        delegate?.onHandleAddReminder(text)
     }
 }

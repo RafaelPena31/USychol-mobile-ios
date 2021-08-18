@@ -6,6 +6,6 @@
 //
 
 public protocol ReportRepositoryProtocol {
-    func getReport(patientId: String) -> [Report]
-    func getReportById(reportId: String) -> Report
+    func getReports(patientId: String) -> [Report]
+    func getReportById(patientId: String, reportId: String) -> Report?
 }

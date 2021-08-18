@@ -4,26 +4,28 @@
 //
 //  Created by Rafael Augusto Mesquita on 05/08/21.
 //
+import Foundation
 
 public class PatientRepository: PatientRepositoryProtocol {
-    public func getPatientById(patientId: String) -> Patient {
-        let patient = Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2)
+    public func getPatientById(patientId: String) -> Patient? {
+        let userInfoEntityTree = UserRepository().getUser()
         
-        return patient
+        if let patients = userInfoEntityTree?.patient {
+            let currentPatient = patients.first(where: {$0.id == patientId})
+            return currentPatient
+        }
+        
+        return nil
     }
     
-    public func getPatients(userId: String) -> [Patient] {
-        let patients = [
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2),
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2),
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2),
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2),
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2),
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2),
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2),
-            Patient(name: "Darlan Ribeiro", patientSummary: "The patient demonstrates hyperactivity and loss of focus in their daily tasks. He reported feelings of loneliness and longing for his parents for having gone to live at the school at an early age.", age: "16", patientClass: .teen, motherName: "Maria Antonieta Ribeiro", fatherName: "Jobert Ribeiro", maritalStatus: .single, appointmentCount: 2)
-        ]
-        return patients
+    public func getPatients() -> [Patient] {
+        let userInfoEntityTree = UserRepository().getUser()
+        
+        if let patients = userInfoEntityTree?.patient {
+            return patients
+        }
+        
+        return []
     }
 }
 

@@ -30,15 +30,21 @@ public class PatientHallViewModel: PatientHallViewModelType {
         updateState()
     }
     
-    // MARK: - PRIVATE METHODS
+    // MARK: - PRIVATES
     
     private func updateState() {
         let reminderRepository = ReminderRepository()
         let reminders = reminderRepository.getReminders(userId: "0")
         
         let patientRepository = PatientRepository()
-        let patients = patientRepository.getPatients(userId: "0")
+        let patients = patientRepository.getPatients()
         
         viewState = .hasData(PatientHallViewEntity(remidersData: reminders, patientsData: patients))
+    }
+}
+
+extension PatientHallViewModel: PatientHallViewControllerDelegate {
+    public func onHandleAddReminder(_ text: String) {
+        print(text)
     }
 }

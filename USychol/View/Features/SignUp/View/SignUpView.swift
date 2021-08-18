@@ -172,8 +172,22 @@ final public class SignUpView: UIView {
         
     }
     
+    // MARK: - ACTIONS
+    
     func onHandleClick () {
-        delegate?.onHandleClick()
+        let name = nameInput.text
+        let email = emailInput.text
+        let age = birthdayInput.text
+        let crp = registrationInput.text
+        let cpf = documentInput.text
+        let password = passwordInput.text
+        
+        if name.isEmpty || email.isEmpty || age.isEmpty || crp.isEmpty || cpf.isEmpty || password.isEmpty {
+            delegate?.onHandleFormAlert()
+        } else {
+            let userInfo = User(id: UUID().uuidString, name: name, email: email, age: age, crp: crp, cpf: cpf, plan: nil, password: password)
+            delegate?.onHandleClick(user: userInfo)
+        }
     }
     
     @objc func onHandleChange(){

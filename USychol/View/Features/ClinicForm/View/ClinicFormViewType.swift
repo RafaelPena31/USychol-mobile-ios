@@ -15,7 +15,10 @@ public protocol ClinicFormViewType: AnyObject {
 }
 
 public protocol ClinicFormViewDelegate: AnyObject {
-    func onHandleEditInfo()
+    func handleFormAlert()
+    func saveNewUserInfo(user: User)
+    func getPlansByPlans(_ type: Plans?) -> String?
+    func getPlansByString(_ type: String?) -> Plans?
 }
 
 extension ClinicFormViewType where Self: UIView {

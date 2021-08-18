@@ -13,18 +13,28 @@ final public class CoreInputField: UIStackView  {
     
     let inputPlaceholder: String
     let labelText: String
+    let isEnabled: Bool
     let height: Int
+    let keyboardType: UIKeyboardType
+    let initText: String?
+    let onHandleClickInput: (() -> Void)?
     
     // MARK: - UI
     
     private lazy var inputField: TextField = {
         let input = TextField()
         
-        let padding = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        
-        input.placeholder = inputPlaceholder
         input.backgroundColor = UIColor(named: "GreyLightColor")
         input.layer.cornerRadius = 8
+        
+        input.placeholder = inputPlaceholder
+        input.text = initText
+        
+        input.isEnabled = isEnabled
+        input.keyboardType = keyboardType
+        
+        input.addTarget(self, action: #selector(onHandleChangeText), for: .editingChanged)
+        input.addTarget(self, action: #selector(onHandleClick), for: .touchUpInside)
         
         return input
     }()
@@ -37,10 +47,14 @@ final public class CoreInputField: UIStackView  {
     
     // MARK: - INITIALIZERS
     
-    init(frame: CGRect = .zero, placeholder: String, labelText: String, height: Int = 55){
+    init(frame: CGRect = .zero, placeholder: String, labelText: String, height: Int = 55, keyboardType: UIKeyboardType = .default, initText: String? = "", isEnabled: Bool = true, onHandleClickInput: @escaping (() -> Void) = {()}){
         self.inputPlaceholder = placeholder
         self.labelText = labelText
         self.height = height
+        self.keyboardType = keyboardType
+        self.initText = initText
+        self.isEnabled = isEnabled
+        self.onHandleClickInput = onHandleClickInput
 
         super.init(frame: frame)
         setup()
@@ -49,6 +63,18 @@ final public class CoreInputField: UIStackView  {
     @available(*, unavailable)
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - GET/SET
+    
+    var text: String = ""
+    
+    public func setText(_ text: String) {
+        inputField.text = text
+    }
+    
+    public func setIsEnable(_ isEnabled: Bool = true) {
+        inputField.isEnabled = isEnabled
     }
 
     // MARK: - PRIVATE
@@ -76,5 +102,20 @@ final public class CoreInputField: UIStackView  {
             make.leading.equalTo(self)
             make.trailing.equalTo(self)
         }
+    }
+    
+    // MARK: - ACTIONS
+    
+    @objc func onHandleChangeText() {
+        text = inputField.text ?? ""
+    }
+    
+    @objc func onHandleClick() {
+        guard let onHandleClickInput = onHandleClickInput else {
+            return
+        }
+        
+        onHandleClickInput()
+        print("clicou")
     }
 }

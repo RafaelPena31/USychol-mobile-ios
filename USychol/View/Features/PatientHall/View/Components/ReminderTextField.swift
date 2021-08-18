@@ -12,11 +12,11 @@ final class ReminderTextField: UITextField {
     // MARK: - PARAMS
 
     let insets: UIEdgeInsets
-    let onHandleClickAdd: () -> Void
+    let onHandleClickAdd: (_ text: String) -> Void
     
     // MARK: - INITIALIZERS
     
-    init(frame: CGRect = .zero, insets: UIEdgeInsets, placeholder: String, onHandleClickAdd: @escaping () -> Void) {
+    init(frame: CGRect = .zero, insets: UIEdgeInsets, placeholder: String, onHandleClickAdd: @escaping (_ text: String) -> Void) {
         self.insets = insets
         self.onHandleClickAdd = onHandleClickAdd
         
@@ -100,7 +100,7 @@ final class ReminderTextField: UITextField {
     // MARK: - PRIVATE ACTIONS
     
     @objc private func onClickButton() {
-        onHandleClickAdd()
+        onHandleClickAdd(self.text ?? "")
     }
 }
 

@@ -8,5 +8,5 @@
 //
 
 public struct PatientAnamnesisViewEntity: Equatable {
-
+    let patient: Patient
 }

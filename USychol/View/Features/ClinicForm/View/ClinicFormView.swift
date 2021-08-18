@@ -11,6 +11,11 @@ import UIKit
 
 final public class ClinicFormView: UIView {
     
+    // MARK: - PROPERTIES
+    
+    var clinicUser: User = User(id: "", name: "", email: "", age: "", crp: "", cpf: "", plan: nil, password: "")
+    var isEditable = false
+    
     // MARK: - UI
     
     private lazy var containerView: UIView = {
@@ -56,7 +61,7 @@ final public class ClinicFormView: UIView {
     }()
     
     private lazy var clinicFormStack: ClinicFormStack = {
-        let stack = ClinicFormStack()
+        let stack = ClinicFormStack(clinicUser: nil)
         
         return stack
     }()
@@ -159,13 +164,65 @@ final public class ClinicFormView: UIView {
     
     // MARK: - ACTIONS
     
+    func onHandleReleaseEditInfo() {
+        isEditable = !isEditable
+        
+        clinicFormStack.nameTextField.setIsEnable(isEditable)
+        clinicFormStack.ageTextField.setIsEnable(isEditable)
+        clinicFormStack.emailTextField.setIsEnable(isEditable)
+        clinicFormStack.crpTextField.setIsEnable(isEditable)
+        clinicFormStack.cpfTextField.setIsEnable(isEditable)
+        clinicFormStack.planNameTextField.setIsEnable(isEditable)
+    }
+    
+    func updateClinicUserData() {
+        let newClinicUser = User(id: clinicUser.id,
+                                 name: clinicFormStack.nameTextField.text.isEmpty ? clinicUser.name : clinicFormStack.nameTextField.text,
+                                 email: clinicFormStack.emailTextField.text.isEmpty ? clinicUser.email : clinicFormStack.emailTextField.text,
+                                 age: clinicFormStack.ageTextField.text.isEmpty ? clinicUser.age : clinicFormStack.ageTextField.text,
+                                 crp: clinicFormStack.crpTextField.text.isEmpty ? clinicUser.crp : clinicFormStack.crpTextField.text,
+                                 cpf: clinicFormStack.cpfTextField.text.isEmpty ? clinicUser.cpf : clinicFormStack.cpfTextField.text,
+                                 plan: clinicFormStack.planNameTextField.text.isEmpty ? clinicUser.plan : delegate?.getPlansByString(clinicFormStack.planNameTextField.text),
+                                 password: clinicUser.password)
+        
+        clinicUser = newClinicUser
+        delegate?.handleFormAlert()
+    }
+    
+    func updateInputs() {
+        let cachePlan = delegate?.getPlansByPlans(clinicUser.plan) ?? ""
+        
+        clinicFormStack.nameTextField.setText(clinicUser.name)
+        clinicFormStack.ageTextField.setText(clinicUser.age)
+        clinicFormStack.emailTextField.setText(clinicUser.email)
+        clinicFormStack.crpTextField.setText(clinicUser.crp)
+        clinicFormStack.cpfTextField.setText(clinicUser.cpf)
+        clinicFormStack.planNameTextField.setText(cachePlan)
+        clinicFormStack.expirationDayTextField.setText("09")
+    }
+    
     func onHandleEditInfo() {
-        delegate?.onHandleEditInfo()
+        if isEditable {
+            updateClinicUserData()
+            onHandleReleaseEditInfo()
+            delegate?.saveNewUserInfo(user: clinicUser)
+            updateInputs()
+            editInformationButton.setTitle("Edit profile information", for: .normal)
+        } else {
+            onHandleReleaseEditInfo()
+            editInformationButton.setTitle("Save profile information", for: .normal)
+        }
     }
 }
 
 extension ClinicFormView: ClinicFormViewType {
     public func updateView(with viewState: ClinicFormViewState) {
-        
+        switch viewState {
+        case .hasData(let entity):
+            clinicUser = entity.clinicUser
+            updateInputs()
+        default:
+            break
+        }
     }
 }

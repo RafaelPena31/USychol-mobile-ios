@@ -35,11 +35,11 @@ public class PatientProfileViewModel: PatientProfileViewModelType {
     
     private func updateState() {
         let reportRepository = ReportRepository()
-        let reports = reportRepository.getReport(patientId: "0")
+        let reports = reportRepository.getReports(patientId: "0")
         
         let patientRepository = PatientRepository()
-        let patient = patientRepository.getPatientById(patientId: "0")
-        
-        viewState = .hasData(PatientProfileViewEntity(reportsData: reports, patient: patient))
+        if let patient = patientRepository.getPatientById(patientId: "0") {
+            viewState = .hasData(PatientProfileViewEntity(reportsData: reports, patient: patient))
+        }
     }
 }

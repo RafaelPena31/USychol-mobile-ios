@@ -6,6 +6,6 @@
 //
 
 public protocol PatientRepositoryProtocol {
-    func getPatients(userId: String) -> [Patient]
-    func getPatientById(patientId: String) -> Patient
+    func getPatients() -> [Patient]
+    func getPatientById(patientId: String) -> Patient?
 }

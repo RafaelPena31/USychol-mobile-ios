@@ -8,6 +8,13 @@
 import UIKit
 
 final class ReminderTableView: UITableView {
+    // MARK: - UI
+    
+    private lazy var coreTableViewEmptyState: CoreTableViewEmptyState = {
+        let view = CoreTableViewEmptyState(imageName: "no-reminder-data", labelProps: (text: "No remindes for you today :)", color: "PurpleStrongLightColor"))
+        
+        return view
+    }()
     
     // MARK: - INITIALIZERS
     
@@ -25,6 +32,8 @@ final class ReminderTableView: UITableView {
     
     private func setup() {
         buildStyle()
+        
+        self.backgroundView = coreTableViewEmptyState
     }
     
     private func buildStyle() {

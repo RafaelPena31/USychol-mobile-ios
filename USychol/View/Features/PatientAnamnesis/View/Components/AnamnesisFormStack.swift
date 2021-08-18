@@ -8,47 +8,56 @@
 import UIKit
 
 final class AnamnesisFormStack: UIStackView {
-    
-    // MARK: - UI
-    
     private lazy var identificationDividerLabel: CoreDividerLabel = {
         let label = CoreDividerLabel(text: "Patient Registration", iconName: "profile-icon")
         
         return label
     }()
     
-    private lazy var nameTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Name", labelText: "Name")
+    public lazy var nameTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Name", labelText: "Name", isEnabled: false)
         
         return input
     }()
     
-    private lazy var ageTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Age", labelText: "Age")
+    public lazy var ageTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Age", labelText: "Age", isEnabled: false)
         
         return input
     }()
     
-    private lazy var patientClassTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Patient Class", labelText: "Patient Class")
+    public lazy var summaryTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Summary", labelText: "Summary", isEnabled: false)
         
         return input
     }()
     
-    private lazy var motherTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Mother's Name", labelText: "Mother's Name")
+    public lazy var patientClassTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Patient Class", labelText: "Patient Class", isEnabled: false)
         
         return input
     }()
     
-    private lazy var fatherTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Father's Name", labelText: "Father's Name")
+    public lazy var motherTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Mother's Name", labelText: "Mother's Name", isEnabled: false)
         
         return input
     }()
     
-    private lazy var maritalTextField: CoreInputField = {
-        let input = CoreInputField(placeholder: "Marital Status", labelText: "Marital Status")
+    public lazy var fatherTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Father's Name", labelText: "Father's Name", isEnabled: false)
+        
+        return input
+    }()
+    
+    public lazy var maritalTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Marital Status", labelText: "Marital Status", isEnabled: false)
+        
+        return input
+    }()
+    
+    public lazy var appointmentCountTextField: CoreInputField = {
+        let input = CoreInputField(placeholder: "Appointment Count", labelText: "Appointment Count", isEnabled: false)
         
         return input
     }()
@@ -78,10 +87,12 @@ final class AnamnesisFormStack: UIStackView {
         self.addArrangedSubview(identificationDividerLabel)
         self.addArrangedSubview(nameTextField)
         self.addArrangedSubview(ageTextField)
+        self.addArrangedSubview(summaryTextField)
         self.addArrangedSubview(patientClassTextField)
         self.addArrangedSubview(motherTextField)
         self.addArrangedSubview(fatherTextField)
         self.addArrangedSubview(maritalTextField)
+        self.addArrangedSubview(appointmentCountTextField)
     }
     
     private func buildStyle() {
@@ -97,6 +108,11 @@ final class AnamnesisFormStack: UIStackView {
         }
         
         ageTextField.snp.makeConstraints{(make) -> Void in
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+        }
+        
+        summaryTextField.snp.makeConstraints{(make) -> Void in
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
         }
@@ -117,6 +133,11 @@ final class AnamnesisFormStack: UIStackView {
         }
         
         maritalTextField.snp.makeConstraints{(make) -> Void in
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+        }
+        
+        appointmentCountTextField.snp.makeConstraints{(make) -> Void in
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
         }

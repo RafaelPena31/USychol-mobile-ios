@@ -15,7 +15,8 @@ public protocol PatientAnamnesisViewType: AnyObject {
 }
 
 public protocol PatientAnamnesisViewDelegate: AnyObject {
-    // events clicks on view
+    func onHandleUpdatePatient(patient: Patient)
+    func handleFormAlert()
 }
 
 extension PatientAnamnesisViewType where Self: UIView {

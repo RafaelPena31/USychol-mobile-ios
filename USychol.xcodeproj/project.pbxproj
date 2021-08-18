@@ -71,6 +71,7 @@
 		E425BBB126BFC6C300E1DAA7 /* PatientHallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425BBA526BFC6C300E1DAA7 /* PatientHallView.swift */; };
 		E425BBB226BFC6C300E1DAA7 /* PatientHallViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425BBA626BFC6C300E1DAA7 /* PatientHallViewType.swift */; };
 		E425BBB326BFC6C300E1DAA7 /* PatientHallProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E425BBA726BFC6C300E1DAA7 /* PatientHallProtocols.swift */; };
+		E437839626C5440800A1B7AF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437839526C5440800A1B7AF /* User.swift */; };
 		E444E58C26BDF62B00D94FBB /* CoreInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E58B26BDF62B00D94FBB /* CoreInputField.swift */; };
 		E444E59626BDF64800D94FBB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E58E26BDF64800D94FBB /* SignUpViewController.swift */; };
 		E444E59726BDF64800D94FBB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444E58F26BDF64800D94FBB /* SignUpViewModel.swift */; };
@@ -124,6 +125,9 @@
 		E458809626BCDDA8005D6573 /* PatientFormProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */; };
 		E467014826A9120400A28683 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E467014726A9120400A28683 /* SplashViewController.swift */; };
 		E4828ACF26B3A7AC003E8138 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */; };
+		E490940826CBCC340066B91B /* AuthEntityTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490940726CBCC340066B91B /* AuthEntityTree.swift */; };
+		E490940C26CBD0D70066B91B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490940B26CBD0D70066B91B /* UserDefaults+.swift */; };
+		E490941026CBD1470066B91B /* UserDefaultsAuthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490940F26CBD1470066B91B /* UserDefaultsAuthType.swift */; };
 		E491EB0E26BFC1E3002E436B /* ClinicFormProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EB0326BFC1E2002E436B /* ClinicFormProtocols.swift */; };
 		E491EB0F26BFC1E3002E436B /* ClinicFormViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EB0526BFC1E2002E436B /* ClinicFormViewEntity.swift */; };
 		E491EB1026BFC1E3002E436B /* ClinicFormViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EB0726BFC1E2002E436B /* ClinicFormViewType.swift */; };
@@ -174,6 +178,9 @@
 		E4A8044A26B1F7BA00AE8593 /* SignInViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8044326B1F7BA00AE8593 /* SignInViewState.swift */; };
 		E4A8044B26B1F7BA00AE8593 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8044426B1F7BA00AE8593 /* SignInViewModel.swift */; };
 		E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8044526B1F7BA00AE8593 /* SignInViewController.swift */; };
+		E4BF8F9126C871F100B2C566 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF8F9026C871F100B2C566 /* UITableView+.swift */; };
+		E4BF8F9826C87A7A00B2C566 /* CoreTableViewEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF8F9726C87A7A00B2C566 /* CoreTableViewEmptyState.swift */; };
+		E4BF8F9F26C8B08600B2C566 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF8F9E26C8B08600B2C566 /* CustomPickerViewController.swift */; };
 		E4C380D626AA67EB00CF2A9C /* CoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C380D526AA67EB00CF2A9C /* CoreButton.swift */; };
 		E4C541DE26A9B4D70047F5E3 /* GradientStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C541DD26A9B4D70047F5E3 /* GradientStyle.swift */; };
 		E4DEE68D26A74F0E0026E89D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE68C26A74F0E0026E89D /* AppDelegate.swift */; };
@@ -181,6 +188,10 @@
 		E4DEE69626A74F0F0026E89D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4DEE69526A74F0F0026E89D /* Assets.xcassets */; };
 		E4DEE6A426A74F0F0026E89D /* USycholTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE6A326A74F0F0026E89D /* USycholTests.swift */; };
 		E4DEE6AF26A74F0F0026E89D /* USycholUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE6AE26A74F0F0026E89D /* USycholUITests.swift */; };
+		E4F4CDF126CB6550006386F4 /* CoreAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4CDF026CB6550006386F4 /* CoreAlerts.swift */; };
+		E4F7BD3526C97FE800B51EF6 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3426C97FE800B51EF6 /* UserRepositoryProtocol.swift */; };
+		E4F7BD3726C9818400B51EF6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3626C9818400B51EF6 /* UserRepository.swift */; };
+		E4F7BD3A26C9A70200B51EF6 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3926C9A70200B51EF6 /* UserHelper.swift */; };
 		E872802017AFA0EDD25058E8 /* Pods_USychol_USycholUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C0B4C0A53D217E10422693 /* Pods_USychol_USycholUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -282,6 +293,7 @@
 		E425BBA526BFC6C300E1DAA7 /* PatientHallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallView.swift; sourceTree = "<group>"; };
 		E425BBA626BFC6C300E1DAA7 /* PatientHallViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallViewType.swift; sourceTree = "<group>"; };
 		E425BBA726BFC6C300E1DAA7 /* PatientHallProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHallProtocols.swift; sourceTree = "<group>"; };
+		E437839526C5440800A1B7AF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E444E58B26BDF62B00D94FBB /* CoreInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreInputField.swift; sourceTree = "<group>"; };
 		E444E58E26BDF64800D94FBB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E444E58F26BDF64800D94FBB /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -300,6 +312,9 @@
 		E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormProtocols.swift; sourceTree = "<group>"; };
 		E467014726A9120400A28683 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		E490940726CBCC340066B91B /* AuthEntityTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEntityTree.swift; sourceTree = "<group>"; };
+		E490940B26CBD0D70066B91B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
+		E490940F26CBD1470066B91B /* UserDefaultsAuthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAuthType.swift; sourceTree = "<group>"; };
 		E491EB0326BFC1E2002E436B /* ClinicFormProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicFormProtocols.swift; sourceTree = "<group>"; };
 		E491EB0526BFC1E2002E436B /* ClinicFormViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicFormViewEntity.swift; sourceTree = "<group>"; };
 		E491EB0726BFC1E2002E436B /* ClinicFormViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClinicFormViewType.swift; sourceTree = "<group>"; };
@@ -350,6 +365,9 @@
 		E4A8044326B1F7BA00AE8593 /* SignInViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewState.swift; sourceTree = "<group>"; };
 		E4A8044426B1F7BA00AE8593 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		E4A8044526B1F7BA00AE8593 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E4BF8F9026C871F100B2C566 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		E4BF8F9726C87A7A00B2C566 /* CoreTableViewEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTableViewEmptyState.swift; sourceTree = "<group>"; };
+		E4BF8F9E26C8B08600B2C566 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		E4C380D526AA67EB00CF2A9C /* CoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreButton.swift; sourceTree = "<group>"; };
 		E4C541DD26A9B4D70047F5E3 /* GradientStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStyle.swift; sourceTree = "<group>"; };
 		E4DEE68926A74F0E0026E89D /* USychol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USychol.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -363,6 +381,10 @@
 		E4DEE6AA26A74F0F0026E89D /* USycholUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = USycholUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DEE6AE26A74F0F0026E89D /* USycholUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USycholUITests.swift; sourceTree = "<group>"; };
 		E4DEE6B026A74F0F0026E89D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4F4CDF026CB6550006386F4 /* CoreAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAlerts.swift; sourceTree = "<group>"; };
+		E4F7BD3426C97FE800B51EF6 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E4F7BD3626C9818400B51EF6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		E4F7BD3926C9A70200B51EF6 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		E93573A3E1BF82CCCF152C9C /* Pods-USychol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol.debug.xcconfig"; path = "Target Support Files/Pods-USychol/Pods-USychol.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4EB53C5F0FCA6BD1B72492 /* Pods_USychol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USychol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -421,11 +443,11 @@
 		8F0C29C626BE26100096296B /* VirtualPlan */ = {
 			isa = PBXGroup;
 			children = (
-				8F0C29C726BE26100096296B /* VirtualPlanViewModel.swift */,
-				8F0C29C826BE26100096296B /* Entity */,
 				8F0C29CA26BE26100096296B /* View */,
-				8F0C29CE26BE26100096296B /* VirtualPlanProtocols.swift */,
+				8F0C29C826BE26100096296B /* Entity */,
 				8F0C29CF26BE26100096296B /* VirtualPlanViewController.swift */,
+				8F0C29C726BE26100096296B /* VirtualPlanViewModel.swift */,
+				8F0C29CE26BE26100096296B /* VirtualPlanProtocols.swift */,
 			);
 			path = VirtualPlan;
 			sourceTree = "<group>";
@@ -459,10 +481,10 @@
 		8FC669E126BF8C6D00069DED /* DigitalPlan */ = {
 			isa = PBXGroup;
 			children = (
-				8FC669E226BF8C6D00069DED /* DigitalPlanViewModel.swift */,
+				8FC669E626BF8C6D00069DED /* View */,
 				8FC669E326BF8C6D00069DED /* Entity */,
 				8FC669E526BF8C6D00069DED /* DigitalPlanViewController.swift */,
-				8FC669E626BF8C6D00069DED /* View */,
+				8FC669E226BF8C6D00069DED /* DigitalPlanViewModel.swift */,
 				8FC669EA26BF8C6D00069DED /* DigitalPlanProtocols.swift */,
 			);
 			path = DigitalPlan;
@@ -489,11 +511,11 @@
 		8FC669F426BF916200069DED /* FullPlan */ = {
 			isa = PBXGroup;
 			children = (
+				8FC669F926BF916200069DED /* View */,
 				8FC669F526BF916200069DED /* Entity */,
 				8FC669F726BF916200069DED /* FullPlanViewController.swift */,
-				8FC669F826BF916200069DED /* FullPlanProtocols.swift */,
-				8FC669F926BF916200069DED /* View */,
 				8FC669FD26BF916200069DED /* FullPlanViewModel.swift */,
+				8FC669F826BF916200069DED /* FullPlanProtocols.swift */,
 			);
 			path = FullPlan;
 			sourceTree = "<group>";
@@ -519,10 +541,10 @@
 		8FC66A0D26BF9B3800069DED /* NewActivity */ = {
 			isa = PBXGroup;
 			children = (
-				8FC66A0E26BF9B3800069DED /* NewActivityViewModel.swift */,
+				8FC66A1226BF9B3800069DED /* View */,
 				8FC66A0F26BF9B3800069DED /* Entity */,
 				8FC66A1126BF9B3800069DED /* NewActivityViewController.swift */,
-				8FC66A1226BF9B3800069DED /* View */,
+				8FC66A0E26BF9B3800069DED /* NewActivityViewModel.swift */,
 				8FC66A1626BF9B3800069DED /* NewActivityProtocols.swift */,
 			);
 			path = NewActivity;
@@ -549,11 +571,11 @@
 		8FC66A2026BFA5BC00069DED /* NewReport */ = {
 			isa = PBXGroup;
 			children = (
-				8FC66A2126BFA5BC00069DED /* NewReportViewController.swift */,
-				8FC66A2226BFA5BC00069DED /* Entity */,
-				8FC66A2426BFA5BC00069DED /* NewReportProtocols.swift */,
-				8FC66A2526BFA5BC00069DED /* NewReportViewModel.swift */,
 				8FC66A2626BFA5BC00069DED /* View */,
+				8FC66A2226BFA5BC00069DED /* Entity */,
+				8FC66A2126BFA5BC00069DED /* NewReportViewController.swift */,
+				8FC66A2526BFA5BC00069DED /* NewReportViewModel.swift */,
+				8FC66A2426BFA5BC00069DED /* NewReportProtocols.swift */,
 			);
 			path = NewReport;
 			sourceTree = "<group>";
@@ -579,6 +601,7 @@
 		E425BB7626BFC5E400E1DAA7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E490940A26CBD0440066B91B /* Services */,
 				E425BB7726BFC5E400E1DAA7 /* Repositories */,
 			);
 			path = Data;
@@ -591,6 +614,7 @@
 				E425BB7926BFC5E400E1DAA7 /* ReminderRepository.swift */,
 				E425BB7A26BFC5E400E1DAA7 /* PatientRepository.swift */,
 				E425BB7B26BFC5E400E1DAA7 /* ReportRepository.swift */,
+				E4F7BD3626C9818400B51EF6 /* UserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -619,6 +643,7 @@
 				E425BB8426BFC5EC00E1DAA7 /* ReportRepositoryProtocol.swift */,
 				E425BB8526BFC5EC00E1DAA7 /* PerformActivyRepositoryProtocol.swift */,
 				E425BB8626BFC5EC00E1DAA7 /* ReminderRepositoryProtocol.swift */,
+				E4F7BD3426C97FE800B51EF6 /* UserRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -630,6 +655,8 @@
 				E425BB8926BFC5EC00E1DAA7 /* Reminder.swift */,
 				E425BB8A26BFC5EC00E1DAA7 /* Patient.swift */,
 				E425BB8B26BFC5EC00E1DAA7 /* PerformActivy.swift */,
+				E437839526C5440800A1B7AF /* User.swift */,
+				E490940726CBCC340066B91B /* AuthEntityTree.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -637,10 +664,10 @@
 		E425BB9626BFC6C300E1DAA7 /* PatientHall */ = {
 			isa = PBXGroup;
 			children = (
-				E425BB9726BFC6C300E1DAA7 /* PatientHallViewModel.swift */,
-				E425BB9826BFC6C300E1DAA7 /* PatientHallViewController.swift */,
-				E425BB9926BFC6C300E1DAA7 /* Entity */,
 				E425BB9B26BFC6C300E1DAA7 /* View */,
+				E425BB9926BFC6C300E1DAA7 /* Entity */,
+				E425BB9826BFC6C300E1DAA7 /* PatientHallViewController.swift */,
+				E425BB9726BFC6C300E1DAA7 /* PatientHallViewModel.swift */,
 				E425BBA726BFC6C300E1DAA7 /* PatientHallProtocols.swift */,
 			);
 			path = PatientHall;
@@ -657,8 +684,8 @@
 		E425BB9B26BFC6C300E1DAA7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E425BB9C26BFC6C300E1DAA7 /* PatientHallViewState.swift */,
 				E425BB9D26BFC6C300E1DAA7 /* Components */,
+				E425BB9C26BFC6C300E1DAA7 /* PatientHallViewState.swift */,
 				E425BBA526BFC6C300E1DAA7 /* PatientHallView.swift */,
 				E425BBA626BFC6C300E1DAA7 /* PatientHallViewType.swift */,
 			);
@@ -669,8 +696,8 @@
 			isa = PBXGroup;
 			children = (
 				E425BB9E26BFC6C300E1DAA7 /* ReminderTableView */,
-				E425BBA126BFC6C300E1DAA7 /* ReminderTextField.swift */,
 				E425BBA226BFC6C300E1DAA7 /* PatientTableView */,
+				E425BBA126BFC6C300E1DAA7 /* ReminderTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -704,10 +731,10 @@
 		E444E58D26BDF64800D94FBB /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				E444E59226BDF64800D94FBB /* View */,
+				E444E59026BDF64800D94FBB /* Entity */,
 				E444E58E26BDF64800D94FBB /* SignUpViewController.swift */,
 				E444E58F26BDF64800D94FBB /* SignUpViewModel.swift */,
-				E444E59026BDF64800D94FBB /* Entity */,
-				E444E59226BDF64800D94FBB /* View */,
 				E444E59526BDF64800D94FBB /* SignUpProtocols.swift */,
 			);
 			path = SignUp;
@@ -753,10 +780,10 @@
 		E458808626BCDDA8005D6573 /* PatientForm */ = {
 			isa = PBXGroup;
 			children = (
+				E458808B26BCDDA8005D6573 /* View */,
 				E458808726BCDDA8005D6573 /* Entity */,
 				E458808926BCDDA8005D6573 /* PatientFormViewController.swift */,
 				E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */,
-				E458808B26BCDDA8005D6573 /* View */,
 				E458808F26BCDDA8005D6573 /* PatientFormProtocols.swift */,
 			);
 			path = PatientForm;
@@ -774,8 +801,8 @@
 			isa = PBXGroup;
 			children = (
 				E491EA8B26BF6648002E436B /* Components */,
-				E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */,
 				E458808D26BCDDA8005D6573 /* PatientFormView.swift */,
+				E458808C26BCDDA8005D6573 /* PatientFormViewState.swift */,
 				E458808E26BCDDA8005D6573 /* PatientFormViewType.swift */,
 			);
 			path = View;
@@ -794,6 +821,9 @@
 		E467013626A8B67F00A28683 /* CoreUI */ = {
 			isa = PBXGroup;
 			children = (
+				E4F4CDEF26CB6544006386F4 /* CoreAlerts */,
+				E4BF8FA026C8DDBF00B2C566 /* CustomPickerViewController */,
+				E4BF8F9626C87A6100B2C566 /* CoreTableViewEmptyState */,
 				E491EB5A26BFC27A002E436B /* CoreRedirectButton */,
 				E491EB5726BFC26C002E436B /* CoreImageProfile */,
 				E491EB5426BFC262002E436B /* CoreDividerLabel */,
@@ -804,6 +834,7 @@
 				E4A8041826AF0CF700AE8593 /* CoreLabel */,
 				E4828ACE26B3A7AC003E8138 /* UIImageView+.swift */,
 				8FC66A0726BF96D100069DED /* UITextField+.swift */,
+				E4BF8F9026C871F100B2C566 /* UITableView+.swift */,
 			);
 			path = CoreUI;
 			sourceTree = "<group>";
@@ -811,21 +842,20 @@
 		E467013726A8B68B00A28683 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E467014626A911D600A28683 /* Splash */,
+				E444E58D26BDF64800D94FBB /* SignUp */,
+				E4A8043C26B1F7BA00AE8593 /* SignIn */,
+				E491EB4326BFC210002E436B /* PatientReport */,
 				E425BB9626BFC6C300E1DAA7 /* PatientHall */,
 				E491EB7426BFC3BC002E436B /* PatientProfile */,
 				E491EB6026BFC397002E436B /* PatientAnamnesis */,
-				E491EB4326BFC210002E436B /* PatientReport */,
 				E491EB0226BFC1E2002E436B /* ClinicForm */,
-				E491EB0026BFC1D9002E436B /* AnamnesisForm */,
 				8FC66A2026BFA5BC00069DED /* NewReport */,
 				8FC66A0D26BF9B3800069DED /* NewActivity */,
 				8FC669F426BF916200069DED /* FullPlan */,
 				8FC669E126BF8C6D00069DED /* DigitalPlan */,
 				8F0C29C626BE26100096296B /* VirtualPlan */,
-				E444E58D26BDF64800D94FBB /* SignUp */,
 				E458808626BCDDA8005D6573 /* PatientForm */,
-				E4A8043C26B1F7BA00AE8593 /* SignIn */,
-				E467014626A911D600A28683 /* Splash */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -860,10 +890,27 @@
 		E467014626A911D600A28683 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				E467014726A9120400A28683 /* SplashViewController.swift */,
 				E4A8040F26AEE90400AE8593 /* View */,
+				E467014726A9120400A28683 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		E490940A26CBD0440066B91B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E490940D26CBD11B0066B91B /* UserDefaults */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E490940D26CBD11B0066B91B /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				E490940F26CBD1470066B91B /* UserDefaultsAuthType.swift */,
+				E490940B26CBD0D70066B91B /* UserDefaults+.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		E491EA8B26BF6648002E436B /* Components */ = {
@@ -881,29 +928,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		E491EB0026BFC1D9002E436B /* AnamnesisForm */ = {
-			isa = PBXGroup;
-			children = (
-				E491EB0126BFC1D9002E436B /* Entity */,
-			);
-			path = AnamnesisForm;
-			sourceTree = "<group>";
-		};
-		E491EB0126BFC1D9002E436B /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
 		E491EB0226BFC1E2002E436B /* ClinicForm */ = {
 			isa = PBXGroup;
 			children = (
-				E491EB0326BFC1E2002E436B /* ClinicFormProtocols.swift */,
 				E491EB0426BFC1E2002E436B /* Entity */,
 				E491EB0626BFC1E2002E436B /* View */,
-				E491EB0C26BFC1E2002E436B /* ClinicFormViewModel.swift */,
 				E491EB0D26BFC1E2002E436B /* ClinicFormViewController.swift */,
+				E491EB0C26BFC1E2002E436B /* ClinicFormViewModel.swift */,
+				E491EB0326BFC1E2002E436B /* ClinicFormProtocols.swift */,
 			);
 			path = ClinicForm;
 			sourceTree = "<group>";
@@ -919,10 +951,10 @@
 		E491EB0626BFC1E2002E436B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E491EB0726BFC1E2002E436B /* ClinicFormViewType.swift */,
 				E491EB0826BFC1E2002E436B /* Components */,
-				E491EB0A26BFC1E2002E436B /* ClinicFormViewState.swift */,
 				E491EB0B26BFC1E2002E436B /* ClinicFormView.swift */,
+				E491EB0726BFC1E2002E436B /* ClinicFormViewType.swift */,
+				E491EB0A26BFC1E2002E436B /* ClinicFormViewState.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -939,10 +971,10 @@
 			isa = PBXGroup;
 			children = (
 				E491EB4426BFC210002E436B /* Entity */,
+				E491EB4926BFC210002E436B /* View */,
 				E491EB4626BFC210002E436B /* PatientReportProtocols.swift */,
 				E491EB4726BFC210002E436B /* PatientReportViewController.swift */,
 				E491EB4826BFC210002E436B /* PatientReportViewModel.swift */,
-				E491EB4926BFC210002E436B /* View */,
 			);
 			path = PatientReport;
 			sourceTree = "<group>";
@@ -992,11 +1024,10 @@
 		E491EB6026BFC397002E436B /* PatientAnamnesis */ = {
 			isa = PBXGroup;
 			children = (
-				E491EB6126BFC397002E436B /* PatientAnamnesisProtocols.swift */,
-				E491EB6226BFC397002E436B /* Entity */,
-				E491EB6426BFC397002E436B /* PatientAnamnesisViewController.swift */,
 				E491EB6526BFC397002E436B /* View */,
+				E491EB6426BFC397002E436B /* PatientAnamnesisViewController.swift */,
 				E491EB6B26BFC397002E436B /* PatientAnamnesisViewModel.swift */,
+				E491EB6126BFC397002E436B /* PatientAnamnesisProtocols.swift */,
 			);
 			path = PatientAnamnesis;
 			sourceTree = "<group>";
@@ -1012,9 +1043,10 @@
 		E491EB6526BFC397002E436B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E491EB6226BFC397002E436B /* Entity */,
+				E491EB6826BFC397002E436B /* Components */,
 				E491EB6626BFC397002E436B /* PatientAnamnesisViewType.swift */,
 				E491EB6726BFC397002E436B /* PatientAnamnesisViewState.swift */,
-				E491EB6826BFC397002E436B /* Components */,
 				E491EB6A26BFC397002E436B /* PatientAnamnesisView.swift */,
 			);
 			path = View;
@@ -1031,11 +1063,11 @@
 		E491EB7426BFC3BC002E436B /* PatientProfile */ = {
 			isa = PBXGroup;
 			children = (
-				E491EB7526BFC3BC002E436B /* PatientProfileViewController.swift */,
+				E491EB7A26BFC3BC002E436B /* View */,
 				E491EB7626BFC3BC002E436B /* Entity */,
+				E491EB7526BFC3BC002E436B /* PatientProfileViewController.swift */,
 				E491EB7826BFC3BC002E436B /* PatientProfileViewModel.swift */,
 				E491EB7926BFC3BC002E436B /* PatientProfileProtocols.swift */,
-				E491EB7A26BFC3BC002E436B /* View */,
 			);
 			path = PatientProfile;
 			sourceTree = "<group>";
@@ -1051,9 +1083,9 @@
 		E491EB7A26BFC3BC002E436B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E491EB7D26BFC3BC002E436B /* Components */,
 				E491EB7B26BFC3BC002E436B /* PatientProfileViewState.swift */,
 				E491EB7C26BFC3BC002E436B /* PatientProfileView.swift */,
-				E491EB7D26BFC3BC002E436B /* Components */,
 				E491EB8226BFC3BC002E436B /* PatientProfileViewType.swift */,
 			);
 			path = View;
@@ -1062,8 +1094,8 @@
 		E491EB7D26BFC3BC002E436B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E491EB7E26BFC3BC002E436B /* SearchTextField.swift */,
 				E491EB7F26BFC3BC002E436B /* ReportTableView */,
+				E491EB7E26BFC3BC002E436B /* SearchTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1116,11 +1148,11 @@
 		E4A8043C26B1F7BA00AE8593 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				E4A8043D26B1F7BA00AE8593 /* SignInProtocols.swift */,
-				E4A8043E26B1F7BA00AE8593 /* Entity */,
 				E4A8044026B1F7BA00AE8593 /* View */,
-				E4A8044426B1F7BA00AE8593 /* SignInViewModel.swift */,
+				E4A8043E26B1F7BA00AE8593 /* Entity */,
 				E4A8044526B1F7BA00AE8593 /* SignInViewController.swift */,
+				E4A8044426B1F7BA00AE8593 /* SignInViewModel.swift */,
+				E4A8043D26B1F7BA00AE8593 /* SignInProtocols.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -1136,11 +1168,27 @@
 		E4A8044026B1F7BA00AE8593 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E4A8044126B1F7BA00AE8593 /* SignInViewType.swift */,
 				E4A8044226B1F7BA00AE8593 /* SignInView.swift */,
+				E4A8044126B1F7BA00AE8593 /* SignInViewType.swift */,
 				E4A8044326B1F7BA00AE8593 /* SignInViewState.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E4BF8F9626C87A6100B2C566 /* CoreTableViewEmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				E4BF8F9726C87A7A00B2C566 /* CoreTableViewEmptyState.swift */,
+			);
+			path = CoreTableViewEmptyState;
+			sourceTree = "<group>";
+		};
+		E4BF8FA026C8DDBF00B2C566 /* CustomPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E4BF8F9E26C8B08600B2C566 /* CustomPickerViewController.swift */,
+			);
+			path = CustomPickerViewController;
 			sourceTree = "<group>";
 		};
 		E4DEE68026A74F0E0026E89D = {
@@ -1171,6 +1219,7 @@
 			children = (
 				E425BB8026BFC5EC00E1DAA7 /* Domain */,
 				E425BB7626BFC5E400E1DAA7 /* Data */,
+				E4F7BD3826C9A6EE00B51EF6 /* Helper */,
 				E467013526A8B66C00A28683 /* View */,
 				E455F91D26A7BF37004A85B2 /* Application */,
 				E455F91E26A7BF8C004A85B2 /* Assets */,
@@ -1194,6 +1243,22 @@
 				E4DEE6B026A74F0F0026E89D /* Info.plist */,
 			);
 			path = USycholUITests;
+			sourceTree = "<group>";
+		};
+		E4F4CDEF26CB6544006386F4 /* CoreAlerts */ = {
+			isa = PBXGroup;
+			children = (
+				E4F4CDF026CB6550006386F4 /* CoreAlerts.swift */,
+			);
+			path = CoreAlerts;
+			sourceTree = "<group>";
+		};
+		E4F7BD3826C9A6EE00B51EF6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E4F7BD3926C9A70200B51EF6 /* UserHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1468,9 +1533,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BF8F9F26C8B08600B2C566 /* CustomPickerViewController.swift in Sources */,
 				8FC66A2B26BFA5BC00069DED /* NewReportViewEntity.swift in Sources */,
 				8FC66A0026BF916300069DED /* FullPlanProtocols.swift in Sources */,
 				8F0C29D526BE26100096296B /* VirtualPlanProtocols.swift in Sources */,
+				E4BF8F9126C871F100B2C566 /* UITableView+.swift in Sources */,
 				8F0C29D126BE26100096296B /* VirtualPlanViewEntity.swift in Sources */,
 				E491EB8826BFC3BC002E436B /* PatientProfileView.swift in Sources */,
 				8FC669EF26BF8C6D00069DED /* DigitalPlanViewType.swift in Sources */,
@@ -1488,6 +1555,7 @@
 				E491EB1526BFC1E3002E436B /* ClinicFormViewController.swift in Sources */,
 				E444E59826BDF64800D94FBB /* SignUpViewEntity.swift in Sources */,
 				E4C380D626AA67EB00CF2A9C /* CoreButton.swift in Sources */,
+				E490940826CBCC340066B91B /* AuthEntityTree.swift in Sources */,
 				E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */,
 				E491EB5626BFC262002E436B /* CoreDividerLabel.swift in Sources */,
 				E491EB5026BFC210002E436B /* PatientReportViewModel.swift in Sources */,
@@ -1505,6 +1573,7 @@
 				E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */,
 				8F1B1ED526BF236A002119D3 /* CorePlanField.swift in Sources */,
 				E425BB8C26BFC5EC00E1DAA7 /* PatientRepositoryProtocol.swift in Sources */,
+				E4F7BD3726C9818400B51EF6 /* UserRepository.swift in Sources */,
 				E491EB1126BFC1E3002E436B /* ClinicFormStack.swift in Sources */,
 				E444E59B26BDF64800D94FBB /* SignUpProtocols.swift in Sources */,
 				E491EB6E26BFC397002E436B /* PatientAnamnesisViewController.swift in Sources */,
@@ -1535,6 +1604,7 @@
 				E491EB6D26BFC397002E436B /* PatientAnamnesisViewEntity.swift in Sources */,
 				E491EB8C26BFC3BC002E436B /* PatientProfileViewType.swift in Sources */,
 				E491EB1026BFC1E3002E436B /* ClinicFormViewType.swift in Sources */,
+				E490940C26CBD0D70066B91B /* UserDefaults+.swift in Sources */,
 				8FC66A2A26BFA5BC00069DED /* NewReportViewController.swift in Sources */,
 				E425BBB226BFC6C300E1DAA7 /* PatientHallViewType.swift in Sources */,
 				E458809226BCDDA8005D6573 /* PatientFormViewModel.swift in Sources */,
@@ -1543,8 +1613,10 @@
 				E491EB5926BFC26C002E436B /* CoreImageProfile.swift in Sources */,
 				E4A8044726B1F7BA00AE8593 /* SignInViewEntity.swift in Sources */,
 				E491EB0E26BFC1E3002E436B /* ClinicFormProtocols.swift in Sources */,
+				E490941026CBD1470066B91B /* UserDefaultsAuthType.swift in Sources */,
 				E491EB0F26BFC1E3002E436B /* ClinicFormViewEntity.swift in Sources */,
 				E4DEE68D26A74F0E0026E89D /* AppDelegate.swift in Sources */,
+				E4BF8F9826C87A7A00B2C566 /* CoreTableViewEmptyState.swift in Sources */,
 				E491EB4D26BFC210002E436B /* PatientReportViewEntity.swift in Sources */,
 				8FC66A1926BF9B3800069DED /* NewActivityViewController.swift in Sources */,
 				8FC66A1D26BF9B3800069DED /* NewActivityProtocols.swift in Sources */,
@@ -1560,6 +1632,7 @@
 				8FC669EC26BF8C6D00069DED /* DigitalPlanViewEntity.swift in Sources */,
 				E425BBAA26BFC6C300E1DAA7 /* PatientHallViewEntity.swift in Sources */,
 				E425BB7C26BFC5E500E1DAA7 /* PerformActivyRepository.swift in Sources */,
+				E4F4CDF126CB6550006386F4 /* CoreAlerts.swift in Sources */,
 				E444E59D26BDF6D900D94FBB /* SignUpView.swift in Sources */,
 				E425BBA926BFC6C300E1DAA7 /* PatientHallViewController.swift in Sources */,
 				8FC66A2E26BFA5BC00069DED /* NewReportView.swift in Sources */,
@@ -1578,8 +1651,10 @@
 				E491EB8626BFC3BC002E436B /* PatientProfileProtocols.swift in Sources */,
 				E425BBAC26BFC6C300E1DAA7 /* ReminderTableView.swift in Sources */,
 				E425BBAB26BFC6C300E1DAA7 /* PatientHallViewState.swift in Sources */,
+				E4F7BD3A26C9A70200B51EF6 /* UserHelper.swift in Sources */,
 				E458809126BCDDA8005D6573 /* PatientFormViewController.swift in Sources */,
 				E425BB7E26BFC5E500E1DAA7 /* PatientRepository.swift in Sources */,
+				E437839626C5440800A1B7AF /* User.swift in Sources */,
 				E425BB9526BFC64C00E1DAA7 /* PatientFormStack.swift in Sources */,
 				E491EB8526BFC3BC002E436B /* PatientProfileViewModel.swift in Sources */,
 				8FC66A0226BF916300069DED /* FullPlanViewType.swift in Sources */,
@@ -1589,6 +1664,7 @@
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
 				8FC669FF26BF916300069DED /* FullPlanViewController.swift in Sources */,
 				E491EB8A26BFC3BC002E436B /* ReportTableViewCell.swift in Sources */,
+				E4F7BD3526C97FE800B51EF6 /* UserRepositoryProtocol.swift in Sources */,
 				E491EB8926BFC3BC002E436B /* SearchTextField.swift in Sources */,
 				E491EB8426BFC3BC002E436B /* PatientProfileViewEntity.swift in Sources */,
 				E491EB5326BFC210002E436B /* PatientReportViewState.swift in Sources */,
@@ -1761,6 +1837,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4X79FRQA2J;
 				INFOPLIST_FILE = USychol/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1781,6 +1858,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4X79FRQA2J;
 				INFOPLIST_FILE = USychol/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

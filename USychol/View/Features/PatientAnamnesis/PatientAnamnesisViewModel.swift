@@ -28,6 +28,21 @@ public class PatientAnamnesisViewModel: PatientAnamnesisViewModelType {
     // MARK: - PUBLIC API
 
     public func initState() {
-        
+        updateState()
+    }
+    
+    // MARK: - PRIVATES
+    
+    private func updateState() {
+        let patientRepository = PatientRepository()
+        if let patient = patientRepository.getPatientById(patientId: "0") {
+            viewState = .hasData(PatientAnamnesisViewEntity(patient: patient))
+        }
+    }
+}
+
+extension PatientAnamnesisViewModel: PatientAnamnesisViewControllerDelegate {
+    public func onHandleUpdatePatient(patient: Patient) {
+        print(patient)
     }
 }

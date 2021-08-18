@@ -21,5 +21,6 @@ public protocol SignInViewModelType: AnyObject {
 }
 
 public protocol SignInViewControllerDelegate: AnyObject {
-    
+    func onHandleSignIn(email: String, password: String) -> EnumAuthResponse
+    func getCurrentUserInfo() -> EntityTree
 }

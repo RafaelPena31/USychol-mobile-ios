@@ -31,3 +31,24 @@ public class VirtualPlanViewModel: VirtualPlanViewModelType {
         
     }
 }
+
+extension VirtualPlanViewModel: VirtualPlanViewControllerDelegate {
+    public func setPlan() -> Bool {
+        let userRepository = UserRepository()
+        let userInfoEntityTree = userRepository.getUser()!
+        let currentUserInfo = userInfoEntityTree.userInfo
+        
+        let newUserInfo = User(id: currentUserInfo.id,
+                               name: currentUserInfo.name,
+                               email: currentUserInfo.email,
+                               age: currentUserInfo.age,
+                               crp: currentUserInfo.crp,
+                               cpf: currentUserInfo.cpf,
+                               plan: .virtual,
+                               password: currentUserInfo.password)
+        
+        let newUserInfoEntityTree = EntityTree(userInfo: newUserInfo, patient: userInfoEntityTree.patient, reminder: userInfoEntityTree.reminder)
+        
+        return userRepository.updateData(userInfo: newUserInfoEntityTree)
+    }
+}

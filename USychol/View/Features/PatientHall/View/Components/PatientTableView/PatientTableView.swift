@@ -9,6 +9,14 @@ import UIKit
 
 final class PatientTableView: UITableView {
     
+    // MARK: - UI
+    
+    private lazy var coreTableViewEmptyState: CoreTableViewEmptyState = {
+        let view = CoreTableViewEmptyState(imageName: "no-data", labelProps: (text: "you haven't registered any patients yet :)", color: "MainPurpleColor"))
+        
+        return view
+    }()
+    
     // MARK: - INITIALIZERS
     
     init(frame: CGRect = .zero) {
@@ -25,6 +33,7 @@ final class PatientTableView: UITableView {
     
     private func setup() {
         buildStyle()
+        self.backgroundView = coreTableViewEmptyState
     }
     
     private func buildStyle() {

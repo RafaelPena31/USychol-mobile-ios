@@ -15,7 +15,7 @@ public protocol PatientHallViewType: AnyObject {
 }
 
 public protocol PatientHallViewDelegate: AnyObject {
-    func onHandleAddReminder()
+    func onHandleAddReminder(_ text: String)
     func onHandlePatientProfileRedirect()
 }
 

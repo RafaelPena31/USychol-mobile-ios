@@ -83,5 +83,12 @@ extension NewReportViewController: NewReportViewControllerType {
 }
 
 extension NewReportViewController: NewReportViewDelegate {
-
+    public func handleErrorAlert() {
+        let alert = CoreAlerts().handleErrorAlert(title: "Warning", message: "Please fill in all fields with valid data", buttonText: "Go Fill")
+        self.present(alert, animated: true)
+    }
+    
+    public func onHandleCreateReport(_ report: Report) {
+        delegate?.onHandleCreateReport(report)
+    }
 }

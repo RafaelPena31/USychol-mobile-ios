@@ -100,7 +100,20 @@ extension ClinicFormViewController: ClinicFormViewControllerType {
 }
 
 extension ClinicFormViewController: ClinicFormViewDelegate {
-    public func onHandleEditInfo() {
-        print("onHandleEditInfo")
+    public func saveNewUserInfo(user: User) {
+        delegate?.onHandleUpdateClinicUserData(clinicUser: user)
+    }
+    
+    public func getPlansByString(_ type: String?) -> Plans? {
+        return UserHelper().getPlansByString(type)
+    }
+    
+    public func getPlansByPlans(_ type: Plans?) -> String? {
+        return UserHelper().getPlansByPlans(type)
+    }
+    
+    public func handleFormAlert() {
+        let alert = CoreAlerts().handleCreateFormAlert()
+        self.present(alert, animated: true)
     }
 }

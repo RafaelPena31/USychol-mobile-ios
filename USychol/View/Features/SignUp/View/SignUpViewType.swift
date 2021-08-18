@@ -15,8 +15,9 @@ public protocol SignUpViewType: AnyObject {
 }
 
 public protocol SignUpViewDelegate: AnyObject {
-    func onHandleClick()
+    func onHandleClick(user: User)
     func onHandleChange()
+    func onHandleFormAlert()
 }
 
 extension SignUpViewType where Self: UIView {

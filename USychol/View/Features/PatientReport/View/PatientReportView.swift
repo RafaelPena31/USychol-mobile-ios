@@ -122,7 +122,7 @@ final public class PatientReportView: UIView {
         return label
     }()
     
-    private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "8", labelText: "Consultation Evaluation")
+    private lazy var consultationInput: CoreInputField = CoreInputField(placeholder: "0", labelText: "Consultation Evaluation")
     
     private lazy var consultationResumeStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [consultationDividerLabel, consultationInput])
@@ -132,12 +132,6 @@ final public class PatientReportView: UIView {
         stack.spacing = 16
         
         return stack
-    }()
-    
-    private lazy var editReportButton: CoreRedirectButton = {
-        let button = CoreRedirectButton(leftIconName: "list-icon", title: "Edit report", onPressMethod: onHandleEditReport)
-        
-        return button
     }()
     
     // MARK: - PUBLIC API
@@ -174,8 +168,6 @@ final public class PatientReportView: UIView {
         contentView.addSubview(patientResumeStack)
         
         contentView.addSubview(consultationResumeStack)
-        
-        contentView.addSubview(editReportButton)
         
         scrollView.addSubview(contentView)
         
@@ -260,14 +252,6 @@ final public class PatientReportView: UIView {
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
         }
-        
-        editReportButton.snp.makeConstraints{(make) -> Void in
-            make.top.equalTo(consultationInput.snp.bottom).offset(32)
-            make.leading.equalTo(contentView).offset(16)
-            make.trailing.equalTo(contentView).inset(16)
-            make.height.equalTo(55)
-            make.bottomMargin.equalTo(scrollView).inset(24)
-        }
     }
     
     private func updateView(with entity: PatientReportViewEntity) {
@@ -286,6 +270,9 @@ extension PatientReportView: PatientReportViewType {
         switch viewState {
         case .hasData(let entity):
             reportData = entity.report
+            
+            dateLabel.text = reportData?.date
+            resumeText.text = reportData?.resume
         default: break
         }
     }

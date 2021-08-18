@@ -20,9 +20,9 @@ final public class SignInView: UIView {
         return view
     }()
     
-    private lazy var emailInput: UIView = CoreInputField(placeholder: "Email", labelText: "Email")
+    private lazy var emailInput: CoreInputField = CoreInputField(placeholder: "Email", labelText: "Email")
     
-    private lazy var passwordInput: UIView = CoreInputField(placeholder: "Password", labelText: "Password")
+    private lazy var passwordInput: CoreInputField = CoreInputField(placeholder: "Password", labelText: "Password")
     
     private lazy var button: CoreButton = {
         let button = CoreButton(type: .normal, title: "Sign in", onPressMethod: onHandleClick)
@@ -120,7 +120,14 @@ final public class SignInView: UIView {
     // MARK: - ACTIONS
     
     func onHandleClick () {
-        delegate?.onHandleClick()
+        let email = emailInput.text
+        let password = passwordInput.text
+        
+        if email.isEmpty || password.isEmpty {
+            delegate?.onHandleFormAlert()
+        } else {
+            delegate?.onHandleClick(email: email, password: password)
+        }
     }
     
     @objc func onHandleChange () {

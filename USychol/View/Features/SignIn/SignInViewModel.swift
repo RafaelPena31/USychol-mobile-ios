@@ -29,3 +29,19 @@ public class SignInViewModel: SignInViewModelType {
         
     }
 }
+
+extension SignInViewModel: SignInViewControllerDelegate {
+    public func getCurrentUserInfo() -> EntityTree {
+        let userRepository = UserRepository()
+        let userInfo = userRepository.getUser()!
+        
+        return userInfo
+    }
+    
+    public func onHandleSignIn(email: String, password: String) -> EnumAuthResponse {
+        let userRepository = UserRepository()
+        let auth = userRepository.signIn(email: email, password: password)
+        
+        return auth
+    }
+}

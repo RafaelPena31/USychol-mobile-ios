@@ -8,7 +8,14 @@
 import UIKit
 
 final class ReportTableView: UITableView {
-
+    // MARK: - UI
+    
+    private lazy var coreTableViewEmptyState: CoreTableViewEmptyState = {
+        let view = CoreTableViewEmptyState(imageName: "no-reminder-data", labelProps: (text: "Empty reports :)", color: "PurpleStrongLightColor"))
+        
+        return view
+    }()
+    
     // MARK: - INITIALIZERS
     
     init(frame: CGRect = .zero) {
@@ -25,6 +32,8 @@ final class ReportTableView: UITableView {
     
     private func setup() {
         buildStyle()
+        
+        self.backgroundView = coreTableViewEmptyState
     }
     
     private func buildStyle() {

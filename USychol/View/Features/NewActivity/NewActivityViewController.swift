@@ -83,5 +83,7 @@ extension NewActivityViewController: NewActivityViewControllerType {
 }
 
 extension NewActivityViewController: NewActivityViewDelegate {
-
+    public func onHandleCreateActivy(_ activy: PerformActivy) {
+        delegate?.onHandleCreateActivy(activy)
+    }
 }

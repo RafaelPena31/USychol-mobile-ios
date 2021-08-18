@@ -60,14 +60,51 @@ extension SignInViewController: SignInViewControllerType {
     public func updateView(with viewState: SignInViewState) {
         contentView?.updateView(with: viewState)
     }
+}
+
+extension SignInViewController: SignInViewDelegate {
+    public func onHandleFormAlert() {
+        let alert = CoreAlerts().handleDefaultAlert(title: "USychol", message: "Fill in all fields with valid data", buttonText: "Continue")
+        self.present(alert, animated: true)
+    }
     
-    public func onHandleClick() {
-        let PatientHallVM = PatientHallViewModel()
-        let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+    public func onHandleClick(email: String, password: String) {
+        let authStatus = delegate?.onHandleSignIn(email: email, password: password)
         
-        PatientHallVM.viewController = PatientHallVC
-        
-        self.navigationController?.pushViewController(PatientHallVC, animated: true)
+        switch authStatus {
+        case .authenticated:
+            let userInfo = delegate!.getCurrentUserInfo()
+            let plan = userInfo.userInfo.plan
+            
+            if plan != nil {
+                let PatientHallVM = PatientHallViewModel()
+                let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
+                
+                PatientHallVM.viewController = PatientHallVC
+                PatientHallVC.delegate = PatientHallVM
+                
+                self.navigationController?.pushViewController(PatientHallVC, animated: true)
+            } else {
+                let VirtualPlanVM = VirtualPlanViewModel()
+                let VirtualPlanVC = VirtualPlanViewController(viewModel: VirtualPlanVM)
+                
+                VirtualPlanVM.viewController = VirtualPlanVC
+                VirtualPlanVC.delegate = VirtualPlanVM
+                
+                self.navigationController?.pushViewController(VirtualPlanVC, animated: true)
+            }
+            break
+        case .unauthenticated:
+            let alert = CoreAlerts().handleDefaultAlert(title: "Heads up", message: "Incorrect email or password, check data and try again", buttonText: "Continue")
+            self.present(alert, animated: true)
+            break
+        case .error(let err):
+            let alert = CoreAlerts().handleErrorAlert(title: "Heads up", message: "Error: \(err), contact USychol Team support", buttonText: "Continue")
+            self.present(alert, animated: true)
+            break
+        default:
+            break
+        }
     }
     
     public func onHandleChange() {
@@ -75,12 +112,9 @@ extension SignInViewController: SignInViewControllerType {
         let SignUpVC = SignUpViewController(viewModel: SignUpVM)
         
         SignUpVM.viewController = SignUpVC
+        SignUpVC.delegate = SignUpVM
         
         self.navigationController?.pushViewController(SignUpVC, animated: true)
     }
-}
-
-extension SignInViewController: SignInViewDelegate {
-
 }
 

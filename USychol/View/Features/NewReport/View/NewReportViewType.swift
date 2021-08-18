@@ -15,7 +15,8 @@ public protocol NewReportViewType: AnyObject {
 }
 
 public protocol NewReportViewDelegate: AnyObject {
-    // events clicks on view
+    func onHandleCreateReport(_ report: Report)
+    func handleErrorAlert()
 }
 
 extension NewReportViewType where Self: UIView {
