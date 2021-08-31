@@ -1,0 +1,865 @@
+openapi: 3.0.0
+info:
+  title: USychol Back-end documentation
+  description: Usychol endpoints
+  version: 1.0.0
+  contact:
+    email: rafaelppena31@gmail.com
+paths:
+  /users/create:
+    post:
+      tags:
+        - Users
+      summary: Create an User
+      description: Create a new User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/UserResponse'
+        '400':
+          description: User already exists
+        '500':
+          description: Internal server error
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Get Users
+      description: Get all created users
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/UserResponse'
+        '500':
+          description: Internal server error
+  /users/{id}:
+    get:
+      tags:
+        - Users
+      summary: Find User by Id
+      description: Find an existing user by a valid identifiyer
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/UserResponse'
+        '400':
+          description: User does not exist
+        '500':
+          description: Internal server error
+  /users/{crp}:
+    get:
+      tags:
+        - Users
+      summary: Find User by CRP
+      description: Find an existing user by a its CRP
+      parameters:
+        - name: crp
+          in: path
+          description: User crp
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/UserResponse'
+        '400':
+          description: User does not exist
+        '500':
+          description: Internal server error
+  /users/{cpf}:
+    get:
+      tags:
+        - Users
+      summary: Find User by CPF
+      description: Find an existing user by a its CPF
+      parameters:
+        - name: cpf
+          in: path
+          description: User cpf
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/UserResponse'
+        '400':
+          description: User does not exist
+        '500':
+          description: Internal server error
+  /users/update/{id}:
+    put:
+      tags:
+        - Users
+      summary: Update an User
+      description: Update an existing User
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/UserUpdate'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/UserResponse'
+        '400':
+          description: User does not exist
+        '500':
+          description: Internal server error
+  /users/delete/{id}:
+    delete:
+      tags:
+        - Users
+      summary: Delete an User
+      description: Delete an existing User
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: User does not exist
+        '500':
+          description: Internal server error
+  /patient/create:
+    post:
+      tags:
+        - Patients
+      summary: Create a Patient
+      description: Create a new Patient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/Patient'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Patient'
+        '400':
+          description: Patient already exists
+        '500':
+          description: Internal server error
+  /patients:
+    get:
+      tags:
+        - Patients
+      summary: Get Patients
+      description: Get all created patients
+      parameters:
+        - name: patientClass
+          in: query
+          description: Patient Class
+          required: false
+          schema:
+            type: string
+            enum:
+              - Child
+              - Teen
+              - Adult
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Patient'
+        '500':
+          description: Internal server error
+  /patients/{id}:
+    get:
+      tags:
+        - Patients
+      summary: Find Patient by Id
+      description: Find an existing patient by a valid identifiyer
+      parameters:
+        - name: id
+          in: path
+          description: Patient id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Patient'
+        '400':
+          description: Patient does not exist
+        '500':
+          description: Internal server error
+  /patients/update/{id}:
+    put:
+      tags:
+        - Patients
+      summary: Update a Patient
+      description: Update an existing Patient
+      parameters:
+        - name: id
+          in: path
+          description: Patient id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/PatientUpdate'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/PatientUpdate'
+        '400':
+          description: Patient does not exist
+        '500':
+          description: Internal server error
+  /patients/delete/{id}:
+    delete:
+      tags:
+        - Patients
+      summary: Delete a Patient
+      description: Delete an existing Patient
+      parameters:
+        - name: id
+          in: path
+          description: Patient id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Patient does not exist
+        '500':
+          description: Internal server error
+  /report/create:
+    post:
+      tags:
+        - Reports
+      summary: Create a Report
+      description: Create a new Report
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/Report'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Report'
+        '500':
+          description: Internal server error
+  /reports:
+    get:
+      tags:
+        - Reports
+      summary: Get Reports
+      description: Get all created Reports
+      parameters:
+        - name: date
+          in: query
+          description: Report Date
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Report'
+        '500':
+          description: Internal server error
+  /reports/{id}:
+    get:
+      tags:
+        - Reports
+      summary: Find Report by Id
+      description: Find an existing report by a valid identifiyer
+      parameters:
+        - name: id
+          in: path
+          description: Report id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Report'
+        '400':
+          description: Report does not exist
+        '500':
+          description: Internal server error
+  /reports/update/{id}:
+    put:
+      tags:
+        - Reports
+      summary: Update a Report
+      description: Update an existing Report
+      parameters:
+        - name: id
+          in: path
+          description: Report id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ReportUpdate'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ReportUpdate'
+        '400':
+          description: Report does not exist
+        '500':
+          description: Internal server error
+  /reports/delete/{id}:
+    delete:
+      tags:
+        - Reports
+      summary: Delete a Report
+      description: Delete an existing Report
+      parameters:
+        - name: id
+          in: path
+          description: Report id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Report does not exist
+        '500':
+          description: Internal server error
+  /reminder/create:
+    post:
+      tags:
+        - Reminders
+      summary: Create a Reminder
+      description: Create a new Reminder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/Reminder'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Reminder'
+        '500':
+          description: Internal server error
+  /reminder:
+    get:
+      tags:
+        - Reminders
+      summary: Get Reminders
+      description: Get all created Reminders
+      parameters:
+        - name: startAt
+          in: query
+          description: Report Start At Datetime
+          required: false
+          schema:
+            type: string
+        - name: endAt
+          in: query
+          description: Report End At Datetime
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Reminder'
+        '500':
+          description: Internal server error
+  /reminder/{id}:
+    get:
+      tags:
+        - Reminders
+      summary: Find Reminder by Id
+      description: Find an existing reminder by a valid identifiyer
+      parameters:
+        - name: id
+          in: path
+          description: Reminder id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Reminder'
+        '400':
+          description: Reminder does not exist
+        '500':
+          description: Internal server error
+  /reminder/update/{id}:
+    put:
+      tags:
+        - Reminders
+      summary: Update a Reminder
+      description: Update an existing Reminder
+      parameters:
+        - name: id
+          in: path
+          description: Reminder id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ReminderUpdate'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ReminderUpdate'
+        '400':
+          description: Reminder does not exist
+        '500':
+          description: Internal server error
+  /reminder/delete/{id}:
+    delete:
+      tags:
+        - Reminders
+      summary: Delete a Reminder
+      description: Delete an existing Reminder
+      parameters:
+        - name: id
+          in: path
+          description: Reminder id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Reminder does not exist
+        '500':
+          description: Internal server error
+  /peformActivity/create:
+    post:
+      tags:
+        - Peform Activities
+      summary: Create a Peform Activity
+      description: Create a new Peform Activity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/PerformActivity'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/PerformActivity'
+        '500':
+          description: Internal server error
+  /peformActivity:
+    get:
+      tags:
+        - Peform Activities
+      summary: Get Peform Activities
+      description: Get all created Peform Activities
+      parameters:
+        - name: deliveryDay
+          in: query
+          description: Peform Activity Delivery Day Datetime
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/PerformActivity'
+        '500':
+          description: Internal server error
+  /peformActivity/{id}:
+    get:
+      tags:
+        - Peform Activities
+      summary: Find Peform Activity by Id
+      description: Find an existing Peform Activity by a valid identifiyer
+      parameters:
+        - name: id
+          in: path
+          description: Peform Activity id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/PerformActivity'
+        '400':
+          description: Peform Activity does not exist
+        '500':
+          description: Internal server error
+  /peformActivity/update/{id}:
+    put:
+      tags:
+        - Peform Activities
+      summary: Update a Peform Activity
+      description: Update an existing Peform Activity
+      parameters:
+        - name: id
+          in: path
+          description: Peform Activity id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/PerformActivity'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/PerformActivity'
+        '400':
+          description: Perform Activity does not exist
+        '500':
+          description: Internal server error
+  /peformActivity/delete/{id}:
+    delete:
+      tags:
+        - Peform Activities
+      summary: Delete a Peform Activity
+      description: Delete an existing Peform Activity
+      parameters:
+        - name: id
+          in: path
+          description: Peform Activity id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Peform Activity does not exist
+        '500':
+          description: Internal server error
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+        required: false
+      name:
+        type: string
+      email:
+        type: string
+      age:
+        type: number
+      crp:
+        type: string
+      cpf:
+        type: string
+      plan:
+        type: string
+        enum:
+          - Virtual
+          - Digital
+          - Full
+        required: false
+      password:
+        type: string
+  UserUpdate:
+    type: object
+    properties:
+      id:
+        type: string
+        required: true
+      name:
+        type: string
+      email:
+        type: string
+      age:
+        type: number
+      crp:
+        type: string
+      cpf:
+        type: string
+      plan:
+        type: string
+        enum:
+          - Virtual
+          - Digital
+          - Full
+        required: false
+      password:
+        type: string
+  UserResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        required: false
+      name:
+        type: string
+      email:
+        type: string
+      age:
+        type: number
+      crp:
+        type: string
+      cpf:
+        type: string
+      plan:
+        type: string
+        enum:
+          - Virtual
+          - Digital
+          - Full
+        required: false
+  Reminder:
+    type: object
+    properties:
+      id:
+        type: string
+        required: false
+      title:
+        type: string
+      startAt:
+        type: string
+      endAt:
+        type: string
+      profilePicture:
+        type: string
+      age:
+        type: string
+  ReminderUpdate:
+    type: object
+    properties:
+      id:
+        type: string
+        required: true
+      title:
+        type: string
+      startAt:
+        type: string
+      endAt:
+        type: string
+      profilePicture:
+        type: string
+      age:
+        type: string
+  Patient:
+    type: object
+    properties:
+      id:
+        type: string
+        required: false
+      name:
+        type: string
+      profilePicture:
+        type: string
+      patientSummary:
+        type: string
+      age:
+        type: string
+      patientClass:
+        type: string
+        enum:
+          - Child
+          - Teen
+          - Adult
+        required: true
+      motherName:
+        type: string
+      fatherName:
+        type: string
+        required: false
+      maritalStatus:
+        type: string
+        enum:
+          - Single
+          - Married
+          - Divorced
+          - Widower
+      appointmentCount:
+        type: integer
+      reports:
+        type: array
+        items:
+          type: string
+  PatientUpdate:
+    type: object
+    properties:
+      id:
+        type: string
+        required: true
+      name:
+        type: string
+      profilePicture:
+        type: string
+      patientSummary:
+        type: string
+      age:
+        type: string
+      patientClass:
+        type: string
+        enum:
+          - Child
+          - Teen
+          - Adult
+        required: true
+      motherName:
+        type: string
+      fatherName:
+        type: string
+        required: false
+      maritalStatus:
+        type: string
+        enum:
+          - Single
+          - Married
+          - Divorced
+          - Widower
+      appointmentCount:
+        type: integer
+      reports:
+        type: array
+  Report:
+    type: object
+    properties:
+      id:
+        type: string
+        required: false
+      date:
+        type: string
+      startAt:
+        type: string
+      activities:
+        type: array
+      resume:
+        type: string
+      consultEvaluation:
+        type: integer
+      fromPatient:
+        type: string
+  ReportUpdate:
+    type: object
+    properties:
+      id:
+        type: string
+        required: true
+      date:
+        type: string
+      startAt:
+        type: string
+      activities:
+        type: array
+      resume:
+        type: string
+      consultEvaluation:
+        type: integer
+      fromPatient:
+        type: string
+  PerformActivity:
+    type: object
+    properties:
+      name:
+        type: string
+      deliveryDay:
+        type: string
+      description:
+        type: string
