@@ -11,4 +11,3 @@ The project uses **Swift - Native iOS**.
 ## 📋 Developer's Team :
 
  1. Rafael Augusto Pena - Fullstack Mobile Developer
- 2. Fernando Rodrigues - Fullstack Mobile Developer 
