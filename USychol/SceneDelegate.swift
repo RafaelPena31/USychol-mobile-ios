@@ -15,10 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-//          let localStorage = UserDefaults.standard
+            let localStorage = UserDefaults.standard
             
-            let isLoggin = false
-//          implement localStorage.isLoggedIn(), after add logout button in layout, to stay connected
+            let isLoggin = localStorage.isLoggedIn()
             
             let SplashVC = SplashViewController()
             

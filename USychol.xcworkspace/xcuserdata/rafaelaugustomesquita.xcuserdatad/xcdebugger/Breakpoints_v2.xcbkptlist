@@ -36,49 +36,49 @@
             landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - bd3e092d0bd888a9"
+                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - 72fabae1e3005b82"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "USychol.ReportTableView.__allocating_init(frame: __C.CGRect, style: __C.UITableViewStyle) -&gt; USychol.ReportTableView"
                   moduleName = "USychol"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelaugustomesquita/Documents/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
+                  urlString = "file:///Users/rafaelaugustomesquita/Documents/Study/Cotemig/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "43">
                </Location>
                <Location
-                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - f3d7c9f40d372418"
+                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - 3c137a38e5efcb07"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "USychol.ReportTableView.init(frame: __C.CGRect, style: __C.UITableViewStyle) -&gt; USychol.ReportTableView"
                   moduleName = "USychol"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelaugustomesquita/Documents/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
+                  urlString = "file:///Users/rafaelaugustomesquita/Documents/Study/Cotemig/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "10"
                   endingLineNumber = "10"
-                  offsetFromSymbolStart = "78">
+                  offsetFromSymbolStart = "76">
                </Location>
                <Location
-                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - 86d7e8e0ce804ef"
+                  uuid = "E5FC6200-E7B7-46CB-BA76-1C7264043BBC - c7a9cd42e430d7c4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "USychol.ReportTableView.__deallocating_deinit"
                   moduleName = "USychol"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rafaelaugustomesquita/Documents/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
+                  urlString = "file:///Users/rafaelaugustomesquita/Documents/Study/Cotemig/USychol/USychol/View/Features/PatientProfile/View/Components/ReportTableView/ReportTableView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "32">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -95,6 +95,54 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED93B708-0785-49C0-9E47-45556C94D9B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USychol/Data/Repositories/UserRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "getUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B187036-447B-425C-9998-D65A6FB18D9B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USychol/Data/Repositories/UserRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B283FB42-879C-44FB-B4D6-EF510AB0C3BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "USychol/Data/Repositories/UserRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "getUser()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

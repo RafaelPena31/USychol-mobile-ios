@@ -24,4 +24,5 @@ public protocol ClinicFormViewModelType: AnyObject {
 
 public protocol ClinicFormViewControllerDelegate: AnyObject {
     func onHandleUpdateClinicUserData(clinicUser: User) -> Bool
+    func logOut(logOutView: () -> Void) -> Void
 }

@@ -76,7 +76,16 @@ public class ClinicFormViewController: UIViewController {
         
         let leftButtonNavBar = UIBarButtonItem(customView: leftButton)
         
+        let rightButton = UIButton()
+        rightButton.setImage(UIImage(named: "exit-icon"), for: .normal)
+        rightButton.tintColor = .white
+        
+        rightButton.addTarget(self, action: #selector(onRightHeaderButtonClick), for: .touchUpInside)
+        
+        let rightButtonNavBar = UIBarButtonItem(customView: rightButton)
+        
         navigationItem.leftBarButtonItem = leftButtonNavBar
+        navigationItem.rightBarButtonItem = rightButtonNavBar
     }
     
     private func contentSetup() {
@@ -93,8 +102,19 @@ public class ClinicFormViewController: UIViewController {
     
     // MARK: - ACTIONS
     
+    private func logOutView() {
+        let SplashVC = SplashViewController()
+        
+        self.navigationController?.navigationBar.window?.rootViewController = UINavigationController(rootViewController: SplashVC)
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     @objc func onLeftHeaderButtonClick() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func onRightHeaderButtonClick() {
+        delegate?.logOut(logOutView: logOutView)
     }
 }
 

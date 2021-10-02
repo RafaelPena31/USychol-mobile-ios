@@ -38,6 +38,12 @@ public class UserRepository: UserRepositoryProtocol {
         return .unauthenticated
     }
     
+    public func logOut(_ logOutView: () -> Void) -> Void {
+        localStorage.removeObject(forKey: "currentUserData")
+        localStorage.setLoggedIn(value: false)
+        logOutView()
+    }
+    
     public func signUp(name: String, email: String, age: String, crp: String, cpf: String, password: String) -> EnumAuthResponse {
         let userID = UUID().uuidString
         let user = User(id: userID, name: name, email: email, age: age, crp: crp, cpf: cpf, plan: nil, password: password)
@@ -55,6 +61,7 @@ public class UserRepository: UserRepositoryProtocol {
                 
                 localStorage.set(newUsersData, forKey: "users")
                 localStorage.set(newUserDataAuthEntityTree, forKey: "currentUserData")
+                localStorage.setLoggedIn(value: true)
                 
                 return .authenticated
             } catch let err {
@@ -65,7 +72,11 @@ public class UserRepository: UserRepositoryProtocol {
         } else {
             do {
                 let newUsersData =  try encoder.encode([authEntityTree])
+                let newUserDataAuthEntityTree = try encoder.encode(authEntityTree)
                 localStorage.set(newUsersData, forKey: "users")
+                localStorage.set(newUserDataAuthEntityTree, forKey: "currentUserData")
+                localStorage.setLoggedIn(value: true)
+                
                 return .authenticated
             } catch let err {
                 let errMsg = err.localizedDescription
