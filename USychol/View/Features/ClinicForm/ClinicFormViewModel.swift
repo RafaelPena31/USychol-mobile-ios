@@ -42,6 +42,13 @@ public class ClinicFormViewModel: ClinicFormViewModelType {
 }
 
 extension ClinicFormViewModel: ClinicFormViewControllerDelegate {
+    public func onHandleDeleteAccount(onHandleUpdated: @escaping (Bool) -> Void) {
+        let userRepository = UserRepository()
+        if let currentUserInfoEntityTree = userRepository.getUser() {
+            userRepository.deleteAccount(userInfo: currentUserInfoEntityTree, completionRequest: onHandleUpdated)
+        }
+    }
+    
     public func onHandleUpdateClinicUserData(clinicUser: User, onHandleUpdated: @escaping (Bool) -> Void) {
         let userRepository = UserRepository()
         if let currentUserInfoEntityTree = userRepository.getUser() {

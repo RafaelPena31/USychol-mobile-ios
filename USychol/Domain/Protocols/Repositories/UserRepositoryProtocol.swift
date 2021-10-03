@@ -16,4 +16,5 @@ public protocol UserRepositoryProtocol {
     func signIn(email: String, password: String, completionRequest:@escaping (_ state: EnumAuthResponse) -> Void) -> Void
     func signUp(user: User, completionRequest:@escaping (_ state: EnumAuthResponse) -> Void) -> Void
     func updateData(userInfo: EntityTree, completionRequest:@escaping (_ state: Bool) -> Void) -> Void
+    func deleteAccount(userInfo: EntityTree, completionRequest:@escaping (_ state: Bool) -> Void) -> Void
 }

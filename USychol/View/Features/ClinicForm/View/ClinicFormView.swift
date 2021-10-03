@@ -72,6 +72,12 @@ final public class ClinicFormView: UIView {
         return button
     }()
     
+    private lazy var deleteAccountButton: CoreRedirectButton = {
+        let button = CoreRedirectButton(leftIconName: "delete-icon", title: "Delete profile account", onPressMethod: onHandleDeleteAccount)
+        
+        return button
+    }()
+    
     // MARK: - PUBLIC API
 
     public weak var delegate: ClinicFormViewDelegate?
@@ -99,6 +105,7 @@ final public class ClinicFormView: UIView {
         contentView.addSubview(coreImageProfile)
         contentView.addSubview(clinicFormStack)
         contentView.addSubview(editInformationButton)
+        contentView.addSubview(deleteAccountButton)
         
         scrollView.addSubview(contentView)
         
@@ -151,6 +158,13 @@ final public class ClinicFormView: UIView {
         
         editInformationButton.snp.makeConstraints{(make) -> Void in
             make.top.equalTo(clinicFormStack.snp.bottom).offset(32)
+            make.leading.equalTo(contentView).offset(16)
+            make.trailing.equalTo(contentView).inset(16)
+            make.height.equalTo(55)
+        }
+        
+        deleteAccountButton.snp.makeConstraints{(make) -> Void in
+            make.top.equalTo(editInformationButton.snp.bottom).offset(8)
             make.leading.equalTo(contentView).offset(16)
             make.trailing.equalTo(contentView).inset(16)
             make.height.equalTo(55)
@@ -212,6 +226,10 @@ final public class ClinicFormView: UIView {
             onHandleReleaseEditInfo()
             editInformationButton.setTitle("Save profile information", for: .normal)
         }
+    }
+    
+    func onHandleDeleteAccount() {
+        delegate?.deleteAccount()
     }
 }
 

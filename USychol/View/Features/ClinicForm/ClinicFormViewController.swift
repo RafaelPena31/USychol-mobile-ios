@@ -125,6 +125,16 @@ extension ClinicFormViewController: ClinicFormViewControllerType {
 }
 
 extension ClinicFormViewController: ClinicFormViewDelegate {
+    private func onHandleDeleteAccount(_ state: Bool) {
+        if state {
+            logOutView()
+        }
+    }
+    
+    public func deleteAccount() {
+        delegate?.onHandleDeleteAccount(onHandleUpdated: onHandleDeleteAccount)
+    }
+    
     private func onHandleUpdate(_ state: Bool) {
         if !state {
             onHandleFormAlertError()

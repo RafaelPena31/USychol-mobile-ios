@@ -170,4 +170,31 @@ public class UserRepository: UserRepositoryProtocol {
             print("Unable to update the data in updateData - User Repository - Error: \(errMsg)")
         }
     }
+    
+    public func deleteAccount(userInfo: EntityTree, completionRequest: @escaping (Bool) -> Void) {
+        var verifyState: Bool = false {
+            didSet {
+                if verifyState {
+                    DispatchQueue.main.async {
+                        completionRequest(verifyState)
+                    }
+                }
+            }
+        }
+        
+        func setVerifyState(_ state: Bool) {
+            verifyState = state
+        }
+        
+        if let URL = URL(string: "\(self.baseUrl)/\(userInfo.userInfo.id)") {
+            var urlRequest = URLRequest(url: URL)
+            urlRequest.httpMethod = "DELETE"
+            
+            self.urlSession.dataTask(with: urlRequest) { data, response, error in
+                if data != nil {
+                    setVerifyState(true)
+                }
+            }.resume()
+        }
+    }
 }

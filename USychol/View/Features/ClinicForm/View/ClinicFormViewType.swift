@@ -17,6 +17,7 @@ public protocol ClinicFormViewType: AnyObject {
 public protocol ClinicFormViewDelegate: AnyObject {
     func handleFormAlert()
     func saveNewUserInfo(user: User)
+    func deleteAccount()
     func getPlansByPlans(_ type: Plans?) -> String?
     func getPlansByString(_ type: String?) -> Plans?
 }
