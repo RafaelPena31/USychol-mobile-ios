@@ -7,6 +7,8 @@ target 'USychol' do
 
   # Pods for USychol
   pod 'SnapKit', '~> 5.0.0'
+  pod 'RxSwift', '~> 6.2.0'
+  pod 'RxCocoa', '~> 6.2.0'
   
   target 'USycholTests' do
     inherit! :search_paths

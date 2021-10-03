@@ -23,5 +23,5 @@ public protocol VirtualPlanViewModelType: AnyObject {
 }
 
 public protocol VirtualPlanViewControllerDelegate: AnyObject {
-    func setPlan() -> Bool
+    func setPlan(_ onHandleSetPlan:@escaping (_ updateStatus: Bool) -> Void) -> Void
 }

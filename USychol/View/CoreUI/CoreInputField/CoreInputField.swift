@@ -116,6 +116,5 @@ final public class CoreInputField: UIStackView  {
         }
         
         onHandleClickInput()
-        print("clicou")
     }
 }

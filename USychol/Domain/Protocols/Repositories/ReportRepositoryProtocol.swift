@@ -8,7 +8,7 @@
 public protocol ReportRepositoryProtocol {
     func getReports(patientId: String) -> [Report]
     func getReportById(patientId: String, reportId: String) -> Report?
-    func createReport(report: Report) -> Bool
+    func createReport(report: Report, onHandleUpdated: @escaping (Bool) -> Void) -> Void
     func setCurrentReport(report: Report) -> Bool
     func getCurrentReport() -> Report?
 }

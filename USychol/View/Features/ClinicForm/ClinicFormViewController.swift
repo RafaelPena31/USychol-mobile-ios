@@ -125,12 +125,13 @@ extension ClinicFormViewController: ClinicFormViewControllerType {
 }
 
 extension ClinicFormViewController: ClinicFormViewDelegate {
-    public func saveNewUserInfo(user: User) {
-        let updateStatus = delegate!.onHandleUpdateClinicUserData(clinicUser: user)
-        
-        if !updateStatus {
+    private func onHandleUpdate(_ state: Bool) {
+        if !state {
             onHandleFormAlertError()
         }
+    }
+    public func saveNewUserInfo(user: User) {
+        delegate!.onHandleUpdateClinicUserData(clinicUser: user, onHandleUpdated: onHandleUpdate)
     }
     
     public func getPlansByString(_ type: String?) -> Plans? {

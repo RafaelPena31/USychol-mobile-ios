@@ -33,11 +33,8 @@ public class NewReportViewModel: NewReportViewModelType {
 }
 
 extension NewReportViewModel: NewReportViewControllerDelegate {
-    public func onHandleCreateReport(_ report: Report) -> Bool {
+    public func onHandleCreateReport(_ report: Report, onHandleUpdated: @escaping (Bool) -> Void) {
         let reportRepository = ReportRepository()
-        let updateState = reportRepository.createReport(report: report)
-        
-        print(updateState)
-        return updateState
+        reportRepository.createReport(report: report, onHandleUpdated: onHandleUpdated)
     }
 }

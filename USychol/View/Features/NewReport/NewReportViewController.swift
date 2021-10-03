@@ -89,10 +89,14 @@ extension NewReportViewController: NewReportViewDelegate {
         self.present(alert, animated: true)
     }
     
-    public func onHandleCreateReport(_ report: Report) {
-        if delegate!.onHandleCreateReport(report) {
+    private func onHandleUpdated(_ state: Bool) {
+        if state {
             handleStateChange?.NewReportHandleStateChange()
             onRightHeaderButtonClick()
         }
+    }
+    
+    public func onHandleCreateReport(_ report: Report) {
+        delegate!.onHandleCreateReport(report, onHandleUpdated: onHandleUpdated)
     }
 }

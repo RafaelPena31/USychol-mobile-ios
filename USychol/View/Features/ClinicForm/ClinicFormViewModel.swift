@@ -42,18 +42,17 @@ public class ClinicFormViewModel: ClinicFormViewModelType {
 }
 
 extension ClinicFormViewModel: ClinicFormViewControllerDelegate {
-    public func logOut(logOutView: () -> Void) {
-        let userRepository = UserRepository()
-        userRepository.logOut(logOutView)
-    }
-    
-    public func onHandleUpdateClinicUserData(clinicUser: User) -> Bool {
+    public func onHandleUpdateClinicUserData(clinicUser: User, onHandleUpdated: @escaping (Bool) -> Void) {
         let userRepository = UserRepository()
         if let currentUserInfoEntityTree = userRepository.getUser() {
             let updatedUserInfoEntityTree = EntityTree(userInfo: clinicUser, patient: currentUserInfoEntityTree.patient, reminder: currentUserInfoEntityTree.reminder)
             
-            return userRepository.updateData(userInfo: updatedUserInfoEntityTree)
+            userRepository.updateData(userInfo: updatedUserInfoEntityTree, completionRequest: onHandleUpdated)
         }
-        return false
+    }
+    
+    public func logOut(logOutView: () -> Void) {
+        let userRepository = UserRepository()
+        userRepository.logOut(logOutView)
     }
 }

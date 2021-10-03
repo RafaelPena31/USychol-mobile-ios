@@ -23,6 +23,6 @@ public protocol ClinicFormViewModelType: AnyObject {
 }
 
 public protocol ClinicFormViewControllerDelegate: AnyObject {
-    func onHandleUpdateClinicUserData(clinicUser: User) -> Bool
+    func onHandleUpdateClinicUserData(clinicUser: User, onHandleUpdated:@escaping (_ state: Bool) -> Void) -> Void
     func logOut(logOutView: () -> Void) -> Void
 }

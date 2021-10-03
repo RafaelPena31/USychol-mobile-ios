@@ -172,7 +172,6 @@ final public class PatientHallView: UIView {
 
 extension PatientHallView: PatientHallViewType {
     public func updateView(with viewState: PatientHallViewState) {
-        print("entrou")
         switch viewState {
         case .hasData(let entity):
             reminderData = entity.remidersData

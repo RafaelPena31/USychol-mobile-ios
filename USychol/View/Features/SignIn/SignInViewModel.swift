@@ -38,10 +38,8 @@ extension SignInViewModel: SignInViewControllerDelegate {
         return userInfo
     }
     
-    public func onHandleSignIn(email: String, password: String) -> EnumAuthResponse {
+    public func onHandleSignIn(email: String, password: String, onAuthStateChange: @escaping (_ authStatus: EnumAuthResponse) -> Void) {
         let userRepository = UserRepository()
-        let auth = userRepository.signIn(email: email, password: password)
-        
-        return auth
+        userRepository.signIn(email: email, password: password, completionRequest: onAuthStateChange)
     }
 }

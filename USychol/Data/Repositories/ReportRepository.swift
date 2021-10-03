@@ -7,6 +7,9 @@
 import Foundation
 
 public class ReportRepository: ReportRepositoryProtocol {
+    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
+    private let urlSession = URLSession.shared
+    
     // MARK: - DATA
     
     let localStorage = UserDefaults.standard
@@ -15,7 +18,21 @@ public class ReportRepository: ReportRepositoryProtocol {
     
     // MARK: - BUSINESS RULE
     
-    public func createReport(report: Report) -> Bool {
+    public func createReport(report: Report, onHandleUpdated: @escaping (Bool) -> Void) -> Void {
+        var requestState: Bool = false {
+            didSet {
+                if requestState {
+                    DispatchQueue.main.async {
+                        onHandleUpdated(requestState)
+                    }
+                }
+            }
+        }
+        
+        func setRequestState(_ state: Bool) {
+            requestState = state
+        }
+        
         let userRepository = UserRepository()
         let patientRepository = PatientRepository()
         
@@ -43,10 +60,48 @@ public class ReportRepository: ReportRepositoryProtocol {
         
         let newCurrentUserInfo = EntityTree(userInfo: currentUserInfo.userInfo, patient: currentPatientsArrayInfo, reminder: currentUserInfo.reminder)
         
-        let updateUserState = userRepository.updateData(userInfo: newCurrentUserInfo)
-        let updatePatientUserState = patientRepository.setCurrentPatient(patient: newCurrentPatientInfo)
-        
-        return updateUserState && updatePatientUserState
+        do {
+            let reportData = try encoder.encode(report)
+            
+            if let URL = URL(string: "\(self.baseUrl)/\(currentUserInfo.userInfo.id)/patients/\(currentPatientInfo.id)/reports") {
+                var urlRequest = URLRequest(url: URL)
+                urlRequest.httpMethod = "POST"
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+                urlRequest.httpBody = reportData
+                
+                self.urlSession.dataTask(with: urlRequest) { data, response, error in
+                    if let data = data {
+                        do {
+                            let newReport = try self.decoder.decode(Report.self, from: data)
+                            reportsInfo.append(newReport)
+                            
+                            let newPatient = Patient(id: currentPatientInfo.id,
+                                                     name: currentPatientInfo.name,
+                                                     profilePicture: currentPatientInfo.profilePicture,
+                                                     patientSummary: currentPatientInfo.patientSummary,
+                                                     age: currentPatientInfo.age,
+                                                     patientClass: currentPatientInfo.patientClass,
+                                                     motherName: currentPatientInfo.motherName,
+                                                     fatherName: currentPatientInfo.fatherName,
+                                                     maritalStatus: currentPatientInfo.maritalStatus,
+                                                     appointmentCount: currentPatientInfo.appointmentCount,
+                                                     reports: reportsInfo,
+                                                     fromUser: currentPatientInfo.fromUser)
+                            
+                            userRepository.updateData(userInfo: newCurrentUserInfo, completionRequest: setRequestState)
+                            patientRepository.updatePatient(patient: newPatient, completionRequest: setRequestState)
+                        } catch let err {
+                            let errMsg = err.localizedDescription
+                            print("Unable to verify the data in CreateReport - Report Repository - Error: \(errMsg)")
+                        }
+                    }
+                }.resume()
+            }
+        } catch let err {
+            let errMsg = err.localizedDescription
+            print("Unable to verify the data in CreateReport - Report Repository - Error: \(errMsg)")
+        }
     }
     
     public func getReportById(patientId: String, reportId: String) -> Report? {

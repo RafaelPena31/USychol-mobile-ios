@@ -105,13 +105,18 @@ extension PatientAnamnesisViewController: PatientAnamnesisViewControllerType {
 }
 
 extension PatientAnamnesisViewController: PatientAnamnesisViewDelegate {
-    public func onHandleUpdatePatient(patient: Patient) {
-        if delegate!.onHandleUpdatePatient(patient: patient) {
+    private func onHandleUpdated(_ state: Bool) {
+        if state {
             onLeftHeaderButtonClick()
         } else {
             onHandleFormAlertError()
         }
     }
+    
+    public func onHandleUpdatePatient(patient: Patient) {
+        delegate!.onHandleUpdatePatient(patient: patient, onHandleUpdated: onHandleUpdated)
+    }
+    
     public func handleFormAlert() {
         let alert = CoreAlerts().handleCreateFormAlert()
         self.present(alert, animated: true)

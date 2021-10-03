@@ -100,7 +100,6 @@ final class ReminderTextField: UITextField {
     // MARK: - PRIVATE ACTIONS
     
     @objc private func onClickButton() {
-        print("inside trigger")
         onHandleClickAdd(self.text ?? "")
     }
 }

@@ -188,6 +188,9 @@
 		E4DEE69626A74F0F0026E89D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4DEE69526A74F0F0026E89D /* Assets.xcassets */; };
 		E4DEE6A426A74F0F0026E89D /* USycholTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE6A326A74F0F0026E89D /* USycholTests.swift */; };
 		E4DEE6AF26A74F0F0026E89D /* USycholUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE6AE26A74F0F0026E89D /* USycholUITests.swift */; };
+		E4EA7F352708EBE8000FD791 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EA7F342708EBE8000FD791 /* UserService.swift */; };
+		E4EA7F372709157C000FD791 /* PatientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EA7F362709157C000FD791 /* PatientService.swift */; };
+		E4EA7F39270919AB000FD791 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EA7F38270919AB000FD791 /* ReminderService.swift */; };
 		E4F4CDF126CB6550006386F4 /* CoreAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4CDF026CB6550006386F4 /* CoreAlerts.swift */; };
 		E4F7BD3526C97FE800B51EF6 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3426C97FE800B51EF6 /* UserRepositoryProtocol.swift */; };
 		E4F7BD3726C9818400B51EF6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3626C9818400B51EF6 /* UserRepository.swift */; };
@@ -381,6 +384,9 @@
 		E4DEE6AA26A74F0F0026E89D /* USycholUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = USycholUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DEE6AE26A74F0F0026E89D /* USycholUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USycholUITests.swift; sourceTree = "<group>"; };
 		E4DEE6B026A74F0F0026E89D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4EA7F342708EBE8000FD791 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E4EA7F362709157C000FD791 /* PatientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientService.swift; sourceTree = "<group>"; };
+		E4EA7F38270919AB000FD791 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		E4F4CDF026CB6550006386F4 /* CoreAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAlerts.swift; sourceTree = "<group>"; };
 		E4F7BD3426C97FE800B51EF6 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E4F7BD3626C9818400B51EF6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -845,16 +851,16 @@
 				E467014626A911D600A28683 /* Splash */,
 				E444E58D26BDF64800D94FBB /* SignUp */,
 				E4A8043C26B1F7BA00AE8593 /* SignIn */,
-				E491EB4326BFC210002E436B /* PatientReport */,
+				8F0C29C626BE26100096296B /* VirtualPlan */,
+				8FC669E126BF8C6D00069DED /* DigitalPlan */,
+				8FC669F426BF916200069DED /* FullPlan */,
+				E491EB0226BFC1E2002E436B /* ClinicForm */,
 				E425BB9626BFC6C300E1DAA7 /* PatientHall */,
 				E491EB7426BFC3BC002E436B /* PatientProfile */,
 				E491EB6026BFC397002E436B /* PatientAnamnesis */,
-				E491EB0226BFC1E2002E436B /* ClinicForm */,
+				E491EB4326BFC210002E436B /* PatientReport */,
 				8FC66A2026BFA5BC00069DED /* NewReport */,
 				8FC66A0D26BF9B3800069DED /* NewActivity */,
-				8FC669F426BF916200069DED /* FullPlan */,
-				8FC669E126BF8C6D00069DED /* DigitalPlan */,
-				8F0C29C626BE26100096296B /* VirtualPlan */,
 				E458808626BCDDA8005D6573 /* PatientForm */,
 			);
 			path = Features;
@@ -900,6 +906,9 @@
 			isa = PBXGroup;
 			children = (
 				E490940D26CBD11B0066B91B /* UserDefaults */,
+				E4EA7F342708EBE8000FD791 /* UserService.swift */,
+				E4EA7F362709157C000FD791 /* PatientService.swift */,
+				E4EA7F38270919AB000FD791 /* ReminderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1549,6 +1558,7 @@
 				E491EB7326BFC397002E436B /* PatientAnamnesisViewModel.swift in Sources */,
 				E491EB5126BFC210002E436B /* PatientReportViewType.swift in Sources */,
 				E425BB8E26BFC5EC00E1DAA7 /* PerformActivyRepositoryProtocol.swift in Sources */,
+				E4EA7F352708EBE8000FD791 /* UserService.swift in Sources */,
 				E444E59626BDF64800D94FBB /* SignUpViewController.swift in Sources */,
 				8FC66A0126BF916300069DED /* FullPlanView.swift in Sources */,
 				E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */,
@@ -1567,6 +1577,7 @@
 				8FC66A2C26BFA5BC00069DED /* NewReportProtocols.swift in Sources */,
 				E425BBB026BFC6C300E1DAA7 /* PatientTableView.swift in Sources */,
 				E491EB8726BFC3BC002E436B /* PatientProfileViewState.swift in Sources */,
+				E4EA7F39270919AB000FD791 /* ReminderService.swift in Sources */,
 				E491EB8326BFC3BC002E436B /* PatientProfileViewController.swift in Sources */,
 				8FC669F126BF8C6D00069DED /* DigitalPlanProtocols.swift in Sources */,
 				8FC66A2D26BFA5BC00069DED /* NewReportViewModel.swift in Sources */,
@@ -1575,6 +1586,7 @@
 				E425BB8C26BFC5EC00E1DAA7 /* PatientRepositoryProtocol.swift in Sources */,
 				E4F7BD3726C9818400B51EF6 /* UserRepository.swift in Sources */,
 				E491EB1126BFC1E3002E436B /* ClinicFormStack.swift in Sources */,
+				E4EA7F372709157C000FD791 /* PatientService.swift in Sources */,
 				E444E59B26BDF64800D94FBB /* SignUpProtocols.swift in Sources */,
 				E491EB6E26BFC397002E436B /* PatientAnamnesisViewController.swift in Sources */,
 				8FC66A1B26BF9B3800069DED /* NewActivityViewState.swift in Sources */,

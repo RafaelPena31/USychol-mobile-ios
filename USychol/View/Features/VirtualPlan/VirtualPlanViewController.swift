@@ -72,9 +72,7 @@ extension VirtualPlanViewController: VirtualPlanViewControllerType {
         contentView?.updateView(with: viewState)
     }
     
-    public func onHandleClick() {
-        let updateStatus = delegate!.setPlan()
-        
+    private func onHandleSetPlan(_ updateStatus: Bool) {
         if updateStatus {
             let PatientHallVM = PatientHallViewModel()
             let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
@@ -87,6 +85,10 @@ extension VirtualPlanViewController: VirtualPlanViewControllerType {
         } else {
             onHandleFormAlert()
         }
+    }
+    
+    public func onHandleClick() {
+        delegate!.setPlan(onHandleSetPlan)
     }
     
     public func onHandleTouch() {

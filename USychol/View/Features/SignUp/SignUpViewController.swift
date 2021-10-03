@@ -74,9 +74,7 @@ extension SignUpViewController: SignUpViewDelegate {
         self.present(alert, animated: true)
     }
     
-    public func onHandleClick(user: User) {
-        let authStatus = delegate?.onHandleSignUp(user: user)
-        
+    private func onAuthStateChange(_ authStatus: EnumAuthResponse) {
         switch authStatus {
         case .authenticated:
             let VirtualPlanVM = VirtualPlanViewModel()
@@ -95,9 +93,11 @@ extension SignUpViewController: SignUpViewDelegate {
             let alert = CoreAlerts().handleErrorAlert(title: "Heads up", message: "Error: \(err), contact USychol Team support", buttonText: "Continue")
             self.present(alert, animated: true)
             break
-        default:
-            break
         }
+    }
+    
+    public func onHandleClick(user: User) {
+        delegate?.onHandleSignUp(user: user, onAuthStateChange: onAuthStateChange)
     }
     
     public func onHandleChange() {

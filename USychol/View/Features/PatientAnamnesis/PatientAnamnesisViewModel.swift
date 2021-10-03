@@ -42,25 +42,8 @@ public class PatientAnamnesisViewModel: PatientAnamnesisViewModelType {
 }
 
 extension PatientAnamnesisViewModel: PatientAnamnesisViewControllerDelegate {
-    public func onHandleUpdatePatient(patient: Patient) -> Bool {
-        let userRepository = UserRepository()
+    public func onHandleUpdatePatient(patient: Patient, onHandleUpdated:@escaping (Bool) -> Void) {
         let patientRepository = PatientRepository()
-        if let currentUserInfo = userRepository.getUser() {
-            
-            var currentPatients = currentUserInfo.patient
-            let currentPatientsInfoIndex = currentPatients.firstIndex(where: {$0.id == patient.id})!
-            
-            currentPatients.remove(at: currentPatientsInfoIndex)
-            currentPatients.insert(patient, at: 0)
-            
-            let newUserInfo = EntityTree(userInfo: currentUserInfo.userInfo, patient: currentPatients, reminder: currentUserInfo.reminder)
-            
-            let updateState = userRepository.updateData(userInfo: newUserInfo)
-
-            let patientUpdateState = patientRepository.setCurrentPatient(patient: patient)
-            
-            return updateState && patientUpdateState
-        }
-        return false
+        patientRepository.updatePatient(patient: patient, completionRequest: onHandleUpdated)
     }
 }

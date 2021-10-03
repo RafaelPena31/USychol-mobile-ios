@@ -49,8 +49,8 @@ extension PatientHallViewModel: PatientHallViewControllerDelegate {
         return updateState
     }
     
-    public func onHandleAddReminder(_ text: String) -> Bool {
+    public func onHandleAddReminder(_ text: String, onHandleUpdated:@escaping (_ state: Bool) -> Void) -> Void {
         let reminderRepository = ReminderRepository()
-        return reminderRepository.createReminder(title: text)
+        reminderRepository.createReminder(title: text, onHandleUpdated: onHandleUpdated)
     }
 }

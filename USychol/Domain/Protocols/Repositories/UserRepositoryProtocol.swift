@@ -13,7 +13,7 @@ public enum EnumAuthResponse {
 
 public protocol UserRepositoryProtocol {
     func getUser() -> EntityTree?
-    func signIn(email: String, password: String) -> EnumAuthResponse
-    func signUp(name: String, email: String, age: String, crp: String, cpf: String, password: String) -> EnumAuthResponse
-    func updateData(userInfo: EntityTree) -> Bool
+    func signIn(email: String, password: String, completionRequest:@escaping (_ state: EnumAuthResponse) -> Void) -> Void
+    func signUp(user: User, completionRequest:@escaping (_ state: EnumAuthResponse) -> Void) -> Void
+    func updateData(userInfo: EntityTree, completionRequest:@escaping (_ state: Bool) -> Void) -> Void
 }

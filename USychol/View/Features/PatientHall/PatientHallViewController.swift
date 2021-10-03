@@ -119,7 +119,6 @@ public class PatientHallViewController: UIViewController {
 
 extension PatientHallViewController: PatientHallViewControllerType {
     public func updateView(with viewState: PatientHallViewState) {
-        print("controller")
         contentView?.updateView(with: viewState)
     }
 }
@@ -146,14 +145,16 @@ extension PatientHallViewController: PatientHallViewDelegate {
         }
     }
     
-    public func onHandleAddReminder(_ text: String) {
-        let updateStatus = delegate!.onHandleAddReminder(text)
-        
-        if !updateStatus {
+    private func onHandleUpdated(_ state: Bool) {
+        if !state {
             handleErrorAlert(title: "Heads up", message: "It was not possible to create your reminder, please contact the USychol Team support team")
         } else {
             handleStateChange()
         }
+    }
+    
+    public func onHandleAddReminder(_ text: String) {
+        delegate!.onHandleAddReminder(text, onHandleUpdated: onHandleUpdated)
     }
 }
 

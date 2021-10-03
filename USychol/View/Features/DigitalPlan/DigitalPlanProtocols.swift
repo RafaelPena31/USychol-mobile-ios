@@ -23,5 +23,5 @@ public protocol DigitalPlanViewModelType: AnyObject {
 }
 
 public protocol DigitalPlanViewControllerDelegate: AnyObject {
-    func setPlan() -> Bool
+    func setPlan(_ onHandleSetPlan:@escaping (_ updateStatus: Bool) -> Void) -> Void
 }

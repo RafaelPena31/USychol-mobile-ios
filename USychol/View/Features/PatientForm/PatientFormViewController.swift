@@ -88,14 +88,16 @@ extension PatientFormViewController: PatientFormViewControllerType {
 }
 
 extension PatientFormViewController: PatientFormViewDelegate {
-    public func onHandleCreatePatient(patient: Patient) {
-        let updateStatus = delegate!.onHandleCreatePatient(patient: patient)
-        
-        if updateStatus {
+    private func onHandleUpdated(_ state: Bool) {
+        if state {
             handleStateChange?.handleStateChange()
             onRightHeaderButtonClick()
         } else {
             onHandleFormAlertError()
         }
+    }
+    
+    public func onHandleCreatePatient(patient: Patient) {
+        delegate!.onHandleCreatePatient(patient: patient, onHandleUpdated: onHandleUpdated)
     }
 }

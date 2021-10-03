@@ -74,9 +74,7 @@ extension FullPlanViewController: FullPlanViewControllerType {
 }
 
 extension FullPlanViewController: FullPlanViewDelegate {
-    public func onHandleClick() {
-        let updateStatus = delegate!.setPlan()
-        
+    private func onHandleSetPlan(_ updateStatus: Bool) {
         if updateStatus {
             let PatientHallVM = PatientHallViewModel()
             let PatientHallVC = PatientHallViewController(viewModel: PatientHallVM)
@@ -89,6 +87,10 @@ extension FullPlanViewController: FullPlanViewDelegate {
         } else {
             onHandleFormAlert()
         }
+    }
+    
+    public func onHandleClick() {
+        delegate!.setPlan(onHandleSetPlan)
     }
     
     public func onHandleTouch() {

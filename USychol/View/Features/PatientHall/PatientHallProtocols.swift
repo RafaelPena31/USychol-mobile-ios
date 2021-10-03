@@ -23,7 +23,7 @@ public protocol PatientHallViewModelType: AnyObject {
 }
 
 public protocol PatientHallViewControllerDelegate: AnyObject {
-    func onHandleAddReminder(_ text: String) -> Bool
+    func onHandleAddReminder(_ text: String, onHandleUpdated:@escaping (_ state: Bool) -> Void) -> Void
     func setCurrentPatient(patient: Patient) -> Bool
 }
 

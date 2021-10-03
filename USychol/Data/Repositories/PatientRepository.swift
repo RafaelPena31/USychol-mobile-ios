@@ -7,6 +7,9 @@
 import Foundation
 
 public class PatientRepository: PatientRepositoryProtocol {
+    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
+    private let urlSession = URLSession.shared
+    
     // MARK: - DATA
     
     let localStorage = UserDefaults.standard
@@ -15,18 +18,95 @@ public class PatientRepository: PatientRepositoryProtocol {
     
     // MARK: - BUSINESS RULE
     
-    public func createPatient(patient: Patient) -> Bool {
+    public func createPatient(patient: Patient, completionRequest:@escaping (_ state: Bool) -> Void) -> Void {
+        var requestState: Bool = false {
+            didSet {
+                if requestState {
+                    DispatchQueue.main.async {
+                        completionRequest(requestState)
+                    }
+                }
+            }
+        }
+        
+        func setRequestState(_ state: Bool) {
+            requestState = state
+        }
+        
         let userRepository = UserRepository()
         if let userInfoEntityTree = userRepository.getUser() {
             var patients = userInfoEntityTree.patient
             patients.append(patient)
                 
             let newUserInfoEntityTree = EntityTree(userInfo: userInfoEntityTree.userInfo, patient: patients, reminder: userInfoEntityTree.reminder)
-            let updateStatus = userRepository.updateData(userInfo: newUserInfoEntityTree)
+            
+            do {
+                let patientData = try encoder.encode(patient)
                 
-            return updateStatus
+                if let URL = URL(string: "\(self.baseUrl)/\(userInfoEntityTree.userInfo.id)/patients") {
+                    var urlRequest = URLRequest(url: URL)
+                    urlRequest.httpMethod = "POST"
+                    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+                    urlRequest.httpBody = patientData
+                    
+                    self.urlSession.dataTask(with: urlRequest) { data, response, error in
+                        if data != nil {
+                            userRepository.updateData(userInfo: newUserInfoEntityTree, completionRequest: setRequestState)
+                        }
+                    }.resume()
+                }
+            } catch let err {
+                let errMsg = err.localizedDescription
+                print("Unable to verify the data in CreatePatient - Patient Repository - Error: \(errMsg)")
+            }
         }
-        return false
+    }
+    
+    public func updatePatient(patient: Patient, completionRequest: @escaping (Bool) -> Void) {
+        var requestState: Bool = false {
+            didSet {
+                if requestState {
+                    DispatchQueue.main.async {
+                        completionRequest(requestState)
+                    }
+                }
+            }
+        }
+        
+        func setRequestState(_ state: Bool) {
+            requestState = state
+        }
+        
+        let userRepository = UserRepository()
+        if let userInfoEntityTree = userRepository.getUser() {
+            var patients = userInfoEntityTree.patient
+            patients.append(patient)
+                
+            let newUserInfoEntityTree = EntityTree(userInfo: userInfoEntityTree.userInfo, patient: patients, reminder: userInfoEntityTree.reminder)
+            
+            do {
+                let patientData = try encoder.encode(patient)
+                
+                if let URL = URL(string: "\(self.baseUrl)/\(userInfoEntityTree.userInfo.id)/patients/\(patient.id)") {
+                    var urlRequest = URLRequest(url: URL)
+                    urlRequest.httpMethod = "PUT"
+                    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+                    urlRequest.httpBody = patientData
+                    
+                    self.urlSession.dataTask(with: urlRequest) { data, response, error in
+                        if data != nil {
+                            userRepository.updateData(userInfo: newUserInfoEntityTree, completionRequest: setRequestState)
+                            _ = self.setCurrentPatient(patient: patient)
+                        }
+                    }.resume()
+                }
+            } catch let err {
+                let errMsg = err.localizedDescription
+                print("Unable to verify the data in UpdatePatient - Patient Repository - Error: \(errMsg)")
+            }
+        }
     }
     
     public func getPatientById(patientId: String) -> Patient? {

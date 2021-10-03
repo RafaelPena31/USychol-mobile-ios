@@ -23,7 +23,7 @@ public protocol NewReportViewModelType: AnyObject {
 }
 
 public protocol NewReportViewControllerDelegate: AnyObject {
-    func onHandleCreateReport(_ report: Report) -> Bool
+    func onHandleCreateReport(_ report: Report, onHandleUpdated:@escaping (_ state: Bool) -> Void) -> Void
 }
 
 public protocol NewReportBackStateChangeControl: AnyObject {

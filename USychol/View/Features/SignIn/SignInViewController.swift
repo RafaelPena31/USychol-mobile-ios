@@ -54,6 +54,9 @@ public class SignInViewController: UIViewController {
         }
         contentView?.delegate = self
     }
+    
+    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
+    private let urlSession = URLSession.shared
 }
 
 extension SignInViewController: SignInViewControllerType {
@@ -68,9 +71,7 @@ extension SignInViewController: SignInViewDelegate {
         self.present(alert, animated: true)
     }
     
-    public func onHandleClick(email: String, password: String) {
-        let authStatus = delegate?.onHandleSignIn(email: email, password: password)
-        
+    private func onAuthStateChange(_ authStatus: EnumAuthResponse) {
         switch authStatus {
         case .authenticated:
             let userInfo = delegate!.getCurrentUserInfo()
@@ -103,9 +104,11 @@ extension SignInViewController: SignInViewDelegate {
             let alert = CoreAlerts().handleErrorAlert(title: "Heads up", message: "Error: \(err), contact USychol Team support", buttonText: "Continue")
             self.present(alert, animated: true)
             break
-        default:
-            break
         }
+    }
+    
+    public func onHandleClick(email: String, password: String) {
+        delegate?.onHandleSignIn(email: email, password: password, onAuthStateChange: onAuthStateChange)
     }
     
     public func onHandleChange() {

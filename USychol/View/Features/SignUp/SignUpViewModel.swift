@@ -33,10 +33,8 @@ public class SignUpViewModel: SignUpViewModelType {
 }
 
 extension SignUpViewModel: SignUpViewControllerDelegate {
-    public func onHandleSignUp(user: User) -> EnumAuthResponse {
+    public func onHandleSignUp(user: User, onAuthStateChange: @escaping (EnumAuthResponse) -> Void) {
         let userRepository = UserRepository()
-        let auth = userRepository.signUp(name: user.name, email: user.email, age: user.age, crp: user.crp, cpf: user.cpf, password: user.password)
-        
-        return auth
+        userRepository.signUp(user: user, completionRequest: onAuthStateChange)
     }
 }

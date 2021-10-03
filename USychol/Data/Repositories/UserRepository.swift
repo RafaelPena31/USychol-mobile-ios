@@ -8,6 +8,9 @@
 import Foundation
 
 public class UserRepository: UserRepositoryProtocol {
+    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
+    private let urlSession = URLSession.shared
+    
     // MARK: - DATA
     
     let localStorage = UserDefaults.standard
@@ -16,73 +19,90 @@ public class UserRepository: UserRepositoryProtocol {
     
     // MARK: - BUSINESS RULE
     
-    public func signIn(email: String, password: String) -> EnumAuthResponse {
-        if let data = localStorage.data(forKey: "users") {
-            do {
-                let usersInfo = try decoder.decode([AuthEntityTree].self, from: data)
-                if let currentUserInfo = usersInfo.first(where: {$0.entity.userInfo.email == email && $0.entity.userInfo.password == password}) {
-                    localStorage.setLoggedIn(value: true)
-                    localStorage.setUserID(value: currentUserInfo.userID)
-                    
-                    let userData = try encoder.encode(currentUserInfo)
-                    localStorage.set(userData, forKey: "currentUserData")
-                    
-                    return .authenticated
+    public func signIn(email: String, password: String, completionRequest:@escaping (_ state: EnumAuthResponse) -> Void) {
+        var authState: EnumAuthResponse? = nil {
+            didSet {
+                if let authState = authState {
+                    DispatchQueue.main.async {
+                        completionRequest(authState)
+                    }
                 }
-            } catch let err {
-                let errMsg = err.localizedDescription
-                print("Unable to verify the data in SignIn - User Repository - Error: \(errMsg)")
-                return .error(errMsg)
             }
         }
-        return .unauthenticated
+        
+        func setAuthState(_ state: EnumAuthResponse) {
+            authState = state
+        }
+        
+        if let URL = URL(string: self.baseUrl) {
+            self.urlSession.dataTask(with: URL) { data, response, error in
+                if let data = data {
+                    do {
+                        let usersData = try self.decoder.decode([User].self, from: data)
+                        if let currentUserInfo = UserService().sign(usersData: usersData, email: email, password: password) {
+                            UserService().getUser(currentUserInfo: currentUserInfo, setAuthState: setAuthState)
+                        } else {
+                            setAuthState(.unauthenticated)
+                        }
+                    } catch let err {
+                        let errMsg = err.localizedDescription
+                        print("Unable to verify the data in SignIn - User Repository - Error: \(errMsg)")
+                        setAuthState(.error(errMsg))
+                    }
+                }
+            }.resume()
+        }
     }
     
     public func logOut(_ logOutView: () -> Void) -> Void {
         localStorage.removeObject(forKey: "currentUserData")
         localStorage.setLoggedIn(value: false)
+        localStorage.setUserID(value: "")
+        
         logOutView()
     }
     
-    public func signUp(name: String, email: String, age: String, crp: String, cpf: String, password: String) -> EnumAuthResponse {
-        let userID = UUID().uuidString
-        let user = User(id: userID, name: name, email: email, age: age, crp: crp, cpf: cpf, plan: nil, password: password)
-        
-        let entityTree = EntityTree(userInfo: user, patient: [], reminder: [])
-        let authEntityTree = AuthEntityTree(userID: userID, entity: entityTree)
-        
-        if let data = localStorage.data(forKey: "users") {
-            do {
-                var usersInfo = try decoder.decode([AuthEntityTree].self, from: data)
-                usersInfo.append(authEntityTree)
-                
-                let newUsersData =  try encoder.encode(usersInfo)
-                let newUserDataAuthEntityTree = try encoder.encode(authEntityTree)
-                
-                localStorage.set(newUsersData, forKey: "users")
-                localStorage.set(newUserDataAuthEntityTree, forKey: "currentUserData")
-                localStorage.setLoggedIn(value: true)
-                
-                return .authenticated
-            } catch let err {
-                let errMsg = err.localizedDescription
-                print("Unable to save the data in SignUp - User Repository - Error: \(errMsg)")
-                return .error(errMsg)
+    public func signUp(user: User, completionRequest:@escaping (_ state: EnumAuthResponse) -> Void) {
+        var authState: EnumAuthResponse? = nil {
+            didSet {
+                if let authState = authState {
+                    DispatchQueue.main.async {
+                        completionRequest(authState)
+                    }
+                }
             }
-        } else {
-            do {
-                let newUsersData =  try encoder.encode([authEntityTree])
-                let newUserDataAuthEntityTree = try encoder.encode(authEntityTree)
-                localStorage.set(newUsersData, forKey: "users")
-                localStorage.set(newUserDataAuthEntityTree, forKey: "currentUserData")
-                localStorage.setLoggedIn(value: true)
+        }
+        
+        func setAuthState(_ state: EnumAuthResponse) {
+            authState = state
+        }
+        
+        do {
+            let userData = try encoder.encode(user)
+            
+            if let URL = URL(string: self.baseUrl) {
+                var urlRequest = URLRequest(url: URL)
+                urlRequest.httpMethod = "POST"
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+                urlRequest.httpBody = userData
                 
-                return .authenticated
-            } catch let err {
-                let errMsg = err.localizedDescription
-                print("Unable to save the data in SignUp - User Repository: [First Save] - Error: \(errMsg)")
-                return .error(errMsg)
+                self.urlSession.dataTask(with: urlRequest) { data, response, error in
+                    if let data = data {
+                        do {
+                            let userResponse = try JSONDecoder().decode(User.self, from: data)
+                            UserService().getUser(currentUserInfo: userResponse, setAuthState: setAuthState)
+                        } catch let err {
+                            let errMsg = err.localizedDescription
+                            print("Unable to verify the data in SignUp - User Repository - Error: \(errMsg)")
+                            setAuthState(.error(errMsg))
+                        }
+                    }
+                }.resume()
             }
+        } catch let err {
+            let errMsg = err.localizedDescription
+            print("Unable to verify the data in SignUp - User Repository - Error: \(errMsg)")
         }
     }
     
@@ -100,31 +120,54 @@ public class UserRepository: UserRepositoryProtocol {
         return nil
     }
     
-    public func updateData(userInfo: EntityTree) -> Bool {
-        if let usersData = localStorage.data(forKey: "users") {
-            do {
-                let userId = userInfo.userInfo.id
-                var usersInfoArray = try decoder.decode([AuthEntityTree].self, from: usersData)
-                
-                let currentUserInfoIndex = usersInfoArray.firstIndex(where: {$0.userID == userId})!
-                usersInfoArray.remove(at: currentUserInfoIndex)
-                
-                let newCurrentUser = AuthEntityTree(userID: userId, entity: userInfo)
-                usersInfoArray.append(newCurrentUser)
-                
-                let newCurrentUserData = try encoder.encode(newCurrentUser)
-                let newUsersInfoArrayData = try encoder.encode(usersInfoArray)
-                
-                localStorage.set(newCurrentUserData, forKey: "currentUserData")
-                localStorage.set(newUsersInfoArrayData, forKey: "users")
-                
-                return true
-            } catch let err {
-                let errMsg = err.localizedDescription
-                print("Unable to update the data in updateData - User Repository - Error: \(errMsg)")
-                return false
+    public func updateData(userInfo: EntityTree, completionRequest:@escaping (_ state: Bool) -> Void) {
+        var verifyState: EnumAuthResponse? = nil {
+            didSet {
+                if let verifyState = verifyState {
+                    DispatchQueue.main.async {
+                        switch verifyState {
+                            case .authenticated:
+                                completionRequest(true)
+                                break
+                            default:
+                                completionRequest(false)
+                                break
+                        }
+                    }
+                }
             }
         }
-        return false
+        
+        func setVerifyState(_ state: EnumAuthResponse) {
+            verifyState = state
+        }
+        
+        do {
+            let userData = try encoder.encode(userInfo.userInfo)
+            
+            if let URL = URL(string: "\(self.baseUrl)/\(userInfo.userInfo.id)") {
+                var urlRequest = URLRequest(url: URL)
+                urlRequest.httpMethod = "PUT"
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+                urlRequest.httpBody = userData
+                
+                self.urlSession.dataTask(with: urlRequest) { data, response, error in
+                    if let data = data {
+                        do {
+                            let userResponse = try JSONDecoder().decode(User.self, from: data)
+                            UserService().getUser(currentUserInfo: userResponse, setAuthState: setVerifyState)
+                        } catch let err {
+                            let errMsg = err.localizedDescription
+                            print("Unable to verify the data in SignUp - User Repository - Error: \(errMsg)")
+                            setVerifyState(.error(errMsg))
+                        }
+                    }
+                }.resume()
+            }
+        } catch let err {
+            let errMsg = err.localizedDescription
+            print("Unable to update the data in updateData - User Repository - Error: \(errMsg)")
+        }
     }
 }

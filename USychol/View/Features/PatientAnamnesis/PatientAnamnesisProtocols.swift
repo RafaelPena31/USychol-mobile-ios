@@ -23,5 +23,5 @@ public protocol PatientAnamnesisViewModelType: AnyObject {
 }
 
 public protocol PatientAnamnesisViewControllerDelegate: AnyObject {
-    func onHandleUpdatePatient(patient: Patient) -> Bool
+    func onHandleUpdatePatient(patient: Patient, onHandleUpdated:@escaping (_ state: Bool) -> Void) -> Void
 }

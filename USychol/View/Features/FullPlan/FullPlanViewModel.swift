@@ -33,7 +33,7 @@ public class FullPlanViewModel: FullPlanViewModelType {
 }
 
 extension FullPlanViewModel: FullPlanViewControllerDelegate {
-    public func setPlan() -> Bool {
+    public func setPlan(_ onHandleSetPlan: @escaping (_ updateStatus: Bool) -> Void) {
         let userRepository = UserRepository()
         let userInfoEntityTree = userRepository.getUser()!
         let currentUserInfo = userInfoEntityTree.userInfo
@@ -48,7 +48,6 @@ extension FullPlanViewModel: FullPlanViewControllerDelegate {
                                password: currentUserInfo.password)
         
         let newUserInfoEntityTree = EntityTree(userInfo: newUserInfo, patient: userInfoEntityTree.patient, reminder: userInfoEntityTree.reminder)
-        
-        return userRepository.updateData(userInfo: newUserInfoEntityTree)
+        userRepository.updateData(userInfo: newUserInfoEntityTree, completionRequest: onHandleSetPlan)
     }
 }
