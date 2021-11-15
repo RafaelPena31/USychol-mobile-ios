@@ -123,8 +123,7 @@ final public class NewReportView: UIView {
         if activityName.isEmpty || resume.isEmpty || consultationEvaluation < 0 || reportDay.isEmpty || startAt.isEmpty {
             delegate?.handleErrorAlert()
         } else {
-            let userID = UserDefaults.standard.getUserID()
-            let newReport = Report(id: UUID().uuidString, date: reportDay, startAt: startAt, activies: [activityName], resume: resume, consultEvaluation: consultationEvaluation, fromPatient: userID)
+            let newReport = Report(id: UUID().uuidString, date: reportDay, startAt: startAt, activies: [activityName], resume: resume, consultEvaluation: consultationEvaluation, fromPatient: "")
             delegate?.onHandleCreateReport(newReport)
         }
     }

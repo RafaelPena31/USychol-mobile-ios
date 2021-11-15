@@ -6,23 +6,79 @@
 //
 
 import Foundation
+import Firebase
+import CodableFirebase
 
 public class PatientService {
-    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
-    private let urlSession = URLSession.shared
+    let firestoreDB = Firestore.firestore()
     
     public func getPatients(userId: String, currentUserInfo: User, completionRequest:@escaping (_ state: [Patient], _ currentUserInfo: User) -> Void) {
-        if let URL = URL(string: "\(baseUrl)/\(userId)/patients") {
-            urlSession.dataTask(with: URL) { data, response, error in
-                if let data = data {
-                    do {
-                        let patientsData = try JSONDecoder().decode([Patient].self, from: data)
-                        completionRequest(patientsData, currentUserInfo)
-                    } catch {
-                        print("Erro de parse")
+        func getReportDocs(_ patientsFB: [PatientFB]) {
+            var patients: [Patient] = [] {
+                didSet {
+                    if patients.count == patientsFB.count {
+                        completionRequest(patients, currentUserInfo)
                     }
                 }
-            }.resume()
+            }
+            
+            patientsFB.forEach { pFB in
+                var reportArray: [Report] = []
+                let pId = pFB.id
+                let docRef = firestoreDB.collection("reports").whereField("fromPatient", isEqualTo: pId)
+                
+                docRef.getDocuments() { (snp, err) in
+                    if let err = err {
+                        completionRequest([], currentUserInfo)
+                        print("Error getting documents: \(err.localizedDescription)")
+                    } else {
+                        for document in snp!.documents {
+                            let reportFB = try! FirebaseDecoder().decode(Report.self, from: document.data())
+                            reportArray.append(reportFB)
+                        }
+                        
+                        let newPatient = Patient(id: pFB.id,
+                                                 name: pFB.name,
+                                                 patientSummary: pFB.patientSummary,
+                                                 age: pFB.age,
+                                                 patientClass: pFB.patientClass,
+                                                 motherName: pFB.motherName,
+                                                 fatherName: pFB.fatherName,
+                                                 maritalStatus: pFB.maritalStatus,
+                                                 appointmentCount: pFB.appointmentCount,
+                                                 reports: reportArray,
+                                                 fromUser: pFB.fromUser)
+                        
+                        patients.append(newPatient)
+                    }
+                }
+            }
         }
+        
+        func getPatientDocs() {
+            let docRef = firestoreDB.collection("patients").whereField("fromUser", isEqualTo: userId)
+            
+            docRef.getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    completionRequest([], currentUserInfo)
+                    print("Error getting documents: \(err.localizedDescription)")
+                } else {
+                    var patients: [PatientFB] = []
+                    
+                    for document in querySnapshot!.documents {
+                        let patientFB = try! FirestoreDecoder().decode(PatientFB.self, from: document.data())
+                        patients.append(patientFB)
+                    }
+                    
+                    if patients.count == 0 {
+                        completionRequest([], currentUserInfo)
+                    } else {
+                        getReportDocs(patients)
+                    }
+                }
+            }
+        }
+        
+        getPatientDocs()
     }
 }

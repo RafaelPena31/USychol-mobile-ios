@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 public class SignInViewController: UIViewController {
 
@@ -14,6 +15,7 @@ public class SignInViewController: UIViewController {
 
     public let viewModel: SignInViewModelType?
     public let contentView: SignInViewType?
+    let disposeBag = DisposeBag()
 
     // MARK: - PUBLIC API
 
@@ -38,6 +40,7 @@ public class SignInViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bindObservables()
         viewModel?.initState()
     }
     
@@ -53,6 +56,12 @@ public class SignInViewController: UIViewController {
             self.view = contentView.content
         }
         contentView?.delegate = self
+    }
+    
+    private func bindObservables() {
+        viewModel?.viewSignInObservable.subscribe(onNext: { [weak self] event in
+            self?.onAuthStateChange(event)
+        }).disposed(by: disposeBag)
     }
     
     private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
@@ -108,7 +117,7 @@ extension SignInViewController: SignInViewDelegate {
     }
     
     public func onHandleClick(email: String, password: String) {
-        delegate?.onHandleSignIn(email: email, password: password, onAuthStateChange: onAuthStateChange)
+        viewModel?.onHandleSignIn(email: email, password: password)
     }
     
     public func onHandleChange() {

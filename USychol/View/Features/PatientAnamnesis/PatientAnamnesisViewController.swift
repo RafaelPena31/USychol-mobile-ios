@@ -50,7 +50,7 @@ public class PatientAnamnesisViewController: UIViewController {
         contentSetup()
     }
     
-    private func headerSetup() {
+    private func headerSetup(_ title: String = "") {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.isTranslucent = false
@@ -58,7 +58,7 @@ public class PatientAnamnesisViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "MainPurpleColor")
         
-        let title = CoreLabel(type: .title, text: "James Sirius", color: "WhiteColor")
+        let title = CoreLabel(type: .title, text: title, color: "WhiteColor")
         let subtitle = CoreLabel(type: .cardText, text: "Anamnesis", color: "StrongParcialWhiteColor")
         
         let stack = UIStackView(arrangedSubviews: [title, subtitle])
@@ -100,6 +100,13 @@ public class PatientAnamnesisViewController: UIViewController {
 
 extension PatientAnamnesisViewController: PatientAnamnesisViewControllerType {
     public func updateView(with viewState: PatientAnamnesisViewState) {
+        switch viewState {
+        case .hasData(let entity):
+            headerSetup(entity.patient.name)
+        default:
+            break
+        }
+        
         contentView?.updateView(with: viewState)
     }
 }

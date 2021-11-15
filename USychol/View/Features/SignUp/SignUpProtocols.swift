@@ -7,6 +7,8 @@
 //
 //
 
+import RxSwift
+
 public protocol SignUpViewControllerType: AnyObject {
     var contentView: SignUpViewType? { get }
     var viewModel: SignUpViewModelType? { get }
@@ -19,9 +21,12 @@ public protocol SignUpViewModelType: AnyObject {
     var viewEntity: SignUpViewEntity? { get set }
     var viewState: SignUpViewState { get }
     
+    var viewSignUpObservable: Observable<EnumAuthResponse> { get }
+    
     func initState()
+    func onHandleSignUp(user: User) -> Void
 }
 
 public protocol SignUpViewControllerDelegate: AnyObject {
-    func onHandleSignUp(user: User, onAuthStateChange: @escaping (_ authStatus: EnumAuthResponse) -> Void) -> Void
+    
 }

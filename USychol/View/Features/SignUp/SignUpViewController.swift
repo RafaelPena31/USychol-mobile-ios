@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import RxSwift
 
 public class SignUpViewController: UIViewController {
 
@@ -16,6 +17,7 @@ public class SignUpViewController: UIViewController {
 
     public let viewModel: SignUpViewModelType?
     public let contentView: SignUpViewType?
+    let disposeBag = DisposeBag()
 
     // MARK: - PUBLIC API
 
@@ -41,6 +43,7 @@ public class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setup()
         viewModel?.initState()
+        bindObservables()
     }
     
     // MARK: - PRIVATE
@@ -59,6 +62,12 @@ public class SignUpViewController: UIViewController {
             self.view = contentView.content
         }
         contentView?.delegate = self
+    }
+    
+    private func bindObservables() {
+        viewModel?.viewSignUpObservable.subscribe(onNext: { [weak self] event in
+            self?.onAuthStateChange(event)
+        }).disposed(by: disposeBag)
     }
 }
 
@@ -90,14 +99,14 @@ extension SignUpViewController: SignUpViewDelegate {
             self.present(alert, animated: true)
             break
         case .error(let err):
-            let alert = CoreAlerts().handleErrorAlert(title: "Heads up", message: "Error: \(err), contact USychol Team support", buttonText: "Continue")
+            let alert = CoreAlerts().handleErrorAlert(title: "Heads up", message: "Error: \(err) Contact USychol Team support", buttonText: "Continue")
             self.present(alert, animated: true)
             break
         }
     }
     
     public func onHandleClick(user: User) {
-        delegate?.onHandleSignUp(user: user, onAuthStateChange: onAuthStateChange)
+        viewModel?.onHandleSignUp(user: user)
     }
     
     public func onHandleChange() {

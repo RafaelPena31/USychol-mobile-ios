@@ -5,6 +5,8 @@
 //  Created Rafael Augusto Mesquita on 28/07/21.
 //
 
+import RxSwift
+
 public protocol SignInViewControllerType: AnyObject {
     var contentView: SignInViewType? { get }
     var viewModel: SignInViewModelType? { get }
@@ -17,10 +19,12 @@ public protocol SignInViewModelType: AnyObject {
     var viewEntity: SignInViewEntity? { get set }
     var viewState: SignInViewState { get }
     
+    var viewSignInObservable: Observable<EnumAuthResponse> { get }
+    
     func initState()
+    func onHandleSignIn(email: String, password: String) -> Void
 }
 
 public protocol SignInViewControllerDelegate: AnyObject {
-    func onHandleSignIn(email: String, password: String, onAuthStateChange: @escaping (_ authStatus: EnumAuthResponse) -> Void) -> Void
     func getCurrentUserInfo() -> EntityTree
 }

@@ -7,6 +7,8 @@
 //
 //
 
+import RxSwift
+
 public class SignUpViewModel: SignUpViewModelType {
 
     // MARK: - PROPERTIES
@@ -19,6 +21,11 @@ public class SignUpViewModel: SignUpViewModelType {
         }
     }
     
+    private var viewSignUpSubject: PublishSubject<EnumAuthResponse> = PublishSubject<EnumAuthResponse>()
+    public lazy var viewSignUpObservable: Observable<EnumAuthResponse> = {
+        return viewSignUpSubject.asObserver()
+    }()
+    
     // MARK: - INITIALIZERS
 
     public init() {
@@ -30,11 +37,15 @@ public class SignUpViewModel: SignUpViewModelType {
     public func initState() {
         
     }
+    
+    public func onHandleSignUp(user: User) {
+        let userRepository = UserRepository()
+        userRepository.signUp(user: user) { [weak self] in
+            self?.viewSignUpSubject.onNext($0)
+        }
+    }
 }
 
 extension SignUpViewModel: SignUpViewControllerDelegate {
-    public func onHandleSignUp(user: User, onAuthStateChange: @escaping (EnumAuthResponse) -> Void) {
-        let userRepository = UserRepository()
-        userRepository.signUp(user: user, completionRequest: onAuthStateChange)
-    }
+
 }

@@ -15,7 +15,7 @@ public protocol PatientFormViewType: AnyObject {
 }
 
 public protocol PatientFormViewDelegate: AnyObject {
-    func onHandleCreatePatient(patient: Patient)
+    func onHandleCreatePatient(patient: PatientFB)
 }
 
 extension PatientFormViewType where Self: UIView {

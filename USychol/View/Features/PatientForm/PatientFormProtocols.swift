@@ -23,7 +23,7 @@ public protocol PatientFormViewModelType: AnyObject {
 }
 
 public protocol PatientFormViewControllerDelegate: AnyObject {
-    func onHandleCreatePatient(patient: Patient, onHandleUpdated:@escaping (_ state: Bool) -> Void) -> Void
+    func onHandleCreatePatient(patient: PatientFB, onHandleUpdated:@escaping (_ state: Bool) -> Void) -> Void
 }
 
 public protocol PatientFormBackStateChangeControl: AnyObject {

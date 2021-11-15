@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0451A44499A8B7A1D3F11AAA /* Pods_USychol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4EB53C5F0FCA6BD1B72492 /* Pods_USychol.framework */; };
-		116E7EEA807149D854F8F52C /* Pods_USycholTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46F120F8573550CB9F3361F /* Pods_USycholTests.framework */; };
 		8F0C29D026BE26100096296B /* VirtualPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C29C726BE26100096296B /* VirtualPlanViewModel.swift */; };
 		8F0C29D126BE26100096296B /* VirtualPlanViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C29C926BE26100096296B /* VirtualPlanViewEntity.swift */; };
 		8F0C29D226BE26100096296B /* VirtualPlanViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C29CB26BE26100096296B /* VirtualPlanViewState.swift */; };
@@ -116,6 +114,7 @@
 		E444E5C026BDF84500D94FBB /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
 		E444E5C126BDF84500D94FBB /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
 		E444E5C226BDF84700D94FBB /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F07CE1126B43DF2001E4E15 /* Nunito-SemiBold.ttf */; };
+		E45694572741EC540024A7C7 /* +Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45694562741EC540024A7C7 /* +Array.swift */; };
 		E458809026BCDDA8005D6573 /* PatientFormViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */; };
 		E458809126BCDDA8005D6573 /* PatientFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808926BCDDA8005D6573 /* PatientFormViewController.swift */; };
 		E458809226BCDDA8005D6573 /* PatientFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */; };
@@ -164,6 +163,11 @@
 		E491EB8A26BFC3BC002E436B /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EB8026BFC3BC002E436B /* ReportTableViewCell.swift */; };
 		E491EB8B26BFC3BC002E436B /* ReportTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EB8126BFC3BC002E436B /* ReportTableView.swift */; };
 		E491EB8C26BFC3BC002E436B /* PatientProfileViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E491EB8226BFC3BC002E436B /* PatientProfileViewType.swift */; };
+		E4A2B28A274094D70013EA1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4A2B289274094D70013EA1C /* GoogleService-Info.plist */; };
+		E4A2B28D2740A1150013EA1C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E4A2B28C2740A1150013EA1C /* SnapKit */; };
+		E4A2B2902740A16B0013EA1C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E4A2B28F2740A16B0013EA1C /* RxCocoa */; };
+		E4A2B2922740A16B0013EA1C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E4A2B2912740A16B0013EA1C /* RxSwift */; };
+		E4A2B29E2740A97E0013EA1C /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = E4A2B29D2740A97E0013EA1C /* CodableFirebase */; };
 		E4A8041126AEE91500AE8593 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041026AEE91500AE8593 /* SplashView.swift */; };
 		E4A8041326AEEE7000AE8593 /* SplashViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041226AEEE7000AE8593 /* SplashViewType.swift */; };
 		E4A8041726AF043300AE8593 /* CoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8041626AF043300AE8593 /* CoreLabel.swift */; };
@@ -178,6 +182,10 @@
 		E4A8044A26B1F7BA00AE8593 /* SignInViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8044326B1F7BA00AE8593 /* SignInViewState.swift */; };
 		E4A8044B26B1F7BA00AE8593 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8044426B1F7BA00AE8593 /* SignInViewModel.swift */; };
 		E4A8044C26B1F7BA00AE8593 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8044526B1F7BA00AE8593 /* SignInViewController.swift */; };
+		E4BAD4332740BA7D007D5B19 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4BAD4322740BA7D007D5B19 /* FirebaseAnalytics */; };
+		E4BAD4352740BA7D007D5B19 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E4BAD4342740BA7D007D5B19 /* FirebaseAuth */; };
+		E4BAD4372740BA7D007D5B19 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E4BAD4362740BA7D007D5B19 /* FirebaseFirestore */; };
+		E4BAD4392740BA7D007D5B19 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = E4BAD4382740BA7D007D5B19 /* FirebaseFirestoreSwift-Beta */; };
 		E4BF8F9126C871F100B2C566 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF8F9026C871F100B2C566 /* UITableView+.swift */; };
 		E4BF8F9826C87A7A00B2C566 /* CoreTableViewEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF8F9726C87A7A00B2C566 /* CoreTableViewEmptyState.swift */; };
 		E4BF8F9F26C8B08600B2C566 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF8F9E26C8B08600B2C566 /* CustomPickerViewController.swift */; };
@@ -195,7 +203,6 @@
 		E4F7BD3526C97FE800B51EF6 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3426C97FE800B51EF6 /* UserRepositoryProtocol.swift */; };
 		E4F7BD3726C9818400B51EF6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3626C9818400B51EF6 /* UserRepository.swift */; };
 		E4F7BD3A26C9A70200B51EF6 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7BD3926C9A70200B51EF6 /* UserHelper.swift */; };
-		E872802017AFA0EDD25058E8 /* Pods_USychol_USycholUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C0B4C0A53D217E10422693 /* Pods_USychol_USycholUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,10 +223,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		44EC2BAE942E0D25891E50A1 /* Pods-USychol-USycholUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol-USycholUITests.release.xcconfig"; path = "Target Support Files/Pods-USychol-USycholUITests/Pods-USychol-USycholUITests.release.xcconfig"; sourceTree = "<group>"; };
-		52C0B4C0A53D217E10422693 /* Pods_USychol_USycholUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USychol_USycholUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57B2734AFC3B8961ADF42606 /* Pods-USychol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol.release.xcconfig"; path = "Target Support Files/Pods-USychol/Pods-USychol.release.xcconfig"; sourceTree = "<group>"; };
-		5C5AB07248AE5BBF0D6B58CE /* Pods-USycholTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USycholTests.debug.xcconfig"; path = "Target Support Files/Pods-USycholTests/Pods-USycholTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F07CE0E26B43DF1001E4E15 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
 		8F07CE0F26B43DF1001E4E15 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		8F07CE1026B43DF2001E4E15 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -268,9 +271,6 @@
 		8FC66A2726BFA5BC00069DED /* NewReportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReportView.swift; sourceTree = "<group>"; };
 		8FC66A2826BFA5BC00069DED /* NewReportViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReportViewState.swift; sourceTree = "<group>"; };
 		8FC66A2926BFA5BC00069DED /* NewReportViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReportViewType.swift; sourceTree = "<group>"; };
-		C9F373F445B2AA50CB5906DC /* Pods-USycholTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USycholTests.release.xcconfig"; path = "Target Support Files/Pods-USycholTests/Pods-USycholTests.release.xcconfig"; sourceTree = "<group>"; };
-		D46F120F8573550CB9F3361F /* Pods_USycholTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USycholTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC7FD7262B7071D9640D2B2C /* Pods-USychol-USycholUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol-USycholUITests.debug.xcconfig"; path = "Target Support Files/Pods-USychol-USycholUITests/Pods-USychol-USycholUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E425BB7826BFC5E400E1DAA7 /* PerformActivyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformActivyRepository.swift; sourceTree = "<group>"; };
 		E425BB7926BFC5E400E1DAA7 /* ReminderRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderRepository.swift; sourceTree = "<group>"; };
 		E425BB7A26BFC5E400E1DAA7 /* PatientRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientRepository.swift; sourceTree = "<group>"; };
@@ -306,6 +306,7 @@
 		E444E59526BDF64800D94FBB /* SignUpProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
 		E444E59C26BDF6D900D94FBB /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E444E59E26BDF7F000D94FBB /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
+		E45694562741EC540024A7C7 /* +Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Array.swift"; sourceTree = "<group>"; };
 		E458808826BCDDA8005D6573 /* PatientFormViewEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewEntity.swift; sourceTree = "<group>"; };
 		E458808926BCDDA8005D6573 /* PatientFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewController.swift; sourceTree = "<group>"; };
 		E458808A26BCDDA8005D6573 /* PatientFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientFormViewModel.swift; sourceTree = "<group>"; };
@@ -354,6 +355,7 @@
 		E491EB8026BFC3BC002E436B /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		E491EB8126BFC3BC002E436B /* ReportTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableView.swift; sourceTree = "<group>"; };
 		E491EB8226BFC3BC002E436B /* PatientProfileViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileViewType.swift; sourceTree = "<group>"; };
+		E4A2B289274094D70013EA1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4A8041026AEE91500AE8593 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E4A8041226AEEE7000AE8593 /* SplashViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewType.swift; sourceTree = "<group>"; };
 		E4A8041626AF043300AE8593 /* CoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLabel.swift; sourceTree = "<group>"; };
@@ -391,8 +393,6 @@
 		E4F7BD3426C97FE800B51EF6 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E4F7BD3626C9818400B51EF6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E4F7BD3926C9A70200B51EF6 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
-		E93573A3E1BF82CCCF152C9C /* Pods-USychol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USychol.debug.xcconfig"; path = "Target Support Files/Pods-USychol/Pods-USychol.debug.xcconfig"; sourceTree = "<group>"; };
-		FC4EB53C5F0FCA6BD1B72492 /* Pods_USychol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USychol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,7 +400,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0451A44499A8B7A1D3F11AAA /* Pods_USychol.framework in Frameworks */,
+				E4A2B2902740A16B0013EA1C /* RxCocoa in Frameworks */,
+				E4BAD4352740BA7D007D5B19 /* FirebaseAuth in Frameworks */,
+				E4A2B29E2740A97E0013EA1C /* CodableFirebase in Frameworks */,
+				E4A2B2922740A16B0013EA1C /* RxSwift in Frameworks */,
+				E4BAD4332740BA7D007D5B19 /* FirebaseAnalytics in Frameworks */,
+				E4BAD4392740BA7D007D5B19 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				E4A2B28D2740A1150013EA1C /* SnapKit in Frameworks */,
+				E4BAD4372740BA7D007D5B19 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +415,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				116E7EEA807149D854F8F52C /* Pods_USycholTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,36 +422,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E872802017AFA0EDD25058E8 /* Pods_USychol_USycholUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A52BD7C78DFB90E501330BF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FC4EB53C5F0FCA6BD1B72492 /* Pods_USychol.framework */,
-				52C0B4C0A53D217E10422693 /* Pods_USychol_USycholUITests.framework */,
-				D46F120F8573550CB9F3361F /* Pods_USycholTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5914DE2341055F1E84150F93 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E93573A3E1BF82CCCF152C9C /* Pods-USychol.debug.xcconfig */,
-				57B2734AFC3B8961ADF42606 /* Pods-USychol.release.xcconfig */,
-				DC7FD7262B7071D9640D2B2C /* Pods-USychol-USycholUITests.debug.xcconfig */,
-				44EC2BAE942E0D25891E50A1 /* Pods-USychol-USycholUITests.release.xcconfig */,
-				5C5AB07248AE5BBF0D6B58CE /* Pods-USycholTests.debug.xcconfig */,
-				C9F373F445B2AA50CB5906DC /* Pods-USycholTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		8F0C29C626BE26100096296B /* VirtualPlan */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +610,7 @@
 		E425BB8026BFC5EC00E1DAA7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				E45694552741EC420024A7C7 /* Extensions */,
 				E425BB8126BFC5EC00E1DAA7 /* Protocols */,
 				E425BB8726BFC5EC00E1DAA7 /* Entities */,
 			);
@@ -767,6 +750,7 @@
 		E455F91D26A7BF37004A85B2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E4A2B289274094D70013EA1C /* GoogleService-Info.plist */,
 				E4DEE69A26A74F0F0026E89D /* Info.plist */,
 				E4DEE68C26A74F0E0026E89D /* AppDelegate.swift */,
 				E4DEE68E26A74F0E0026E89D /* SceneDelegate.swift */,
@@ -781,6 +765,14 @@
 				E4DEE69526A74F0F0026E89D /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		E45694552741EC420024A7C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E45694562741EC540024A7C7 /* +Array.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E458808626BCDDA8005D6573 /* PatientForm */ = {
@@ -1207,8 +1199,6 @@
 				E4DEE6A226A74F0F0026E89D /* USycholTests */,
 				E4DEE6AD26A74F0F0026E89D /* USycholUITests */,
 				E4DEE68A26A74F0E0026E89D /* Products */,
-				5914DE2341055F1E84150F93 /* Pods */,
-				3A52BD7C78DFB90E501330BF /* Frameworks */,
 				E491EAFF26BFC1A6002E436B /* Recovered References */,
 			);
 			sourceTree = "<group>";
@@ -1277,17 +1267,25 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4DEE6B326A74F0F0026E89D /* Build configuration list for PBXNativeTarget "USychol" */;
 			buildPhases = (
-				D3E883787820AFED1E76D466 /* [CP] Check Pods Manifest.lock */,
 				E4DEE68526A74F0E0026E89D /* Sources */,
 				E4DEE68626A74F0E0026E89D /* Frameworks */,
 				E4DEE68726A74F0E0026E89D /* Resources */,
-				95A8828698DB86525E35E256 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = USychol;
+			packageProductDependencies = (
+				E4A2B28C2740A1150013EA1C /* SnapKit */,
+				E4A2B28F2740A16B0013EA1C /* RxCocoa */,
+				E4A2B2912740A16B0013EA1C /* RxSwift */,
+				E4A2B29D2740A97E0013EA1C /* CodableFirebase */,
+				E4BAD4322740BA7D007D5B19 /* FirebaseAnalytics */,
+				E4BAD4342740BA7D007D5B19 /* FirebaseAuth */,
+				E4BAD4362740BA7D007D5B19 /* FirebaseFirestore */,
+				E4BAD4382740BA7D007D5B19 /* FirebaseFirestoreSwift-Beta */,
+			);
 			productName = USychol;
 			productReference = E4DEE68926A74F0E0026E89D /* USychol.app */;
 			productType = "com.apple.product-type.application";
@@ -1296,7 +1294,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4DEE6B626A74F0F0026E89D /* Build configuration list for PBXNativeTarget "USycholTests" */;
 			buildPhases = (
-				043936919E7A20CA35CC4F2F /* [CP] Check Pods Manifest.lock */,
 				E4DEE69B26A74F0F0026E89D /* Sources */,
 				E4DEE69C26A74F0F0026E89D /* Frameworks */,
 				E4DEE69D26A74F0F0026E89D /* Resources */,
@@ -1315,11 +1312,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4DEE6B926A74F0F0026E89D /* Build configuration list for PBXNativeTarget "USycholUITests" */;
 			buildPhases = (
-				84B639521F11D542B0539B37 /* [CP] Check Pods Manifest.lock */,
 				E4DEE6A626A74F0F0026E89D /* Sources */,
 				E4DEE6A726A74F0F0026E89D /* Frameworks */,
 				E4DEE6A826A74F0F0026E89D /* Resources */,
-				14FE59A8685ED1EB5CD3FD85 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1362,6 +1357,12 @@
 				Base,
 			);
 			mainGroup = E4DEE68026A74F0E0026E89D;
+			packageReferences = (
+				E4A2B28B2740A1150013EA1C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E4A2B28E2740A16B0013EA1C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E4A2B29C2740A97E0013EA1C /* XCRemoteSwiftPackageReference "CodableFirebase" */,
+				E4BAD4312740BA7D007D5B19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = E4DEE68A26A74F0E0026E89D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1391,6 +1392,7 @@
 				E444E5B126BDF82F00D94FBB /* Nunito-Bold.ttf in Resources */,
 				E444E5A826BDF82100D94FBB /* Poppins-Medium.ttf in Resources */,
 				E444E5B726BDF83800D94FBB /* Nunito-ExtraLight.ttf in Resources */,
+				E4A2B28A274094D70013EA1C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1433,109 +1435,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		043936919E7A20CA35CC4F2F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-USycholTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		14FE59A8685ED1EB5CD3FD85 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-USychol-USycholUITests/Pods-USychol-USycholUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-USychol-USycholUITests/Pods-USychol-USycholUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-USychol-USycholUITests/Pods-USychol-USycholUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		84B639521F11D542B0539B37 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-USychol-USycholUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		95A8828698DB86525E35E256 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-USychol/Pods-USychol-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-USychol/Pods-USychol-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-USychol/Pods-USychol-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D3E883787820AFED1E76D466 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-USychol-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4DEE68526A74F0E0026E89D /* Sources */ = {
@@ -1675,6 +1574,7 @@
 				E425BB9226BFC5EC00E1DAA7 /* Patient.swift in Sources */,
 				E4A8041A26AF0D0A00AE8593 /* CoreLabelType.swift in Sources */,
 				8FC669FF26BF916300069DED /* FullPlanViewController.swift in Sources */,
+				E45694572741EC540024A7C7 /* +Array.swift in Sources */,
 				E491EB8A26BFC3BC002E436B /* ReportTableViewCell.swift in Sources */,
 				E4F7BD3526C97FE800B51EF6 /* UserRepositoryProtocol.swift in Sources */,
 				E491EB8926BFC3BC002E436B /* SearchTextField.swift in Sources */,
@@ -1842,7 +1742,6 @@
 		};
 		E4DEE6B426A74F0F0026E89D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E93573A3E1BF82CCCF152C9C /* Pods-USychol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1863,7 +1762,6 @@
 		};
 		E4DEE6B526A74F0F0026E89D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57B2734AFC3B8961ADF42606 /* Pods-USychol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1884,7 +1782,6 @@
 		};
 		E4DEE6B726A74F0F0026E89D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C5AB07248AE5BBF0D6B58CE /* Pods-USycholTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1907,7 +1804,6 @@
 		};
 		E4DEE6B826A74F0F0026E89D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9F373F445B2AA50CB5906DC /* Pods-USycholTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1930,7 +1826,6 @@
 		};
 		E4DEE6BA26A74F0F0026E89D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC7FD7262B7071D9640D2B2C /* Pods-USychol-USycholUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1951,7 +1846,6 @@
 		};
 		E4DEE6BB26A74F0F0026E89D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44EC2BAE942E0D25891E50A1 /* Pods-USychol-USycholUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2010,6 +1904,84 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E4A2B28B2740A1150013EA1C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E4A2B28E2740A16B0013EA1C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		E4A2B29C2740A97E0013EA1C /* XCRemoteSwiftPackageReference "CodableFirebase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alickbass/CodableFirebase.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
+		E4BAD4312740BA7D007D5B19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E4A2B28C2740A1150013EA1C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4A2B28B2740A1150013EA1C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		E4A2B28F2740A16B0013EA1C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4A2B28E2740A16B0013EA1C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		E4A2B2912740A16B0013EA1C /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4A2B28E2740A16B0013EA1C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		E4A2B29D2740A97E0013EA1C /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4A2B29C2740A97E0013EA1C /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
+		};
+		E4BAD4322740BA7D007D5B19 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4BAD4312740BA7D007D5B19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		E4BAD4342740BA7D007D5B19 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4BAD4312740BA7D007D5B19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E4BAD4362740BA7D007D5B19 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4BAD4312740BA7D007D5B19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E4BAD4382740BA7D007D5B19 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4BAD4312740BA7D007D5B19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4DEE68126A74F0E0026E89D /* Project object */;
 }

@@ -140,7 +140,7 @@ final public class PatientFormView: UIView {
     // MARK: - ACTIONS
     private func onPressCreate() {
         let userID = UserDefaults.standard.getUserID()
-        let newPatient = Patient(id: UUID().uuidString,
+        let newPatient = PatientFB(id: UUID().uuidString,
                                  name: patientFormStack.nameTextField.text,
                                  patientSummary: patientFormStack.summaryTextField.text,
                                  age: patientFormStack.ageTextField.text,
@@ -149,7 +149,6 @@ final public class PatientFormView: UIView {
                                  fatherName: patientFormStack.fatherTextField.text,
                                  maritalStatus: patientFormStack.maritalTextField.text,
                                  appointmentCount: Int(patientFormStack.appointmentCountTextField.text) ?? 1,
-                                 reports: [],
                                  fromUser: userID)
         
         delegate?.onHandleCreatePatient(patient: newPatient)

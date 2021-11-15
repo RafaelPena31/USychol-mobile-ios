@@ -27,15 +27,15 @@ public class UserService {
         let userId = currentUserInfo.id
         
         func onHandleSetUser() -> EnumAuthResponse {
-            localStorage.setLoggedIn(value: true)
-            localStorage.setUserID(value: userId)
-            
             let entityTree = EntityTree(userInfo: currentUserInfo, patient: patients, reminder: reminders)
             let authEntityTree = AuthEntityTree(userID: userId, entity: entityTree)
             
             do {
                 let userData = try encoder.encode(authEntityTree)
                 localStorage.set(userData, forKey: "currentUserData")
+                localStorage.setLoggedIn(value: true)
+                localStorage.setUserID(value: userId)
+                
                 return .authenticated
             } catch let err {
                 let errMsg = err.localizedDescription
@@ -51,7 +51,7 @@ public class UserService {
             
         var reminders: [Reminder] = []
         func setReminder(_ cacheReminders: [Reminder], _ currentUserInfo: User) {
-            reminders = cacheReminders
+            reminders = Array(cacheReminders.reversed())
             
             let authState = onHandleSetUser()
             setAuthState(authState)

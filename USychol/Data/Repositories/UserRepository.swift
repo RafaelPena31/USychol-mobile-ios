@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import Firebase
+import CodableFirebase
 
 public class UserRepository: UserRepositoryProtocol {
-    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
-    private let urlSession = URLSession.shared
-    
     // MARK: - DATA
     
     let localStorage = UserDefaults.standard
     let decoder = JSONDecoder()
     let encoder = JSONEncoder()
+    
+    let firestoreDB = Firestore.firestore()
     
     // MARK: - BUSINESS RULE
     
@@ -34,32 +35,42 @@ public class UserRepository: UserRepositoryProtocol {
             authState = state
         }
         
-        if let URL = URL(string: self.baseUrl) {
-            self.urlSession.dataTask(with: URL) { data, response, error in
-                if let data = data {
-                    do {
-                        let usersData = try self.decoder.decode([User].self, from: data)
-                        if let currentUserInfo = UserService().sign(usersData: usersData, email: email, password: password) {
-                            UserService().getUser(currentUserInfo: currentUserInfo, setAuthState: setAuthState)
-                        } else {
-                            setAuthState(.unauthenticated)
-                        }
-                    } catch let err {
-                        let errMsg = err.localizedDescription
-                        print("Unable to verify the data in SignIn - User Repository - Error: \(errMsg)")
-                        setAuthState(.error(errMsg))
-                    }
+        func getUserFromDB(_ userId: String) {
+            let docRef = firestoreDB.collection("users").document(userId)
+            docRef.getDocument { doc, error in
+                guard let doc = doc, let docData = doc.data() else {
+                    let errMsg = error!.localizedDescription
+                    print(errMsg)
+                    setAuthState(.error(errMsg))
+                    
+                    return
                 }
-            }.resume()
+                
+                let userFB = try! FirestoreDecoder().decode(User.self, from: docData)
+                UserService().getUser(currentUserInfo: userFB, setAuthState: setAuthState)
+            }
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completionRequest(.error(error.localizedDescription))
+            } else {
+                getUserFromDB(authResult!.user.uid)
+            }
         }
     }
     
     public func logOut(_ logOutView: () -> Void) -> Void {
-        localStorage.removeObject(forKey: "currentUserData")
-        localStorage.setLoggedIn(value: false)
-        localStorage.setUserID(value: "")
-        
-        logOutView()
+        do {
+            try Auth.auth().signOut()
+            localStorage.removeObject(forKey: "currentUserData")
+            localStorage.setLoggedIn(value: false)
+            localStorage.setUserID(value: "")
+            
+            logOutView()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
     
     public func signUp(user: User, completionRequest:@escaping (_ state: EnumAuthResponse) -> Void) {
@@ -77,32 +88,29 @@ public class UserRepository: UserRepositoryProtocol {
             authState = state
         }
         
-        do {
-            let userData = try encoder.encode(user)
-            
-            if let URL = URL(string: self.baseUrl) {
-                var urlRequest = URLRequest(url: URL)
-                urlRequest.httpMethod = "POST"
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-                urlRequest.httpBody = userData
-                
-                self.urlSession.dataTask(with: urlRequest) { data, response, error in
-                    if let data = data {
-                        do {
-                            let userResponse = try JSONDecoder().decode(User.self, from: data)
-                            UserService().getUser(currentUserInfo: userResponse, setAuthState: setAuthState)
-                        } catch let err {
-                            let errMsg = err.localizedDescription
-                            print("Unable to verify the data in SignUp - User Repository - Error: \(errMsg)")
-                            setAuthState(.error(errMsg))
-                        }
+        func createUserSchemasDB(_ user: User) {
+            do {
+                let FBUserData = try FirestoreEncoder().encode(user)
+                firestoreDB.collection("users").document(user.id).setData(FBUserData) { error in
+                    if let error = error {
+                        setAuthState(.error(error.localizedDescription))
+                    } else {
+                        UserService().getUser(currentUserInfo: user, setAuthState: setAuthState)
                     }
-                }.resume()
+                }
+            } catch let error {
+                print(error.localizedDescription)
             }
-        } catch let err {
-            let errMsg = err.localizedDescription
-            print("Unable to verify the data in SignUp - User Repository - Error: \(errMsg)")
+        }
+        
+        
+        Auth.auth().createUser(withEmail: user.email, password: user.password!) { authResult, error in
+            if let error = error {
+                setAuthState(.error(error.localizedDescription))
+            } else {
+                let newUser = User(id: authResult!.user.uid, name: user.name, email: user.email, age: user.age, crp: user.crp, cpf: user.cpf, plan: nil, password: user.password)
+                createUserSchemasDB(newUser)
+            }
         }
     }
     
@@ -126,12 +134,12 @@ public class UserRepository: UserRepositoryProtocol {
                 if let verifyState = verifyState {
                     DispatchQueue.main.async {
                         switch verifyState {
-                            case .authenticated:
-                                completionRequest(true)
-                                break
-                            default:
-                                completionRequest(false)
-                                break
+                        case .authenticated:
+                            completionRequest(true)
+                            break
+                        default:
+                            completionRequest(false)
+                            break
                         }
                     }
                 }
@@ -142,33 +150,24 @@ public class UserRepository: UserRepositoryProtocol {
             verifyState = state
         }
         
-        do {
-            let userData = try encoder.encode(userInfo.userInfo)
-            
-            if let URL = URL(string: "\(self.baseUrl)/\(userInfo.userInfo.id)") {
-                var urlRequest = URLRequest(url: URL)
-                urlRequest.httpMethod = "PUT"
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-                urlRequest.httpBody = userData
-                
-                self.urlSession.dataTask(with: urlRequest) { data, response, error in
-                    if let data = data {
-                        do {
-                            let userResponse = try JSONDecoder().decode(User.self, from: data)
-                            UserService().getUser(currentUserInfo: userResponse, setAuthState: setVerifyState)
-                        } catch let err {
-                            let errMsg = err.localizedDescription
-                            print("Unable to verify the data in SignUp - User Repository - Error: \(errMsg)")
-                            setVerifyState(.error(errMsg))
-                        }
+        func updateUserFromDB() {
+            do {
+                let FBUserData = try FirestoreEncoder().encode(userInfo.userInfo)
+                firestoreDB.collection("users").document(userInfo.userInfo.id).setData(FBUserData) { error in
+                    if let error = error {
+                        setVerifyState(.error(error.localizedDescription))
+                    } else {
+                        UserService().getUser(currentUserInfo: userInfo.userInfo, setAuthState: setVerifyState)
                     }
-                }.resume()
+                }
+            } catch let err {
+                let errMsg = err.localizedDescription
+                setVerifyState(.error(errMsg))
+                print("Unable to update the data in updateData - User Repository - Error: \(errMsg)")
             }
-        } catch let err {
-            let errMsg = err.localizedDescription
-            print("Unable to update the data in updateData - User Repository - Error: \(errMsg)")
         }
+        
+        updateUserFromDB()
     }
     
     public func deleteAccount(userInfo: EntityTree, completionRequest: @escaping (Bool) -> Void) {
@@ -186,15 +185,79 @@ public class UserRepository: UserRepositoryProtocol {
             verifyState = state
         }
         
-        if let URL = URL(string: "\(self.baseUrl)/\(userInfo.userInfo.id)") {
-            var urlRequest = URLRequest(url: URL)
-            urlRequest.httpMethod = "DELETE"
+        func deleteUserDocsFromDB() {
+            var docsForQuery: [QueryDocumentSnapshot] = []
             
-            self.urlSession.dataTask(with: urlRequest) { data, response, error in
-                if data != nil {
-                    setVerifyState(true)
+            firestoreDB.collection("users").document(userInfo.userInfo.id).delete() { err in
+                if let err = err {
+                    setVerifyState(false)
+                    print("Error removing user document: \(err)")
+                    
+                    return
                 }
-            }.resume()
+            }
+            
+            let patientsDocsRef = firestoreDB.collection("patients").whereField("fromUser", isEqualTo: userInfo.userInfo.id)
+            patientsDocsRef.getDocuments { snp, err in
+                if let err = err {
+                    setVerifyState(false)
+                    print("Error getting patients documents: \(err)")
+                    
+                    return
+                } else {
+                    docsForQuery.append(contentsOf: snp!.documents)
+                }
+            }
+
+            let remindersDocsRef = firestoreDB.collection("reminders").whereField("fromUser", isEqualTo: userInfo.userInfo.id)
+            remindersDocsRef.getDocuments { snp, err in
+                if let err = err {
+                    setVerifyState(false)
+                    print("Error getting reminders documents: \(err)")
+                    
+                    return
+                } else {
+                    docsForQuery.append(contentsOf: snp!.documents)
+                }
+            }
+            
+            if docsForQuery.count == 0 {
+                setVerifyState(true)
+            } else {
+                let docsForQueryArray = docsForQuery.chunked(into: 500)
+                docsForQueryArray.forEach { docQuery in
+                    let batchDB = firestoreDB.batch()
+                    docQuery.forEach { doc in
+                        batchDB.deleteDocument(doc.reference)
+                    }
+                    
+                    batchDB.commit() { err in
+                        if let err = err {
+                            setVerifyState(false)
+                            print("Batch Error: \(err.localizedDescription)")
+                            
+                            return
+                        } else {
+                            setVerifyState(true)
+                        }
+                    }
+                }
+            }
         }
+        
+        func deleteUserFromAuth() {
+            let userFB = Auth.auth().currentUser
+            
+            userFB?.delete { error in
+                if let error = error {
+                    let errMsg = error.localizedDescription
+                    print("Unable to delete the data in deleteAccount - User Repository - Error: \(errMsg)")
+                } else {
+                    deleteUserDocsFromDB()
+                }
+            }
+        }
+        
+        deleteUserFromAuth()
     }
 }

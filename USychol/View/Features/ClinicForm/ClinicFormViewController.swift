@@ -127,7 +127,7 @@ extension ClinicFormViewController: ClinicFormViewControllerType {
 extension ClinicFormViewController: ClinicFormViewDelegate {
     private func onHandleDeleteAccount(_ state: Bool) {
         if state {
-            logOutView()
+            delegate?.logOut(logOutView: logOutView)
         }
     }
     

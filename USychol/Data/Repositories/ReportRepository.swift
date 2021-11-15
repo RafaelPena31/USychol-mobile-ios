@@ -4,7 +4,10 @@
 //
 //  Created by Rafael Augusto Mesquita on 08/08/21.
 //
+
 import Foundation
+import Firebase
+import CodableFirebase
 
 public class ReportRepository: ReportRepositoryProtocol {
     private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
@@ -15,6 +18,8 @@ public class ReportRepository: ReportRepositoryProtocol {
     let localStorage = UserDefaults.standard
     let decoder = JSONDecoder()
     let encoder = JSONEncoder()
+    
+    let firestoreDB = Firestore.firestore()
     
     // MARK: - BUSINESS RULE
     
@@ -29,79 +34,76 @@ public class ReportRepository: ReportRepositoryProtocol {
             }
         }
         
+        let userRepository = UserRepository()
+        let patientRepository = PatientRepository()
+        
+        let reportId = UUID().uuidString
+        let currentPatientInfo = patientRepository.getCurrentPatient()!
+        
         func setRequestState(_ state: Bool) {
             requestState = state
         }
         
-        let userRepository = UserRepository()
-        let patientRepository = PatientRepository()
-        
-        let currentUserInfo = userRepository.getUser()!
-        var currentPatientsArrayInfo = currentUserInfo.patient
-        
-        let currentPatientInfo = patientRepository.getCurrentPatient()!
-        var reportsInfo = currentPatientInfo.reports
-        reportsInfo.insert(report, at: 0)
-        let newCurrentPatientInfo = Patient(id: currentPatientInfo.id,
-                                            name: currentPatientInfo.name,
-                                            patientSummary: currentPatientInfo.patientSummary,
-                                            age: currentPatientInfo.age,
-                                            patientClass: currentPatientInfo.patientClass,
-                                            motherName: currentPatientInfo.motherName,
-                                            fatherName: currentPatientInfo.fatherName,
-                                            maritalStatus: currentPatientInfo.maritalStatus,
-                                            appointmentCount: currentPatientInfo.appointmentCount,
-                                            reports: reportsInfo,
-                                            fromUser: currentPatientInfo.fromUser)
-        
-        let currentPatientInfoIndex = currentPatientsArrayInfo.firstIndex(where: {$0.id == currentPatientInfo.id})!
-        currentPatientsArrayInfo.remove(at: currentPatientInfoIndex)
-        currentPatientsArrayInfo.insert(newCurrentPatientInfo, at: 0)
-        
-        let newCurrentUserInfo = EntityTree(userInfo: currentUserInfo.userInfo, patient: currentPatientsArrayInfo, reminder: currentUserInfo.reminder)
-        
-        do {
-            let reportData = try encoder.encode(report)
-            
-            if let URL = URL(string: "\(self.baseUrl)/\(currentUserInfo.userInfo.id)/patients/\(currentPatientInfo.id)/reports") {
-                var urlRequest = URLRequest(url: URL)
-                urlRequest.httpMethod = "POST"
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-                urlRequest.httpBody = reportData
-                
-                self.urlSession.dataTask(with: urlRequest) { data, response, error in
-                    if let data = data {
-                        do {
-                            let newReport = try self.decoder.decode(Report.self, from: data)
-                            reportsInfo.append(newReport)
-                            
-                            let newPatient = Patient(id: currentPatientInfo.id,
-                                                     name: currentPatientInfo.name,
-                                                     profilePicture: currentPatientInfo.profilePicture,
-                                                     patientSummary: currentPatientInfo.patientSummary,
-                                                     age: currentPatientInfo.age,
-                                                     patientClass: currentPatientInfo.patientClass,
-                                                     motherName: currentPatientInfo.motherName,
-                                                     fatherName: currentPatientInfo.fatherName,
-                                                     maritalStatus: currentPatientInfo.maritalStatus,
-                                                     appointmentCount: currentPatientInfo.appointmentCount,
-                                                     reports: reportsInfo,
-                                                     fromUser: currentPatientInfo.fromUser)
-                            
-                            userRepository.updateData(userInfo: newCurrentUserInfo, completionRequest: setRequestState)
-                            patientRepository.updatePatient(patient: newPatient, completionRequest: setRequestState)
-                        } catch let err {
-                            let errMsg = err.localizedDescription
-                            print("Unable to verify the data in CreateReport - Report Repository - Error: \(errMsg)")
-                        }
-                    }
-                }.resume()
-            }
-        } catch let err {
-            let errMsg = err.localizedDescription
-            print("Unable to verify the data in CreateReport - Report Repository - Error: \(errMsg)")
+        func createNewReport() -> Report {
+            let newReport = Report(id: reportId,
+                                   date: report.date,
+                                   startAt: report.startAt,
+                                   activies: report.activies,
+                                   resume: report.resume,
+                                   consultEvaluation: report.consultEvaluation,
+                                   fromPatient: currentPatientInfo.id)
+            return newReport
         }
+        
+        func updateLocalStorage(_ newReport: Report) {
+            let currentUserInfo = userRepository.getUser()!
+            var currentPatientsArrayInfo = currentUserInfo.patient
+            
+            var reportsInfo = currentPatientInfo.reports
+            reportsInfo.insert(newReport, at: 0)
+            
+            let newCurrentPatientInfo = Patient(id: currentPatientInfo.id,
+                                                name: currentPatientInfo.name,
+                                                patientSummary: currentPatientInfo.patientSummary,
+                                                age: currentPatientInfo.age,
+                                                patientClass: currentPatientInfo.patientClass,
+                                                motherName: currentPatientInfo.motherName,
+                                                fatherName: currentPatientInfo.fatherName,
+                                                maritalStatus: currentPatientInfo.maritalStatus,
+                                                appointmentCount: currentPatientInfo.appointmentCount,
+                                                reports: reportsInfo,
+                                                fromUser: currentPatientInfo.fromUser)
+            
+            let currentPatientInfoIndex = currentPatientsArrayInfo.firstIndex(where: {$0.id == currentPatientInfo.id})!
+            currentPatientsArrayInfo.remove(at: currentPatientInfoIndex)
+            currentPatientsArrayInfo.insert(newCurrentPatientInfo, at: 0)
+            
+            let newCurrentUserInfo = EntityTree(userInfo: currentUserInfo.userInfo, patient: currentPatientsArrayInfo, reminder: currentUserInfo.reminder)
+            
+            userRepository.updateData(userInfo: newCurrentUserInfo, completionRequest: setRequestState)
+        }
+        
+        func updateFromDB() {
+            do {
+                let newReport = createNewReport()
+                let reportData = try FirestoreEncoder().encode(newReport)
+                firestoreDB.collection("reports").document(reportId).setData(reportData) { err in
+                    if let err = err {
+                        let errMsg = err.localizedDescription
+                        setRequestState(false)
+                        
+                        print(errMsg)
+                    } else {
+                        updateLocalStorage(newReport)
+                    }
+                }
+            } catch let err {
+                let errMsg = err.localizedDescription
+                print("Unable to verify the data in CreateReport - Report Repository - Error: \(errMsg)")
+            }
+        }
+        
+        updateFromDB()
     }
     
     public func getReportById(patientId: String, reportId: String) -> Report? {

@@ -97,7 +97,7 @@ extension PatientFormViewController: PatientFormViewDelegate {
         }
     }
     
-    public func onHandleCreatePatient(patient: Patient) {
+    public func onHandleCreatePatient(patient: PatientFB) {
         delegate!.onHandleCreatePatient(patient: patient, onHandleUpdated: onHandleUpdated)
     }
 }

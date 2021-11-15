@@ -16,3 +16,7 @@ public struct Reminder: Equatable, Codable {
     
     let fromUser: String
 }
+
+struct ReminderFB: Codable {
+    let reminders: [Reminder]
+}

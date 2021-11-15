@@ -20,5 +20,5 @@ public struct User: Equatable, Codable {
     let crp: String
     let cpf: String
     let plan: Plans?
-    let password: String
+    let password: String?
 }

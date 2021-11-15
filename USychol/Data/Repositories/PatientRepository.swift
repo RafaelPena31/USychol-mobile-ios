@@ -5,10 +5,10 @@
 //  Created by Rafael Augusto Mesquita on 05/08/21.
 //
 import Foundation
+import Firebase
+import CodableFirebase
 
 public class PatientRepository: PatientRepositoryProtocol {
-    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/users"
-    private let urlSession = URLSession.shared
     
     // MARK: - DATA
     
@@ -16,9 +16,11 @@ public class PatientRepository: PatientRepositoryProtocol {
     let decoder = JSONDecoder()
     let encoder = JSONEncoder()
     
+    let firestoreDB = Firestore.firestore()
+    
     // MARK: - BUSINESS RULE
     
-    public func createPatient(patient: Patient, completionRequest:@escaping (_ state: Bool) -> Void) -> Void {
+    public func createPatient(patient: PatientFB, completionRequest:@escaping (_ state: Bool) -> Void) -> Void {
         var requestState: Bool = false {
             didSet {
                 if requestState {
@@ -29,38 +31,71 @@ public class PatientRepository: PatientRepositoryProtocol {
             }
         }
         
+        let patientId = UUID().uuidString
+        
         func setRequestState(_ state: Bool) {
             requestState = state
         }
         
-        let userRepository = UserRepository()
-        if let userInfoEntityTree = userRepository.getUser() {
-            var patients = userInfoEntityTree.patient
-            patients.append(patient)
-                
-            let newUserInfoEntityTree = EntityTree(userInfo: userInfoEntityTree.userInfo, patient: patients, reminder: userInfoEntityTree.reminder)
+        func updateLocalStorage() {
+            let userRepository = UserRepository()
             
-            do {
-                let patientData = try encoder.encode(patient)
+            if let userInfoEntityTree = userRepository.getUser() {
+                var patients = userInfoEntityTree.patient
                 
-                if let URL = URL(string: "\(self.baseUrl)/\(userInfoEntityTree.userInfo.id)/patients") {
-                    var urlRequest = URLRequest(url: URL)
-                    urlRequest.httpMethod = "POST"
-                    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-                    urlRequest.httpBody = patientData
-                    
-                    self.urlSession.dataTask(with: urlRequest) { data, response, error in
-                        if data != nil {
-                            userRepository.updateData(userInfo: newUserInfoEntityTree, completionRequest: setRequestState)
-                        }
-                    }.resume()
+                let newPatient = Patient(id: patientId,
+                                         name: patient.name,
+                                         patientSummary: patient.patientSummary,
+                                         age: patient.age,
+                                         patientClass: patient.patientClass,
+                                         motherName: patient.motherName,
+                                         fatherName: patient.fatherName,
+                                         maritalStatus: patient.maritalStatus,
+                                         appointmentCount: patient.appointmentCount,
+                                         reports: [],
+                                         fromUser: patient.fromUser)
+                
+                patients.append(newPatient)
+                
+                let newUserInfoEntityTree = EntityTree(userInfo: userInfoEntityTree.userInfo, patient: patients, reminder: userInfoEntityTree.reminder)
+                userRepository.updateData(userInfo: newUserInfoEntityTree, completionRequest: setRequestState)
+                
+                updateDB(newPatient)
+            }
+        }
+        
+        func updateDB(_ newPatient: Patient) {
+            do {
+                let patientFromDB = PatientFB(id: newPatient.id,
+                                              name: newPatient.name,
+                                              profilePicture: newPatient.profilePicture,
+                                              patientSummary: newPatient.patientSummary,
+                                              age: newPatient.age,
+                                              patientClass: newPatient.patientClass,
+                                              motherName: newPatient.motherName,
+                                              fatherName: newPatient.fatherName,
+                                              maritalStatus: newPatient.maritalStatus,
+                                              appointmentCount: newPatient.appointmentCount,
+                                              fromUser: newPatient.fromUser)
+                
+                let patientData = try FirestoreEncoder().encode(patientFromDB)
+                firestoreDB.collection("patients").document(patientId).setData(patientData) { err in
+                    if let err = err {
+                        let errMsg = err.localizedDescription
+                        setRequestState(false)
+                        
+                        print(errMsg)
+                    } else {
+                        setRequestState(true)
+                    }
                 }
             } catch let err {
                 let errMsg = err.localizedDescription
                 print("Unable to verify the data in CreatePatient - Patient Repository - Error: \(errMsg)")
             }
         }
+        
+        updateLocalStorage()
     }
     
     public func updatePatient(patient: Patient, completionRequest: @escaping (Bool) -> Void) {
@@ -74,39 +109,56 @@ public class PatientRepository: PatientRepositoryProtocol {
             }
         }
         
+        let userRepository = UserRepository()
+        
         func setRequestState(_ state: Bool) {
             requestState = state
         }
         
-        let userRepository = UserRepository()
-        if let userInfoEntityTree = userRepository.getUser() {
-            var patients = userInfoEntityTree.patient
-            patients.append(patient)
+        func updateLocalStorage() {
+            if let userInfoEntityTree = userRepository.getUser() {
+                var patients = userInfoEntityTree.patient.filter { $0.id != patient.id }
+                patients.append(patient)
                 
-            let newUserInfoEntityTree = EntityTree(userInfo: userInfoEntityTree.userInfo, patient: patients, reminder: userInfoEntityTree.reminder)
-            
+                let newUserInfoEntityTree = EntityTree(userInfo: userInfoEntityTree.userInfo, patient: patients, reminder: userInfoEntityTree.reminder)
+                
+                userRepository.updateData(userInfo: newUserInfoEntityTree, completionRequest: setRequestState)
+                _ = self.setCurrentPatient(patient: patient)
+            }
+        }
+        
+        func updateUserFromDB() {
             do {
-                let patientData = try encoder.encode(patient)
+                let patientFromDB = PatientFB(id: patient.id,
+                                              name: patient.name,
+                                              profilePicture: patient.profilePicture,
+                                              patientSummary: patient.patientSummary,
+                                              age: patient.age,
+                                              patientClass: patient.patientClass,
+                                              motherName: patient.motherName,
+                                              fatherName: patient.fatherName,
+                                              maritalStatus: patient.maritalStatus,
+                                              appointmentCount: patient.appointmentCount,
+                                              fromUser: patient.fromUser)
                 
-                if let URL = URL(string: "\(self.baseUrl)/\(userInfoEntityTree.userInfo.id)/patients/\(patient.id)") {
-                    var urlRequest = URLRequest(url: URL)
-                    urlRequest.httpMethod = "PUT"
-                    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-                    urlRequest.httpBody = patientData
-                    
-                    self.urlSession.dataTask(with: urlRequest) { data, response, error in
-                        if data != nil {
-                            userRepository.updateData(userInfo: newUserInfoEntityTree, completionRequest: setRequestState)
-                            _ = self.setCurrentPatient(patient: patient)
-                        }
-                    }.resume()
+                let FBPatientData = try FirestoreEncoder().encode(patientFromDB)
+                firestoreDB.collection("patients").document(patientFromDB.id).setData(FBPatientData) { error in
+                    if let error = error {
+                        let errMsg = error.localizedDescription
+                        setRequestState(false)
+                        print("Unable to update the data in updateData - Patient Repository - Error: \(errMsg)")
+                    } else {
+                        updateLocalStorage()
+                    }
                 }
             } catch let err {
                 let errMsg = err.localizedDescription
-                print("Unable to verify the data in UpdatePatient - Patient Repository - Error: \(errMsg)")
+                setRequestState(false)
+                print("Unable to update the data in updateData - Patient Repository - Error: \(errMsg)")
             }
         }
+        
+        updateUserFromDB()
     }
     
     public func getPatientById(patientId: String) -> Patient? {

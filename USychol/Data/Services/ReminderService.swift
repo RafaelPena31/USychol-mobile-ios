@@ -6,23 +6,28 @@
 //
 
 import Foundation
+import Firebase
+import CodableFirebase
 
 public class ReminderService {
-    private let baseUrl = "https://6155212b2473940017efb080.mockapi.io/usychol/api/v1/reminders"
-    private let urlSession = URLSession.shared
+    let firestoreDB = Firestore.firestore()
     
     public func getReminders(userId: String, currentUserInfo: User, completionRequest:@escaping (_ state: [Reminder], _ currentUserInfo: User ) -> Void) {
-        if let URL = URL(string: baseUrl) {
-            urlSession.dataTask(with: URL) { data, response, error in
-                if let data = data {
-                    do {
-                        let remindersData = try JSONDecoder().decode([Reminder].self, from: data)
-                        completionRequest(remindersData.reversed(), currentUserInfo)
-                    } catch {
-                        print("Erro de parse")
-                    }
+        let docRef = firestoreDB.collection("reminders").whereField("fromUser", isEqualTo: userId)
+        
+        docRef.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                completionRequest([], currentUserInfo)
+                print("Error getting documents: \(err)")
+            } else {
+                var reminders: [Reminder] = []
+                for document in querySnapshot!.documents {
+                    let reminderFB = try! FirestoreDecoder().decode(Reminder.self, from: document.data())
+                    reminders.append(reminderFB)
                 }
-            }.resume()
+                
+                completionRequest(reminders, currentUserInfo)
+            }
         }
     }
 }
